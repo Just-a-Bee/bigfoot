@@ -1,29 +1,25 @@
 extends CharacterBody3D
 
-#movement vars
+# speed vars
 var horizontal_acc = 3
 var vertical_acc = 2
 var turn_acc = 1
-
+# movement max speeds
 var horizontal_max = 5
 var vertical_max = 5
 var turn_max = 1
-
-var turn_velocity = 0
-
+# slowing down vars
 var gravity = 1
 var air_resistance = .4
 var turn_slowing = .1
 
+var turn_velocity = 0 # current turning velocity
+
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 
 func _physics_process(delta):
 	# Do player movement
