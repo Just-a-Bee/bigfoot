@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://c1gv7l3uecjlx"]
+[gd_scene load_steps=12 format=3 uid="uid://c1gv7l3uecjlx"]
 
 [ext_resource type="Texture2D" uid="uid://cm162jcpuu572" path="res://icon.svg" id="1_4x1cm"]
 [ext_resource type="Script" path="res://UI Scenes/main.gd" id="1_s1t7p"]
 [ext_resource type="PackedScene" uid="uid://blec0c2uc3qc6" path="res://Actors/drone.tscn" id="2_a8v2p"]
 [ext_resource type="PackedScene" uid="uid://cel6a6pi3ulqk" path="res://Actors/player.tscn" id="2_b2ier"]
+[ext_resource type="PackedScene" uid="uid://kwp0ri53mvdy" path="res://3d/3d_world.tscn" id="5_yoool"]
 
 [sub_resource type="Gradient" id="Gradient_jlgqq"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -255,3 +256,5 @@ root_node = NodePath("../Control/CenterContainer")
 libraries = {
 "": SubResource("AnimationLibrary_yu8hd")
 }
+
+[node name="3d world" parent="." instance=ExtResource("5_yoool")]
