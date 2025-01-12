@@ -1,10 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://c1gv7l3uecjlx"]
+[gd_scene load_steps=11 format=3 uid="uid://c1gv7l3uecjlx"]
 
 [ext_resource type="Texture2D" uid="uid://cm162jcpuu572" path="res://icon.svg" id="1_4x1cm"]
 [ext_resource type="Script" path="res://main.gd" id="1_s1t7p"]
 [ext_resource type="PackedScene" uid="uid://blec0c2uc3qc6" path="res://drone.tscn" id="2_a8v2p"]
 [ext_resource type="PackedScene" uid="uid://cel6a6pi3ulqk" path="res://player.tscn" id="2_b2ier"]
-[ext_resource type="PackedScene" uid="uid://cwy5oyslkvj5i" path="res://environment.tscn" id="3_cwi7w"]
 
 [sub_resource type="Gradient" id="Gradient_jlgqq"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -208,9 +207,6 @@ texture = ExtResource("1_4x1cm")
 [node name="Player" parent="Control/SubViewportContainer/SubViewport" instance=ExtResource("2_b2ier")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.81554)
 
-[node name="environment" parent="Control/SubViewportContainer/SubViewport" instance=ExtResource("3_cwi7w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.03115, 0)
-
 [node name="CenterContainer" type="CenterContainer" parent="Control"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -244,6 +240,7 @@ texture = ExtResource("1_4x1cm")
 visible = false
 z_index = 1
 custom_minimum_size = Vector2(576, 648)
+layout_mode = 0
 offset_left = 576.0
 offset_right = 1152.0
 offset_bottom = 648.0
