@@ -1,19 +1,19 @@
 extends CharacterBody3D
 
-@export var picture_test:Node
+var active = false
 
 # speed vars
-var horizontal_acc = 3
+var horizontal_acc = 6
 var vertical_acc = 3
-var turn_acc = 1
+var turn_acc = 2
 # movement max speeds
-var horizontal_max = 5
+var horizontal_max = 6
 var vertical_max = 5
-var turn_max = 1
+var turn_max = 3
 # slowing down vars
 var gravity = 1
-var air_resistance = .4
-var turn_slowing = .1
+var air_resistance = 2
+var turn_slowing = .5
 
 var turn_velocity = 0 # current turning velocity
 
@@ -24,11 +24,14 @@ func _ready():
 	pass # Replace with function body.
 
 func _physics_process(delta):
+	if not active:
+		return
+	
 	# Do player movement
 	var move_axis = get_move_axis()
 	
 	# do turning
-	turn_velocity = move_toward(turn_velocity, move_axis.x, turn_acc * delta)
+	turn_velocity = move_toward(turn_velocity, turn_max * move_axis.x, turn_acc * delta)
 	rotation.y += turn_velocity # rotate left/right
 	
 	# do forward/back

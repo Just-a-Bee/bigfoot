@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" path="res://Actors/player.gd" id="1_id402"]
 
-[node name="Player" type="Node3D"]
+[node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_id402")
 
 [node name="Camera3D" type="Camera3D" parent="."]
+current = true
