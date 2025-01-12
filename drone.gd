@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+@export var picture_test:Node
+
 # speed vars
 var horizontal_acc = 3
 var vertical_acc = 2
