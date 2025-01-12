@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1gv7l3uecjlx"]
+[gd_scene load_steps=5 format=3 uid="uid://c1gv7l3uecjlx"]
 
 [ext_resource type="Texture2D" uid="uid://cm162jcpuu572" path="res://icon.svg" id="1_4x1cm"]
 [ext_resource type="PackedScene" uid="uid://blec0c2uc3qc6" path="res://drone.tscn" id="2_a8v2p"]
 [ext_resource type="PackedScene" uid="uid://cel6a6pi3ulqk" path="res://player.tscn" id="2_b2ier"]
+[ext_resource type="PackedScene" uid="uid://bsbnwoa3r8w6n" path="res://3d/models/environment.glb" id="4_ugrgk"]
 
 [node name="Control" type="HBoxContainer"]
 anchors_preset = 15
@@ -40,3 +41,7 @@ render_target_update_mode = 4
 
 [node name="Drone" parent="SubViewportContainer2/SubViewport" instance=ExtResource("2_a8v2p")]
 transform = Transform3D(0.659333, 0, 0.751851, 0, 1, 0, -0.751851, 0, 0.659333, 1.81583, 0, 1.43504)
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="environment" parent="Node3D" instance=ExtResource("4_ugrgk")]
