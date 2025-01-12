@@ -57,7 +57,7 @@ void fragment() {
 
 
 
-	float lum = dot(NORMAL, normalize(light_dir));
+	float lum = .5*(1.0+dot(NORMAL, normalize(light_dir)));
 	lum -= col_weight;
 
 
@@ -68,9 +68,14 @@ void fragment() {
 
 
 	//ALBEDO = vec3(alpha_weight,alpha_weight,alpha_weight);
+	//ALBEDO = vec3(lum,lum,lum);
 
 	//COLOR.a = weight;
 	//COLOR.xy = ;
+
+	//float n = dither(FRAGCOORD.xy,2);
+
+	//ALBEDO = vec3(n,n,n);
 
 
 }
