@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bsbnwoa3r8w6n"
-path="res://.godot/imported/environment.glb-ccfeff1d6e02e5f551968104b4f654f5.scn"
+uid="uid://c4xv2mtqx308v"
+path="res://.godot/imported/drone.glb-2b719d2ce0f1b22fac2b6b6d111e2a5c.scn"
 
 [deps]
 
-source_file="res://3d/models/environment.glb"
-dest_files=["res://.godot/imported/environment.glb-ccfeff1d6e02e5f551968104b4f654f5.scn"]
+source_file="res://3d/models/drone.glb"
+dest_files=["res://.godot/imported/drone.glb-2b719d2ce0f1b22fac2b6b6d111e2a5c.scn"]
 
 [params]
 
@@ -31,6 +31,17 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"drone-body": {
+"use_external/enabled": true,
+"use_external/path": "res://3d/materials/drone-body.tres"
+},
+"propeller": {
+"use_external/enabled": true,
+"use_external/path": "res://3d/materials/drone-propeller.tres"
+}
+}
+}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://main.gd" id="1_s1t7p"]
 [ext_resource type="PackedScene" uid="uid://blec0c2uc3qc6" path="res://drone.tscn" id="2_a8v2p"]
 [ext_resource type="PackedScene" uid="uid://cel6a6pi3ulqk" path="res://player.tscn" id="2_b2ier"]
+[ext_resource type="PackedScene" uid="uid://bsbnwoa3r8w6n" path="res://3d/models/environment.glb" id="4_ugrgk"]
 
 [sub_resource type="Gradient" id="Gradient_jlgqq"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
