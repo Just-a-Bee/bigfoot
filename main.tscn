@@ -1,42 +1,260 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1gv7l3uecjlx"]
+[gd_scene load_steps=12 format=3 uid="uid://c1gv7l3uecjlx"]
 
 [ext_resource type="Texture2D" uid="uid://cm162jcpuu572" path="res://icon.svg" id="1_4x1cm"]
+[ext_resource type="Script" path="res://main.gd" id="1_s1t7p"]
 [ext_resource type="PackedScene" uid="uid://blec0c2uc3qc6" path="res://drone.tscn" id="2_a8v2p"]
 [ext_resource type="PackedScene" uid="uid://cel6a6pi3ulqk" path="res://player.tscn" id="2_b2ier"]
+[ext_resource type="PackedScene" uid="uid://cwy5oyslkvj5i" path="res://environment.tscn" id="3_cwi7w"]
 
-[node name="Control" type="HBoxContainer"]
+[sub_resource type="Gradient" id="Gradient_jlgqq"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mbh72"]
+gradient = SubResource("Gradient_jlgqq")
+
+[sub_resource type="Animation" id="Animation_a1tmx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../CameraShutter:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../CameraShutter:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../Picture:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(815, 655)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../CameraShutter:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(576, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mex73"]
+resource_name = "drone_picture"
+length = 1.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../CameraShutter:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.1, 0.266667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0.65834, 0.65834, 0.65834, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../CameraShutter:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../Picture:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.366667, 1.16667, 1.26667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(815, 655), Vector2(815, 655), Vector2(824, 339), Vector2(824, 339), Vector2(1218, 338)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../CameraShutter:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(576, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_d2auc"]
+resource_name = "player_picture"
+length = 1.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../CameraShutter:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.1, 0.266667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0.65834, 0.65834, 0.65834, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../CameraShutter:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../CameraShutter:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../Picture:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.366667, 1.16667, 1.26667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(167, 655), Vector2(167, 655), Vector2(167, 339), Vector2(167, 339), Vector2(-227, 338)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yu8hd"]
+_data = {
+"RESET": SubResource("Animation_a1tmx"),
+"drone_picture": SubResource("Animation_mex73"),
+"player_picture": SubResource("Animation_d2auc")
+}
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_s1t7p")
+
+[node name="Control" type="HBoxContainer" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Control"]
+custom_minimum_size = Vector2(576, 648)
 layout_mode = 2
 size_flags_horizontal = 3
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="Control/SubViewportContainer"]
 handle_input_locally = false
 size = Vector2i(576, 648)
 render_target_update_mode = 4
 
-[node name="Sprite3D" type="Sprite3D" parent="SubViewportContainer/SubViewport"]
+[node name="Sprite3D" type="Sprite3D" parent="Control/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.26507, 0)
 texture = ExtResource("1_4x1cm")
 
-[node name="Player" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_b2ier")]
+[node name="Player" parent="Control/SubViewportContainer/SubViewport" instance=ExtResource("2_b2ier")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.81554)
 
-[node name="SubViewportContainer2" type="SubViewportContainer" parent="."]
+[node name="environment" parent="Control/SubViewportContainer/SubViewport" instance=ExtResource("3_cwi7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.03115, 0)
+
+[node name="CenterContainer" type="CenterContainer" parent="Control"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="Control/CenterContainer"]
+custom_minimum_size = Vector2(576, 648)
 layout_mode = 2
 size_flags_horizontal = 3
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer2"]
+[node name="SubViewport" type="SubViewport" parent="Control/CenterContainer/SubViewportContainer2"]
 handle_input_locally = false
 size = Vector2i(576, 648)
 render_target_update_mode = 4
 
-[node name="Drone" parent="SubViewportContainer2/SubViewport" instance=ExtResource("2_a8v2p")]
+[node name="Drone" parent="Control/CenterContainer/SubViewportContainer2/SubViewport" node_paths=PackedStringArray("picture_test") instance=ExtResource("2_a8v2p")]
 transform = Transform3D(0.659333, 0, 0.751851, 0, 1, 0, -0.751851, 0, 0.659333, 1.81583, 0, 1.43504)
+picture_test = NodePath("../../../../../Picture")
+
+[node name="Picture" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(576, 648)
+layout_mode = 0
+offset_left = 815.0
+offset_top = 655.0
+offset_right = 1391.0
+offset_bottom = 1303.0
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_4x1cm")
+
+[node name="CameraShutter" type="TextureRect" parent="."]
+visible = false
+z_index = 1
+custom_minimum_size = Vector2(576, 648)
+offset_left = 576.0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = SubResource("GradientTexture1D_mbh72")
+
+[node name="PictureCooldown" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="PicutreAnim" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Control/CenterContainer")
+libraries = {
+"": SubResource("AnimationLibrary_yu8hd")
+}
