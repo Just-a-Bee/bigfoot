@@ -4,7 +4,7 @@ extends CharacterBody3D
 
 # speed vars
 var horizontal_acc = 3
-var vertical_acc = 2
+var vertical_acc = 3
 var turn_acc = 1
 # movement max speeds
 var horizontal_max = 5
@@ -42,7 +42,7 @@ func _physics_process(delta):
 	velocity.y = move_toward(velocity.y, vertical_max, move_axis.y * vertical_acc * delta)
 	
 	# Other forces
-	velocity -= Vector3.UP * gravity * delta # Do gravity
+	velocity.y = move_toward(velocity.y, -vertical_max, gravity * delta) # Do gravity
 	velocity -= velocity2D.normalized() * air_resistance * delta
 	turn_velocity = move_toward(turn_velocity, 0, turn_slowing)
 	

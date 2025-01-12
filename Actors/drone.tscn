@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://blec0c2uc3qc6"]
 
-[ext_resource type="Script" path="res://drone.gd" id="1_liokq"]
+[ext_resource type="Script" path="res://Actors/drone.gd" id="1_liokq"]
 [ext_resource type="PackedScene" uid="uid://c4xv2mtqx308v" path="res://3d/models/drone.glb" id="2_7ow30"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lciic"]
