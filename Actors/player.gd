@@ -1,6 +1,8 @@
 extends CharacterBody3D
 
-var speed = 1
+@onready var camera = $Camera3D
+
+var speed = 5
 var mouse_sens = .003
 
 var active = true
@@ -10,6 +12,8 @@ func _ready():
 
 func rotate_camera(displacement):
 	rotation.x += -displacement.y*mouse_sens
+	rotation.x = min(rotation.x, PI/3)
+	rotation.x = max(rotation.x, -PI/3)
 	rotation.y += -displacement.x*mouse_sens
 
 func _physics_process(_delta):

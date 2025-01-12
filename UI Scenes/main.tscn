@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://c1gv7l3uecjlx"]
+[gd_scene load_steps=13 format=3 uid="uid://c1gv7l3uecjlx"]
 
 [ext_resource type="Texture2D" uid="uid://cm162jcpuu572" path="res://icon.svg" id="1_4x1cm"]
 [ext_resource type="Script" path="res://UI Scenes/main.gd" id="1_s1t7p"]
 [ext_resource type="PackedScene" uid="uid://blec0c2uc3qc6" path="res://Actors/drone.tscn" id="2_a8v2p"]
 [ext_resource type="PackedScene" uid="uid://cel6a6pi3ulqk" path="res://Actors/player.tscn" id="2_b2ier"]
 [ext_resource type="PackedScene" uid="uid://kwp0ri53mvdy" path="res://3d/3d_world.tscn" id="5_yoool"]
+[ext_resource type="PackedScene" uid="uid://cqgrfks7ph026" path="res://Actors/nessie.tscn" id="6_kq0eh"]
 
 [sub_resource type="Gradient" id="Gradient_jlgqq"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -167,7 +168,12 @@ libraries = {
 "": SubResource("AnimationLibrary_111hc")
 }
 
-[node name="3d world" parent="." instance=ExtResource("5_yoool")]
+[node name="Terrain" parent="." instance=ExtResource("5_yoool")]
+
+[node name="Nessie" parent="Terrain" instance=ExtResource("6_kq0eh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.078, -19, -51.87)
+hidingPosition = Vector3(56.078, -23.208, -51.87)
+showingPosition = Vector3(56.078, -19, -51.87)
 
 [node name="DroneOff" type="Panel" parent="."]
 custom_minimum_size = Vector2(576, 648)

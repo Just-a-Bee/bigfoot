@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+@onready var camera = $Camera3D
 var active = false
 
 # speed vars
@@ -49,7 +50,9 @@ func _physics_process(delta):
 	velocity -= velocity2D.normalized() * air_resistance * delta
 	turn_velocity = move_toward(turn_velocity, 0, turn_slowing)
 	
-	move_and_slide()
+	var collision = move_and_slide()
+	if collision:
+		pass # TODO: drone crash
 
 func get_move_axis()->Vector3:
 	var move_axis:Vector3 = Vector3.ZERO

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqgrfks7ph026"]
+
+[ext_resource type="Script" path="res://Actors/nessie.gd" id="1_5spdp"]
+[ext_resource type="Texture2D" uid="uid://cm162jcpuu572" path="res://icon.svg" id="2_84eqt"]
+
+[node name="Nessie" type="Node3D"]
+script = ExtResource("1_5spdp")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+texture = ExtResource("2_84eqt")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
