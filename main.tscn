@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1gv7l3uecjlx"]
+[gd_scene load_steps=4 format=3 uid="uid://c1gv7l3uecjlx"]
 
 [ext_resource type="Texture2D" uid="uid://cm162jcpuu572" path="res://icon.svg" id="1_4x1cm"]
 [ext_resource type="PackedScene" uid="uid://blec0c2uc3qc6" path="res://drone.tscn" id="2_a8v2p"]
+[ext_resource type="PackedScene" uid="uid://cel6a6pi3ulqk" path="res://player.tscn" id="2_b2ier"]
 
 [node name="Control" type="HBoxContainer"]
 anchors_preset = 15
@@ -24,8 +25,8 @@ render_target_update_mode = 4
 [node name="Sprite3D" type="Sprite3D" parent="SubViewportContainer/SubViewport"]
 texture = ExtResource("1_4x1cm")
 
-[node name="HumanCam" type="Camera3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.03994)
+[node name="Player" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_b2ier")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.81554)
 
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="."]
 layout_mode = 2

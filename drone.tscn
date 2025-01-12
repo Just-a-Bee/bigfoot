@@ -6,4 +6,5 @@
 script = ExtResource("1_liokq")
 
 [node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.823829, 0.566838, 0, -0.566838, 0.823829, 0, 0, 0)
 current = true
