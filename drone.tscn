@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://blec0c2uc3qc6"]
+
+[ext_resource type="Script" path="res://drone.gd" id="1_liokq"]
+
+[node name="Drone" type="CharacterBody3D"]
+script = ExtResource("1_liokq")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+current = true

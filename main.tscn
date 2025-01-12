@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1gv7l3uecjlx"]
+
+[ext_resource type="Texture2D" uid="uid://cm162jcpuu572" path="res://icon.svg" id="1_4x1cm"]
+[ext_resource type="PackedScene" uid="uid://blec0c2uc3qc6" path="res://drone.tscn" id="2_a8v2p"]
+
+[node name="Control" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(576, 648)
+render_target_update_mode = 4
+
+[node name="Sprite3D" type="Sprite3D" parent="SubViewportContainer/SubViewport"]
+texture = ExtResource("1_4x1cm")
+
+[node name="HumanCam" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.03994)
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer2"]
+handle_input_locally = false
+size = Vector2i(576, 648)
+render_target_update_mode = 4
+
+[node name="Drone" parent="SubViewportContainer2/SubViewport" instance=ExtResource("2_a8v2p")]
+transform = Transform3D(0.659333, 0, 0.751851, 0, 1, 0, -0.751851, 0, 0.659333, 1.81583, 0, 1.43504)
