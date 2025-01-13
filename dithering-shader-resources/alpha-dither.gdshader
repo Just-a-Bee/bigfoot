@@ -13,6 +13,8 @@ uniform vec3 shadow_col : source_color;
 uniform vec3 base_col : source_color;
 uniform vec3 highlight_col : source_color;
 
+uniform float exposure;
+uniform float lighten;
 uniform float shadow_thresh : hint_range(0.0, 1.0, 0.02);
 uniform float highlight_thresh : hint_range(0.0, 1.0, 0.02);
 uniform vec3 light_dir;
@@ -58,12 +60,13 @@ void fragment() {
 
 
 	float lum = .5*(1.0+dot(NORMAL, normalize(light_dir)));
+	lum -= 1.0+lighten+(-1.0 * (1.0+exposure) * texture(col_map, UV).r);
 	lum -= col_weight;
 
 
 
 	if (lum < shadow_thresh) ALBEDO = shadow_col;
-	//else if (lum > highlight_thresh) ALBEDO = highlight_col;
+	else if (lum > highlight_thresh) ALBEDO = highlight_col;
 	else ALBEDO = base_col;
 
 
