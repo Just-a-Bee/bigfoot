@@ -54,9 +54,9 @@ void fragment() {
 	//COLOR.a = step(COLOR.a,weight);
 
 	float alpha_weight = dither(FRAGCOORD.xy, alpha_dither_scale);
-	if((texture(alpha_map,UV).x - 
+	if((texture(alpha_map,UV).x -
 	alpha_weight + alpha_thresh)<0.0) discard;
-	
+
 
 	float col_weight = dither(FRAGCOORD.xy, col_dither_scale);
 
