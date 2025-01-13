@@ -10,7 +10,6 @@ func _ready():
 	# Assign size first, otherwise it won't work
 	shape.map_width = heightmap_texture.get_width()
 	shape.map_depth = heightmap_texture.get_height()
-	print(shape.map_width, shape.map_depth)
 	
 	var height_min: float = 0.0
 	var height_max: float = 10.0

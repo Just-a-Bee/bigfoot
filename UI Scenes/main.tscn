@@ -230,7 +230,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.078, -19, -51.87)
 hidingPosition = Vector3(56.078, -23.208, -51.87)
 showingPosition = Vector3(56.078, -19, -51.87)
 
-[node name="Bigfoot" parent="Terrain" instance=ExtResource("8_y8vl5")]
+[node name="Bigfoot" parent="Terrain" node_paths=PackedStringArray("player", "drone") instance=ExtResource("8_y8vl5")]
+player = NodePath("../../PlayerViewport/SubViewport/Player")
+drone = NodePath("../../DroneViewport/SubViewport/Drone")
 
 [node name="DroneOff" type="Panel" parent="."]
 custom_minimum_size = Vector2(576, 648)

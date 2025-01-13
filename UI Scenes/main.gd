@@ -86,7 +86,7 @@ func score_picture(picture, taker):
 	var distance_nessie = nessie.global_position - taker.camera.global_position
 	var dot_nessie =  taker_dir.dot(distance_nessie.normalized())
 	
-	var distance_bigfoot = bigfoot.global_position - taker.camera.global_position
+	var distance_bigfoot = bigfoot.global_position + Vector3(0,bigfoot.height/2,0) - taker.camera.global_position
 	var dot_bigfoot = taker_dir.dot(distance_bigfoot.normalized())
 	
 	# figure out who the picture is of
@@ -109,19 +109,18 @@ func score_picture(picture, taker):
 		score += 1
 		picture["strings"].append("Good: +1")
 		
-		if distance.length() < 10:
+		if distance.length() < 5:
 			score += 2
 			picture["strings"].append("Very close: +2")
-		elif distance.length() < 20:
+		elif distance.length() < 15:
 			score += 1
 			picture["strings"].append("Quite close: +1")
-		if dot > .95:
+		if dot > .98:
 			score += 2
 			picture["strings"].append("Dead on: +2")
 		if looking_at_camera > .8:
 			score += 2
 			picture["strings"].append("Say Cheese: +2")
-		print(looking_at_camera)
 		
 		picture["score"] = score
 

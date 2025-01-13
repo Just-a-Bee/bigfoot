@@ -5,14 +5,14 @@ var active = false
 
 # speed vars
 var horizontal_acc = 6
-var vertical_acc = 3
+var vertical_acc = 10
 var turn_acc = 2
 # movement max speeds
 var horizontal_max = 6
 var vertical_max = 5
 var turn_max = 3
 # slowing down vars
-var gravity = 1
+var gravity = 6
 var air_resistance = 2
 var floor_resistance = 20
 var turn_slowing = .5

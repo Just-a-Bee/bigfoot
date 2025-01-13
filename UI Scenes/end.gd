@@ -15,6 +15,8 @@ var okay_score = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	MouseMotion.is_main_loaded = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	do_picture_anim()
 
 
