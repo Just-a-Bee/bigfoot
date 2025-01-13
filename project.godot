@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 MouseMotion="*res://Autoloads/mouse_motion.gd"
 GameData="*res://Autoloads/game_data.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [input]
 
 drone_forward={

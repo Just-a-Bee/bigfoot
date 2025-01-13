@@ -11,7 +11,7 @@ height = 3.5
 [node name="Bigfoot" type="CharacterBody3D"]
 script = ExtResource("2_vbusl")
 
-[node name="bigfoot-model-animated" parent="." instance=ExtResource("1_arj4o")]
+[node name="Model" parent="." instance=ExtResource("1_arj4o")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 script = ExtResource("3_e23al")
 

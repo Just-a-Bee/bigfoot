@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c1gv7l3uecjlx"]
+[gd_scene load_steps=23 format=3 uid="uid://c1gv7l3uecjlx"]
 
 [ext_resource type="Texture2D" uid="uid://cm162jcpuu572" path="res://icon.svg" id="1_4x1cm"]
 [ext_resource type="Script" path="res://UI Scenes/main.gd" id="1_s1t7p"]
@@ -11,6 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://dmkggbhm5l2or" path="res://assets/film.png" id="7_f0e2s"]
 [ext_resource type="Texture2D" uid="uid://bftcgs5617krs" path="res://assets/roll.png" id="8_r1yi5"]
 [ext_resource type="PackedScene" uid="uid://luapbyeuyysp" path="res://Actors/bigfoot.tscn" id="8_y8vl5"]
+[ext_resource type="Texture2D" uid="uid://25hhwvdrr4ap" path="res://assets/spacebar.png" id="12_ghth3"]
+[ext_resource type="Texture2D" uid="uid://dwxralwrugqyb" path="res://assets/shift.png" id="13_ae4pl"]
+[ext_resource type="Texture2D" uid="uid://dceusfcutapev" path="res://assets/left_mouse.png" id="14_7ev2a"]
+[ext_resource type="Texture2D" uid="uid://blgqwi1sw6s7" path="res://assets/right_mouse.png" id="15_o13eg"]
 
 [sub_resource type="Gradient" id="Gradient_jlgqq"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -230,11 +234,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.078, -19, -51.87)
 hidingPosition = Vector3(56.078, -23.208, -51.87)
 showingPosition = Vector3(56.078, -19, -51.87)
 
-[node name="Bigfoot" parent="Terrain" node_paths=PackedStringArray("player", "drone") instance=ExtResource("8_y8vl5")]
+[node name="Bigfoot" parent="Terrain" node_paths=PackedStringArray("player", "drone", "patrol_points") instance=ExtResource("8_y8vl5")]
 player = NodePath("../../PlayerViewport/SubViewport/Player")
 drone = NodePath("../../DroneViewport/SubViewport/Drone")
+patrol_points = [NodePath("../Patrol1"), NodePath("../Patrol2")]
+
+[node name="Patrol1" type="Node3D" parent="Terrain"]
+
+[node name="Patrol2" type="Node3D" parent="Terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.9427, 0, 0)
 
 [node name="DroneOff" type="Panel" parent="."]
+visible = false
 custom_minimum_size = Vector2(576, 648)
 layout_mode = 0
 offset_left = 576.0
@@ -269,5 +280,59 @@ texture = ExtResource("8_r1yi5")
 
 [node name="EndTimer" type="Timer" parent="."]
 wait_time = 5.0
+
+[node name="Spacebar" type="Sprite2D" parent="."]
+position = Vector2(688, 72)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("12_ghth3")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 744.0
+offset_top = 56.0
+offset_right = 864.0
+offset_bottom = 84.0
+theme_override_font_sizes/font_size = 20
+text = "Take Picture"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 32.0
+offset_right = 200.0
+offset_bottom = 60.0
+theme_override_font_sizes/font_size = 20
+text = "Take Picture"
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 88.0
+offset_right = 200.0
+offset_bottom = 116.0
+theme_override_font_sizes/font_size = 20
+text = "Launch/Recall Drone"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 712.0
+offset_top = 88.0
+offset_right = 832.0
+offset_bottom = 116.0
+theme_override_font_sizes/font_size = 20
+text = "Fly Up"
+
+[node name="Shift" type="Sprite2D" parent="."]
+position = Vector2(672, 104)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("13_ae4pl")
+
+[node name="LeftMouse" type="Sprite2D" parent="."]
+position = Vector2(56, 48)
+texture = ExtResource("14_7ev2a")
+
+[node name="RightMouse" type="Sprite2D" parent="."]
+position = Vector2(56, 104)
+texture = ExtResource("15_o13eg")
 
 [connection signal="timeout" from="EndTimer" to="." method="_on_end_timer_timeout"]

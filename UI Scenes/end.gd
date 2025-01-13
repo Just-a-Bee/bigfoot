@@ -61,4 +61,10 @@ func do_picture_anim():
 
 # publish evidence button pressed
 func _on_button_button_up():
-	$Newspaper.show()
+	$PublishButton.disabled = true
+	animationPlayer.play("newspaper")
+	
+
+
+func _on_title_button_up():
+	get_tree().change_scene_to_file("res://UI Scenes/title.tscn")

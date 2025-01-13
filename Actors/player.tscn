@@ -9,7 +9,7 @@
 script = ExtResource("1_id402")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9, -0.184)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, -0.184)
 current = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
