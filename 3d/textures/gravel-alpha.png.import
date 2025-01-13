@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dw0jriu4ib5v7"
-path.s3tc="res://.godot/imported/branches.png-672236f803201bf16e433e3d839a6a60.s3tc.ctex"
+uid="uid://bewmsky2dtlov"
+path.s3tc="res://.godot/imported/gravel-alpha.png-2dd529af6ea4605a240a6ac04e078dcf.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://3d/textures/branches.png"
-dest_files=["res://.godot/imported/branches.png-672236f803201bf16e433e3d839a6a60.s3tc.ctex"]
+source_file="res://3d/textures/gravel-alpha.png"
+dest_files=["res://.godot/imported/gravel-alpha.png-2dd529af6ea4605a240a6ac04e078dcf.s3tc.ctex"]
 
 [params]
 

@@ -33,6 +33,38 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
+"chair-fabric": {
+"use_external/enabled": true,
+"use_external/path": "res://3d/materials/chair-fabric.tres"
+},
+"chair-legs": {
+"use_external/enabled": true,
+"use_external/path": "res://3d/materials/chair-poles.tres"
+},
+"gravel": {
+"use_external/enabled": true,
+"use_external/path": "res://3d/materials/gravel.tres"
+},
+"ground": {
+"use_external/enabled": true,
+"use_external/path": "res://3d/materials/ground.tres"
+},
+"lake-water": {
+"use_external/enabled": true,
+"use_external/path": "res://3d/materials/lake-water.tres"
+},
+"rocks": {
+"use_external/enabled": true,
+"use_external/path": "res://3d/materials/rocks.tres"
+},
+"tent-fabric": {
+"use_external/enabled": true,
+"use_external/path": "res://3d/materials/tent-fabric.tres"
+},
+"tent-poles": {
+"use_external/enabled": true,
+"use_external/path": "res://3d/materials/tent-pole-wood.tres"
+},
 "tree-leaves": {
 "use_external/enabled": true,
 "use_external/path": "res://3d/materials/tree-leaves-1.tres"
@@ -40,6 +72,10 @@ _subresources={
 "tree-leaves-2": {
 "use_external/enabled": true,
 "use_external/path": "res://3d/materials/tree-leaves-2.tres"
+},
+"tree-trunk": {
+"use_external/enabled": true,
+"use_external/path": "res://3d/materials/tree-bark.tres"
 }
 }
 }

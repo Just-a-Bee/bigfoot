@@ -1,0 +1,20 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bv00neul14x8t"]
+
+[ext_resource type="Shader" path="res://dithering-shader-resources/alpha-dither.gdshader" id="1_0echw"]
+[ext_resource type="Texture2D" uid="uid://qmjtyc501ivv" path="res://dithering-shader-resources/ditherpattern5.png" id="3_6je27"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_0echw")
+shader_parameter/col_dither_scale = 1.0
+shader_parameter/alpha_dither_scale = null
+shader_parameter/shadow_col = Color(0.14902, 0.329412, 0.486275, 1)
+shader_parameter/base_col = Color(0.956863, 0.376471, 0.211765, 1)
+shader_parameter/highlight_col = Color(1, 1, 1, 1)
+shader_parameter/exposure = 0.8
+shader_parameter/lighten = 0.0
+shader_parameter/alpha_thresh = null
+shader_parameter/shadow_thresh = 0.6
+shader_parameter/highlight_thresh = 1.0
+shader_parameter/light_dir = Vector3(0.5, 1, 0.3)
+shader_parameter/dither_texture = ExtResource("3_6je27")

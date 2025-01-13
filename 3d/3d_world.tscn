@@ -10,4 +10,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.4662, 6.84407)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14.3698, 0)
 
 [node name="environment-colliders" parent="." instance=ExtResource("2_61d0s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.30789, -14.4417, 10.1686)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14.4465, 0)
