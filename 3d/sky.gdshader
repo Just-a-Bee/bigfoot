@@ -19,17 +19,17 @@ float dither(vec2 coord, float scale) {
 void sky() {
 	// Called for every visible pixel in the sky background, as well as all pixels
 	// in the radiance cubemap.
-	
+
 	    if (AT_CUBEMAP_PASS) {
         COLOR = vec3(0,0,0);
     } else {
 		float lum = dot(EYEDIR,normalize(sundir))*exposure;
 		float dthr = dither(FRAGCOORD.xy, 1);
 		float choice = lum-dthr;
-		
+
 		COLOR = (col1*choice)+(col2*(1.0+(choice*-1.0)));
-		
+
     }
-	
+
 	//COLOR = vec3(1,1,1);
 }
