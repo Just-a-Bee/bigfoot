@@ -246,23 +246,6 @@ patrol_points = [NodePath("../Patrol1"), NodePath("../Patrol2")]
 [node name="Patrol2" type="Node3D" parent="Terrain"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.9427, 0, 0)
 
-[node name="DroneOff" type="Panel" parent="."]
-visible = false
-custom_minimum_size = Vector2(576, 648)
-layout_mode = 0
-offset_left = 576.0
-offset_right = 1152.0
-offset_bottom = 648.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_rtt6p")
-
-[node name="Label" type="Label" parent="DroneOff"]
-layout_mode = 0
-offset_left = 200.0
-offset_top = 320.0
-offset_right = 438.0
-offset_bottom = 343.0
-text = "Bigfoot-Finder 3000 Is Offline..."
-
 [node name="Film" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 48.0
@@ -336,5 +319,22 @@ texture = ExtResource("14_7ev2a")
 [node name="RightMouse" type="Sprite2D" parent="."]
 position = Vector2(56, 104)
 texture = ExtResource("15_o13eg")
+
+[node name="DroneOff" type="Panel" parent="."]
+visible = false
+custom_minimum_size = Vector2(576, 648)
+layout_mode = 0
+offset_left = 576.0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rtt6p")
+
+[node name="Label" type="Label" parent="DroneOff"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 320.0
+offset_right = 438.0
+offset_bottom = 343.0
+text = "Bigfoot-Finder 3000 Is Offline..."
 
 [connection signal="timeout" from="EndTimer" to="." method="_on_end_timer_timeout"]
