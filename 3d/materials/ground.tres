@@ -14,6 +14,7 @@ shader_parameter/base_col = Color(0.129412, 0.631373, 0.47451, 1)
 shader_parameter/highlight_col = Color(1, 0.823529, 0.247059, 1)
 shader_parameter/exposure = 0.2
 shader_parameter/lighten = -0.2
+shader_parameter/alpha_thresh = null
 shader_parameter/shadow_thresh = 0.0
 shader_parameter/highlight_thresh = 0.72
 shader_parameter/light_dir = Vector3(-0.56, 1, 0.3)

@@ -1,7 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://cbd886h410fd6"]
+[gd_scene load_steps=8 format=3 uid="uid://cbd886h410fd6"]
 
 [ext_resource type="PackedScene" uid="uid://bhbijk7t3psu7" path="res://3d/models/bigfoot-env.glb" id="1_poa45"]
 [ext_resource type="PackedScene" uid="uid://c23hdnmciigt3" path="res://3d/environment_colliders.tscn" id="2_61d0s"]
+[ext_resource type="Shader" path="res://3d/sky.gdshader" id="3_u7v8n"]
+[ext_resource type="Texture2D" uid="uid://qmjtyc501ivv" path="res://dithering-shader-resources/ditherpattern5.png" id="4_82485"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o6iad"]
+shader = ExtResource("3_u7v8n")
+shader_parameter/col1 = Color(0, 0.988235, 0.952941, 1)
+shader_parameter/col2 = Color(1, 1, 1, 1)
+shader_parameter/sundir = Vector3(0, 0.48, 0)
+shader_parameter/exposure = 2.0
+shader_parameter/dither_texture = ExtResource("4_82485")
+
+[sub_resource type="Sky" id="Sky_oxqsm"]
+sky_material = SubResource("ShaderMaterial_o6iad")
+
+[sub_resource type="Environment" id="Environment_pv2vl"]
+background_mode = 2
+background_color = Color(0.589096, 0.589096, 0.589096, 1)
+sky = SubResource("Sky_oxqsm")
+ambient_light_source = 1
+reflected_light_source = 1
 
 [node name="3d world" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.4662, 6.84407)
@@ -11,3 +31,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14.3698, 0)
 
 [node name="environment-colliders" parent="." instance=ExtResource("2_61d0s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14.4465, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pv2vl")
