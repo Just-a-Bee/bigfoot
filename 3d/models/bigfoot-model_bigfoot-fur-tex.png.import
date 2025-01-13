@@ -2,20 +2,23 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpmabebdbbr88"
-path="res://.godot/imported/heightmap-40-units.png-faf5e3e0ce82cb4338fda4119eab1afd.ctex"
+uid="uid://dl5uqxyetyeyy"
+path="res://.godot/imported/bigfoot-model_bigfoot-fur-tex.png-f58e87b3a8132840691abb21656da616.ctex"
 metadata={
 "vram_texture": false
+}
+generator_parameters={
+"md5": "e9fb72b50a249ef6915210102445ae75"
 }
 
 [deps]
 
-source_file="res://3d/heightmap-40-units.png"
-dest_files=["res://.godot/imported/heightmap-40-units.png-faf5e3e0ce82cb4338fda4119eab1afd.ctex"]
+source_file="res://3d/models/bigfoot-model_bigfoot-fur-tex.png"
+dest_files=["res://.godot/imported/bigfoot-model_bigfoot-fur-tex.png-f58e87b3a8132840691abb21656da616.ctex"]
 
 [params]
 
-compress/mode=3
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
@@ -31,4 +34,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

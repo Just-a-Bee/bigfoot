@@ -2,20 +2,23 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpmabebdbbr88"
-path="res://.godot/imported/heightmap-40-units.png-faf5e3e0ce82cb4338fda4119eab1afd.ctex"
+uid="uid://c8kt4lm5ca374"
+path="res://.godot/imported/bigfoot-model-animated_bigfoot-face-angry-1.png-9818452483fa408129652f487d36a5b0.ctex"
 metadata={
 "vram_texture": false
+}
+generator_parameters={
+"md5": "979b1f926c641e5551ae1d764db658d0"
 }
 
 [deps]
 
-source_file="res://3d/heightmap-40-units.png"
-dest_files=["res://.godot/imported/heightmap-40-units.png-faf5e3e0ce82cb4338fda4119eab1afd.ctex"]
+source_file="res://3d/models/bigfoot-model-animated_bigfoot-face-angry-1.png"
+dest_files=["res://.godot/imported/bigfoot-model-animated_bigfoot-face-angry-1.png-9818452483fa408129652f487d36a5b0.ctex"]
 
 [params]
 
-compress/mode=3
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
@@ -31,4 +34,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

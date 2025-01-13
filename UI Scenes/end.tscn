@@ -1,0 +1,266 @@
+[gd_scene load_steps=11 format=3 uid="uid://bhrgmy6032oy0"]
+
+[ext_resource type="Script" path="res://UI Scenes/end.gd" id="1_ny2m6"]
+[ext_resource type="Texture2D" uid="uid://c6qf6iff7j6ak" path="res://assets/folder.png" id="2_cscr5"]
+[ext_resource type="Texture2D" uid="uid://cmlg8juyc6bxy" path="res://assets/testPic.png" id="3_j88tw"]
+[ext_resource type="PackedScene" uid="uid://0bojhu0sc6rd" path="res://UI Scenes/newspaper.tscn" id="4_u4apm"]
+
+[sub_resource type="Animation" id="Animation_rta6o"]
+resource_name = "show_picture"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.433333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(816, 960), Vector2(816, 560)]
+}
+
+[sub_resource type="Animation" id="Animation_bjltt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(816, 960)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gywft"]
+_data = {
+"RESET": SubResource("Animation_bjltt"),
+"show_picture": SubResource("Animation_rta6o")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5ciep"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y0hyu"]
+bg_color = Color(0.956863, 0.376471, 0.211765, 1)
+border_width_left = 2
+border_width_right = 2
+border_width_bottom = 5
+border_color = Color(0.843137, 0.14902, 0.219608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5q0bn"]
+bg_color = Color(0.956863, 0.376471, 0.211765, 1)
+border_width_left = 5
+border_width_right = 5
+border_width_bottom = 12
+border_color = Color(0.843137, 0.14902, 0.219608, 1)
+
+[node name="End" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ny2m6")
+
+[node name="Folder" type="Sprite2D" parent="."]
+texture = ExtResource("2_cscr5")
+centered = false
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 2
+offset_top = 27.0
+offset_right = 576.0
+offset_bottom = 703.0
+scale = Vector2(0.2, 0.2)
+columns = 4
+
+[node name="AnimationText" type="Label" parent="."]
+layout_mode = 0
+offset_left = 816.0
+offset_top = 560.0
+offset_right = 1104.0
+offset_bottom = 624.0
+text = "Good: +1
+I like how he's standing: +2"
+horizontal_alignment = 1
+
+[node name="AnimationPic" type="Sprite2D" parent="AnimationText"]
+position = Vector2(0, -328)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_j88tw")
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AnimationText")
+libraries = {
+"": SubResource("AnimationLibrary_gywft")
+}
+
+[node name="PictureLabel1" type="Label" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 264.0
+offset_right = 192.0
+offset_bottom = 397.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Score: "
+horizontal_alignment = 1
+
+[node name="Picture" type="Sprite2D" parent="PictureLabel1"]
+position = Vector2(0, -200)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_j88tw")
+centered = false
+
+[node name="PictureLabel2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 264.0
+offset_right = 384.0
+offset_bottom = 397.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Score: "
+horizontal_alignment = 1
+
+[node name="Picture" type="Sprite2D" parent="PictureLabel2"]
+position = Vector2(0, -200)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_j88tw")
+centered = false
+
+[node name="PictureLabel3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 264.0
+offset_right = 576.0
+offset_bottom = 397.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Score: "
+horizontal_alignment = 1
+
+[node name="Picture" type="Sprite2D" parent="PictureLabel3"]
+position = Vector2(0, -200)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_j88tw")
+centered = false
+
+[node name="PictureLabel4" type="Label" parent="."]
+layout_mode = 0
+offset_left = 592.0
+offset_top = 264.0
+offset_right = 768.0
+offset_bottom = 397.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Score: 
+"
+horizontal_alignment = 1
+
+[node name="Picture" type="Sprite2D" parent="PictureLabel4"]
+position = Vector2(0, -200)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_j88tw")
+centered = false
+
+[node name="PictureLabel5" type="Label" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 496.0
+offset_right = 192.0
+offset_bottom = 629.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Score: "
+horizontal_alignment = 1
+
+[node name="Picture" type="Sprite2D" parent="PictureLabel5"]
+position = Vector2(0, -200)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_j88tw")
+centered = false
+
+[node name="PictureLabel6" type="Label" parent="."]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 496.0
+offset_right = 384.0
+offset_bottom = 629.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Score: "
+horizontal_alignment = 1
+
+[node name="Picture" type="Sprite2D" parent="PictureLabel6"]
+position = Vector2(0, -200)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_j88tw")
+centered = false
+
+[node name="PictureLabel7" type="Label" parent="."]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 496.0
+offset_right = 576.0
+offset_bottom = 629.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Score: "
+horizontal_alignment = 1
+
+[node name="Picture" type="Sprite2D" parent="PictureLabel7"]
+position = Vector2(0, -200)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_j88tw")
+centered = false
+
+[node name="PictureLabel8" type="Label" parent="."]
+layout_mode = 0
+offset_left = 592.0
+offset_top = 496.0
+offset_right = 768.0
+offset_bottom = 629.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Score: "
+horizontal_alignment = 1
+
+[node name="Picture" type="Sprite2D" parent="PictureLabel8"]
+position = Vector2(0, -200)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_j88tw")
+centered = false
+
+[node name="Total" type="Label" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 544.0
+offset_right = 310.0
+offset_bottom = 613.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Total Score: "
+
+[node name="PublishButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 544.0
+offset_right = 744.0
+offset_bottom = 624.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5ciep")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_y0hyu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5q0bn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_y0hyu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5q0bn")
+disabled = true
+text = "Publish Evidence"
+
+[node name="Newspaper" parent="." instance=ExtResource("4_u4apm")]
+visible = false
+layout_mode = 0
+offset_left = 280.0
+offset_top = 128.0
+offset_right = 712.0
+offset_bottom = 512.0
+
+[connection signal="button_up" from="PublishButton" to="." method="_on_button_button_up"]

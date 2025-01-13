@@ -1,14 +1,16 @@
-[gd_scene load_steps=16 format=3 uid="uid://c1gv7l3uecjlx"]
+[gd_scene load_steps=19 format=3 uid="uid://c1gv7l3uecjlx"]
 
 [ext_resource type="Texture2D" uid="uid://cm162jcpuu572" path="res://icon.svg" id="1_4x1cm"]
 [ext_resource type="Script" path="res://UI Scenes/main.gd" id="1_s1t7p"]
 [ext_resource type="PackedScene" uid="uid://blec0c2uc3qc6" path="res://Actors/drone.tscn" id="2_a8v2p"]
 [ext_resource type="PackedScene" uid="uid://cel6a6pi3ulqk" path="res://Actors/player.tscn" id="2_b2ier"]
+[ext_resource type="AudioStream" uid="uid://ch3b8djrnn5hc" path="res://assets/audio/camera_shutter.wav" id="2_f18r6"]
 [ext_resource type="Texture2D" uid="uid://b87ho3i0lmpon" path="res://assets/droneView.png" id="4_7k487"]
 [ext_resource type="PackedScene" uid="uid://kwp0ri53mvdy" path="res://3d/3d_world.tscn" id="5_yoool"]
 [ext_resource type="PackedScene" uid="uid://cqgrfks7ph026" path="res://Actors/nessie.tscn" id="6_kq0eh"]
 [ext_resource type="Texture2D" uid="uid://dmkggbhm5l2or" path="res://assets/film.png" id="7_f0e2s"]
 [ext_resource type="Texture2D" uid="uid://bftcgs5617krs" path="res://assets/roll.png" id="8_r1yi5"]
+[ext_resource type="PackedScene" uid="uid://luapbyeuyysp" path="res://Actors/bigfoot.tscn" id="8_y8vl5"]
 
 [sub_resource type="Gradient" id="Gradient_jlgqq"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -18,7 +20,7 @@ gradient = SubResource("Gradient_jlgqq")
 
 [sub_resource type="Animation" id="Animation_21thn"]
 resource_name = "drone_picture"
-length = 1.3
+length = 1.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -26,7 +28,7 @@ tracks/0/path = NodePath("CameraShutter:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.01, 0.1, 0.266667, 1),
+"times": PackedFloat32Array(0, 0.01, 0.1, 0.266667, 0.666667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(0.65834, 0.65834, 0.65834, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -50,15 +52,27 @@ tracks/2/path = NodePath("Picture:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(-3.33786e-06, 0.199997, 0.366664, 1.16667, 1.26667),
+"times": PackedFloat32Array(0, 0.2, 0.366667, 1.53333, 1.63333),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(815, 655), Vector2(815, 655), Vector2(824, 339), Vector2(824, 339), Vector2(1218, 338)]
+"values": [Vector2(824, 655), Vector2(824, 655), Vector2(824, 339), Vector2(824, 339), Vector2(1218, 338)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Picture:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_uapu7"]
 resource_name = "player_picture"
-length = 1.3
+length = 1.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -66,7 +80,7 @@ tracks/0/path = NodePath("CameraShutter:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.01, 0.1, 0.266667, 1),
+"times": PackedFloat32Array(0, 0.01, 0.1, 0.266667, 0.666667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(0.65834, 0.65834, 0.65834, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -90,14 +104,42 @@ tracks/2/path = NodePath("Picture:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.366667, 1.16667, 1.26667),
+"times": PackedFloat32Array(0, 0.2, 0.366667, 1.53333, 1.63333),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(80, 655), Vector2(80, 655), Vector2(80, 339), Vector2(80, 339), Vector2(-314, 338)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Picture:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_w5na4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Picture:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_111hc"]
 _data = {
+"RESET": SubResource("Animation_w5na4"),
 "drone_picture": SubResource("Animation_21thn"),
 "player_picture": SubResource("Animation_uapu7")
 }
@@ -109,6 +151,9 @@ bg_color = Color(0, 0, 0, 1)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_s1t7p")
+
+[node name="CameraSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_f18r6")
 
 [node name="PlayerViewport" type="SubViewportContainer" parent="."]
 custom_minimum_size = Vector2(576, 648)
@@ -124,7 +169,7 @@ size = Vector2i(576, 648)
 render_target_update_mode = 4
 
 [node name="Player" parent="PlayerViewport/SubViewport" instance=ExtResource("2_b2ier")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.81554)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.46886, 8.69847, 19.1384)
 
 [node name="DroneViewport" type="SubViewportContainer" parent="."]
 custom_minimum_size = Vector2(576, 648)
@@ -143,7 +188,7 @@ render_target_update_mode = 4
 [node name="Drone" parent="DroneViewport/SubViewport" instance=ExtResource("2_a8v2p")]
 transform = Transform3D(0.659333, 0, 0.751851, 0, 1, 0, -0.751851, 0, 0.659333, 1.81583, 0, 1.43504)
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Viewfinder" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 576.0
 offset_right = 1152.0
@@ -185,6 +230,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.078, -19, -51.87)
 hidingPosition = Vector3(56.078, -23.208, -51.87)
 showingPosition = Vector3(56.078, -19, -51.87)
 
+[node name="Bigfoot" parent="Terrain" instance=ExtResource("8_y8vl5")]
+
 [node name="DroneOff" type="Panel" parent="."]
 custom_minimum_size = Vector2(576, 648)
 layout_mode = 0
@@ -205,7 +252,7 @@ text = "Bigfoot-Finder 3000 Is Offline..."
 layout_mode = 0
 offset_left = 48.0
 offset_top = 568.0
-offset_right = 368.0
+offset_right = 304.0
 offset_bottom = 600.0
 scale = Vector2(2, 2)
 texture = ExtResource("7_f0e2s")
@@ -217,3 +264,8 @@ offset_left = -18.0
 offset_top = -4.0
 offset_bottom = 33.0
 texture = ExtResource("8_r1yi5")
+
+[node name="EndTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="timeout" from="EndTimer" to="." method="_on_end_timer_timeout"]

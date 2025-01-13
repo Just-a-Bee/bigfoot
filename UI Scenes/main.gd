@@ -3,6 +3,7 @@ extends Control
 @onready var player_viewport = $PlayerViewport/SubViewport
 @onready var drone_viewport = $DroneViewport/SubViewport
 
+@onready var camera_sound = $CameraSound
 @onready var cam_picture = $Picture
 @onready var anim = $PictureAnim
 @onready var picture_cooldown = $PictureCooldown
@@ -11,12 +12,16 @@ extends Control
 @onready var drone = $DroneViewport/SubViewport/Drone
 var is_drone_active = true
 
-@onready var cryptids = [$Terrain/Nessie]
+@onready var nessie = $Terrain/Nessie
+@onready var bigfoot = $Terrain/Bigfoot
 
 @onready var film_rect = $Film
-var film_remaining = 10
+var film_remaining = 8
+@onready var end_timer = $EndTimer
 
 func _ready():
+	MouseMotion.is_main_loaded = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	toggle_drone()
 
 func toggle_drone():
@@ -40,7 +45,7 @@ func _input(event):
 		toggle_drone()
 		
 		
-	if picture_cooldown.is_stopped():
+	if picture_cooldown.is_stopped() and film_remaining > 0:
 		if event.is_action_pressed("drone_picture"):
 			if is_drone_active:
 				take_picture(drone_viewport, drone)
@@ -50,20 +55,22 @@ func _input(event):
 			anim.play("player_picture")
 
 func take_picture(viewport, taker):
-	if film_remaining == 0:
-		return
+	camera_sound.play()
 	var texture = viewport.get_texture().get_image()
 	texture = ImageTexture.create_from_image(texture)
 	cam_picture.texture = texture
 	
-	var picture = {"texture" : texture, "score" : 0, "strings" : [], "target" : null}
+	var picture = {"texture" : texture, "taker" : taker, "score" : 0, "strings" : [], "target" : null}
 	# picture has "texture", "score", "strings"
 	score_picture(picture, taker)
+	
+	GameData.pictures.append(picture)
 	
 	film_remaining -= 1
 	film_rect.size.x = film_remaining * 32
 	if (film_remaining == 0):
 		film_rect.hide()
+		end_timer.start()
 	
 	picture_cooldown.start()
 
@@ -71,29 +78,53 @@ func take_picture(viewport, taker):
 func score_picture(picture, taker):
 	#iterate over cryptids, keeps highest scoring
 	#technically could get strings from other cryptid scoring, but seems unlikely it would happen
-	for c in cryptids:
-		#continue if nessie is underwater
-		if c is Nessie and c.hidden:
-			continue
+	
+	var taker_dir = -taker.camera.get_global_transform().basis.z
+	var distance
+	var dot
+	
+	var distance_nessie = nessie.global_position - taker.camera.global_position
+	var dot_nessie =  taker_dir.dot(distance_nessie.normalized())
+	
+	var distance_bigfoot = bigfoot.global_position - taker.camera.global_position
+	var dot_bigfoot = taker_dir.dot(distance_bigfoot.normalized())
+	
+	# figure out who the picture is of
+	var subject = null
+	if distance_nessie.length() < 50 && dot_nessie > .8 && nessie.hidden == false:
+		subject = nessie
+		distance = distance_nessie
+		dot = dot_nessie
+	elif distance_bigfoot.length() < 50 && dot_bigfoot > .8:
+		subject = bigfoot
+		distance = distance_bigfoot
+		dot = dot_bigfoot
+		
+	
+	if subject == null:
+		picture["strings"].push_back("Bad.")
+	else:
+		var looking_at_camera = -taker_dir.dot(subject.get_global_transform().basis.z)
 		var score = 0
-		var distance = c.global_position - taker.camera.global_position
-		var taker_dir = -taker.camera.get_global_transform().basis.z
+		score += 1
+		picture["strings"].append("Good: +1")
 		
-		var dot = taker_dir.dot(distance.normalized())
-		
-		# actual scoring, adds strings to display when explaining score
-		if distance.length() < 50 && dot > .8:
-			if distance.length() < 10:
-				score += 2
-				picture["strings"].append("Very close: +2")
-			elif distance.length() < 20:
-				score += 1
-				picture["strings"].append("Quite close: +1")
-			if dot > .95:
-				score += 2
-				picture["strings"].append("Dead on: +2")
+		if distance.length() < 10:
+			score += 2
+			picture["strings"].append("Very close: +2")
+		elif distance.length() < 20:
 			score += 1
-			picture["strings"].append("Good: +1")
-		if score > picture["score"]:
-			picture["score"] = score
-			picture["target"] = c
+			picture["strings"].append("Quite close: +1")
+		if dot > .95:
+			score += 2
+			picture["strings"].append("Dead on: +2")
+		if looking_at_camera > .8:
+			score += 2
+			picture["strings"].append("Say Cheese: +2")
+		print(looking_at_camera)
+		
+		picture["score"] = score
+
+
+func _on_end_timer_timeout():
+	get_tree().change_scene_to_file("res://UI Scenes/end.tscn")

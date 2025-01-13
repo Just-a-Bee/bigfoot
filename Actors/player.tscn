@@ -1,9 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://cel6a6pi3ulqk"]
+[gd_scene load_steps=4 format=3 uid="uid://cel6a6pi3ulqk"]
 
 [ext_resource type="Script" path="res://Actors/player.gd" id="1_id402"]
+[ext_resource type="Texture2D" uid="uid://cm162jcpuu572" path="res://icon.svg" id="2_wnu48"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gmwvb"]
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_id402")
 
 [node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0950528, -0.183613)
 current = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_gmwvb")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = ExtResource("2_wnu48")

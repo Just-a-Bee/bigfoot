@@ -8,7 +8,6 @@ radius = 0.1
 height = 0.5
 
 [node name="Drone" type="CharacterBody3D"]
-motion_mode = 1
 script = ExtResource("1_liokq")
 
 [node name="drone" parent="." instance=ExtResource("2_7ow30")]

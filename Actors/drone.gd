@@ -14,6 +14,7 @@ var turn_max = 3
 # slowing down vars
 var gravity = 1
 var air_resistance = 2
+var floor_resistance = 20
 var turn_slowing = .5
 
 var turn_velocity = 0 # current turning velocity
@@ -48,6 +49,8 @@ func _physics_process(delta):
 	# Other forces
 	velocity.y = move_toward(velocity.y, -vertical_max, gravity * delta) # Do gravity
 	velocity -= velocity2D.normalized() * air_resistance * delta
+	if is_on_floor():
+		velocity -= velocity2D.normalized() * floor_resistance * delta
 	turn_velocity = move_toward(turn_velocity, 0, turn_slowing)
 	
 	var collision = move_and_slide()

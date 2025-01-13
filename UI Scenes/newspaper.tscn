@@ -1,0 +1,108 @@
+[gd_scene load_steps=5 format=3 uid="uid://0bojhu0sc6rd"]
+
+[ext_resource type="Texture2D" uid="uid://cm162jcpuu572" path="res://icon.svg" id="1_sof7s"]
+[ext_resource type="Script" path="res://UI Scenes/newspaper.gd" id="1_tmoe5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tqexb"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ucyqw"]
+thickness = 6
+
+[node name="Newspaper" type="PanelContainer"]
+offset_right = 432.0
+offset_bottom = 384.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tqexb")
+script = ExtResource("1_tmoe5")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Top" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[center][font_size=25]The Cryptid Times Special Issue
+[font_size=11]"
+fit_content = true
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_ucyqw")
+
+[node name="PerfectTitle" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[font_size=45][center]BIGFOOT FOUND"
+fit_content = true
+
+[node name="OkayTitle" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[font_size=25][center]MYSTERIOUS PICTURES RELEASED"
+fit_content = true
+
+[node name="BadTitle" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[font_size=23][center]PERSON GOES FOR NORMAL WALK"
+fit_content = true
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_ucyqw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PerfectBody" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[font_size=18]Shocking photos were taken by our photographer today, revealing that Bigfoot has been real the whole time! Everyone is convinced by this irrefutable evidence. Bigfoot is real and we all know it now. We even manged to get an exclusive interview with bigfoot. He says \"Hi\"."
+
+[node name="OkayBody" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[font_size=18]Our photographer has taken some strange pictures in the forest. Some of them seem to depict a creature out there. Could this be Bigfoot? Or perhaps something more sinister?
+We have an exclusive interview with our photographer. They say \"Hi\"."
+
+[node name="BadBody" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[font_size=18]Our photographer went for a nice walk this morning. There were trees, and a river. They brought their drone, but the pictures they took with it were overall unremarkable. We hope to bring you more interesting news in the future. Here is an exclusive interview with a tree. It said \"Hi\"."
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(144, 162)
+layout_mode = 2
+texture = ExtResource("1_sof7s")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[font_size=18]Here is a photo taken by our lovely photographer. "
+fit_content = true
