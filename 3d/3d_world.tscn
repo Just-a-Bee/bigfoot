@@ -1,9 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://kwp0ri53mvdy"]
+[gd_scene load_steps=3 format=3 uid="uid://cbd886h410fd6"]
 
 [ext_resource type="PackedScene" uid="uid://bhbijk7t3psu7" path="res://3d/models/bigfoot-env.glb" id="1_poa45"]
-[ext_resource type="Script" path="res://3d/collision_shape_3d.gd" id="2_tb5y1"]
-
-[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_vtnl6"]
+[ext_resource type="PackedScene" uid="uid://c23hdnmciigt3" path="res://3d/environment_colliders.tscn" id="2_61d0s"]
 
 [node name="3d world" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.4662, 6.84407)
@@ -11,10 +9,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.4662, 6.84407)
 [node name="bigfoot-env" parent="." instance=ExtResource("1_poa45")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14.3698, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="bigfoot-env"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.3698, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="bigfoot-env/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.1373, 0)
-shape = SubResource("HeightMapShape3D_vtnl6")
-script = ExtResource("2_tb5y1")
+[node name="environment-colliders" parent="." instance=ExtResource("2_61d0s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.30789, -14.4417, 10.1686)

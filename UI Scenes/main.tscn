@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cel6a6pi3ulqk" path="res://Actors/player.tscn" id="2_b2ier"]
 [ext_resource type="AudioStream" uid="uid://ch3b8djrnn5hc" path="res://assets/audio/camera_shutter.wav" id="2_f18r6"]
 [ext_resource type="Texture2D" uid="uid://b87ho3i0lmpon" path="res://assets/droneView.png" id="4_7k487"]
-[ext_resource type="PackedScene" uid="uid://kwp0ri53mvdy" path="res://3d/3d_world.tscn" id="5_yoool"]
+[ext_resource type="PackedScene" uid="uid://cbd886h410fd6" path="res://3d/3d_world.tscn" id="5_yoool"]
 [ext_resource type="PackedScene" uid="uid://cqgrfks7ph026" path="res://Actors/nessie.tscn" id="6_kq0eh"]
 [ext_resource type="Texture2D" uid="uid://dmkggbhm5l2or" path="res://assets/film.png" id="7_f0e2s"]
 [ext_resource type="Texture2D" uid="uid://bftcgs5617krs" path="res://assets/roll.png" id="8_r1yi5"]
@@ -17,6 +17,21 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_mbh72"]
 gradient = SubResource("Gradient_jlgqq")
+
+[sub_resource type="Animation" id="Animation_w5na4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Picture:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_21thn"]
 resource_name = "drone_picture"
@@ -120,21 +135,6 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_w5na4"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Picture:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_111hc"]
