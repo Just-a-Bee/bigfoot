@@ -1,14 +1,15 @@
 extends CharacterBody3D
 
+@export var main:Node
 @onready var camera = $Camera3D
 var active = false
 
 # speed vars
-var horizontal_acc = 6
+var horizontal_acc = 12
 var vertical_acc = 10
 var turn_acc = 2
 # movement max speeds
-var horizontal_max = 6
+var horizontal_max = 9
 var vertical_max = 5
 var turn_max = 3
 # slowing down vars
@@ -38,10 +39,11 @@ func _physics_process(delta):
 	
 	# do forward/back
 	var forward_dir = Vector3.FORWARD.rotated(up_direction, rotation.y)
-	velocity += forward_dir * move_axis.z * horizontal_acc * delta # add forward/back
 	var velocity2D = Vector3(velocity.x, 0, velocity.z)
-	if velocity2D.length() > horizontal_max:
-		velocity2D = velocity2D.normalized() * horizontal_max # limit to horizontal_max
+	velocity2D = velocity2D.move_toward(horizontal_max * forward_dir * move_axis.z, horizontal_acc * delta)
+	velocity.x = velocity2D.x 
+	velocity.z = velocity2D.z
+	
 	
 	# Add up movement
 	velocity.y = move_toward(velocity.y, vertical_max, move_axis.y * vertical_acc * delta)
@@ -55,7 +57,7 @@ func _physics_process(delta):
 	
 	var collision = move_and_slide()
 	if collision:
-		pass # TODO: drone crash
+		main.toggle_drone()
 
 func get_move_axis()->Vector3:
 	var move_axis:Vector3 = Vector3.ZERO

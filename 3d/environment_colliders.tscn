@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://c23hdnmciigt3"]
+[gd_scene load_steps=20 format=4 uid="uid://cf8e55f7y4toj"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_aytka"]
 points = PackedVector3Array(32.9813, 9.83964, 12.0955, 19.4862, 9.83964, 35.7737, 32.9813, 4.18975, 12.0955, 31.1994, 9.83964, -14.4853, -6.0773, 9.83964, 44.2725, 19.4862, 4.18975, 35.7737, 31.1994, 4.18975, -14.4853, 10.7137, 9.83964, -40.9325, -6.0773, 4.18975, 44.2725, -22.1207, 9.83964, 33.0965, 10.7137, 4.18975, -40.9325, -9.11152, 9.83964, -38.6723, -22.1207, 4.18975, 33.0965, -30.6688, 9.83964, 1.86184, -9.11152, 4.18975, -38.6723, -30.6688, 4.18975, 1.86184)
@@ -187,6 +187,7 @@ shadow_mesh = SubResource("ArrayMesh_37vp3")
 
 [node name="col-lake-water" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.9508, -11.6901, -39.9477)
+collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="col-lake-water"]
 shape = SubResource("ConvexPolygonShape3D_aytka")

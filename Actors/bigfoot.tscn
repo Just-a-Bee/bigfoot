@@ -9,6 +9,7 @@ radius = 0.65
 height = 3.5
 
 [node name="Bigfoot" type="CharacterBody3D"]
+collision_mask = 3
 script = ExtResource("2_vbusl")
 
 [node name="Model" parent="." instance=ExtResource("1_arj4o")]

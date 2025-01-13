@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxyvpfbb1wg5o"]
+[gd_scene load_steps=4 format=3 uid="uid://bxyvpfbb1wg5o"]
 
 [ext_resource type="Script" path="res://UI Scenes/title.gd" id="1_mpu04"]
 [ext_resource type="Texture2D" uid="uid://cm162jcpuu572" path="res://icon.svg" id="2_wfquw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pu01v"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="Title" type="Control"]
 layout_mode = 3
@@ -35,5 +38,14 @@ text = "Settings"
 [node name="Button3" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pu01v")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [connection signal="button_up" from="CenterContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_button_up"]

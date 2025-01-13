@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cbd886h410fd6"]
+[gd_scene load_steps=8 format=3 uid="uid://kwp0ri53mvdy"]
 
 [ext_resource type="PackedScene" uid="uid://bhbijk7t3psu7" path="res://3d/models/bigfoot-env.glb" id="1_poa45"]
-[ext_resource type="PackedScene" uid="uid://c23hdnmciigt3" path="res://3d/environment_colliders.tscn" id="2_61d0s"]
+[ext_resource type="PackedScene" uid="uid://cf8e55f7y4toj" path="res://3d/environment_colliders.tscn" id="2_61d0s"]
 [ext_resource type="Shader" path="res://3d/sky.gdshader" id="3_u7v8n"]
 [ext_resource type="Texture2D" uid="uid://qmjtyc501ivv" path="res://dithering-shader-resources/ditherpattern5.png" id="4_82485"]
 

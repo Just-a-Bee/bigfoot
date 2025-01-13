@@ -22,7 +22,8 @@ GameData="*res://Autoloads/game_data.gd"
 
 [display]
 
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
+window/defaults/default_clear_color=Color(0.129412, 0.631373, 0.47451, 1)
 
 [input]
 

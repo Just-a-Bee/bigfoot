@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cel6a6pi3ulqk" path="res://Actors/player.tscn" id="2_b2ier"]
 [ext_resource type="AudioStream" uid="uid://ch3b8djrnn5hc" path="res://assets/audio/camera_shutter.wav" id="2_f18r6"]
 [ext_resource type="Texture2D" uid="uid://b87ho3i0lmpon" path="res://assets/droneView.png" id="4_7k487"]
-[ext_resource type="PackedScene" uid="uid://cbd886h410fd6" path="res://3d/3d_world.tscn" id="5_yoool"]
+[ext_resource type="PackedScene" uid="uid://kwp0ri53mvdy" path="res://3d/3d_world.tscn" id="5_yoool"]
 [ext_resource type="PackedScene" uid="uid://cqgrfks7ph026" path="res://Actors/nessie.tscn" id="6_kq0eh"]
 [ext_resource type="Texture2D" uid="uid://dmkggbhm5l2or" path="res://assets/film.png" id="7_f0e2s"]
 [ext_resource type="Texture2D" uid="uid://bftcgs5617krs" path="res://assets/roll.png" id="8_r1yi5"]
@@ -173,7 +173,7 @@ size = Vector2i(576, 648)
 render_target_update_mode = 4
 
 [node name="Player" parent="PlayerViewport/SubViewport" instance=ExtResource("2_b2ier")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.46886, 8.69847, 19.1384)
+transform = Transform3D(-0.227926, 0, 0.973678, 0, 1, 0, -0.973678, 0, -0.227926, -1.46886, -1.63228, 26.9013)
 
 [node name="DroneViewport" type="SubViewportContainer" parent="."]
 custom_minimum_size = Vector2(576, 648)
@@ -189,8 +189,9 @@ handle_input_locally = false
 size = Vector2i(576, 648)
 render_target_update_mode = 4
 
-[node name="Drone" parent="DroneViewport/SubViewport" instance=ExtResource("2_a8v2p")]
+[node name="Drone" parent="DroneViewport/SubViewport" node_paths=PackedStringArray("main") instance=ExtResource("2_a8v2p")]
 transform = Transform3D(0.659333, 0, 0.751851, 0, 1, 0, -0.751851, 0, 0.659333, 1.81583, 0, 1.43504)
+main = NodePath("../../..")
 
 [node name="Viewfinder" type="TextureRect" parent="."]
 layout_mode = 0
@@ -235,6 +236,7 @@ hidingPosition = Vector3(56.078, -23.208, -51.87)
 showingPosition = Vector3(56.078, -19, -51.87)
 
 [node name="Bigfoot" parent="Terrain" node_paths=PackedStringArray("player", "drone", "patrol_points") instance=ExtResource("8_y8vl5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.152905, -12.3006, -1.01285)
 player = NodePath("../../PlayerViewport/SubViewport/Player")
 drone = NodePath("../../DroneViewport/SubViewport/Drone")
 patrol_points = [NodePath("../Patrol1"), NodePath("../Patrol2")]

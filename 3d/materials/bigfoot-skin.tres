@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://cgmipatssxh65"]
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://bqdniq6hht46m"]
 
 [ext_resource type="Shader" path="res://dithering-shader-resources/alpha-dither.gdshader" id="1_dui8g"]
 [ext_resource type="Texture2D" uid="uid://bptxyltkb2bwx" path="res://3d/textures/bigfoot-skin-faces/bigfoot-face-eek.png" id="2_2kj02"]
