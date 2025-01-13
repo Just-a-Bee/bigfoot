@@ -1,17 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://kwp0ri53mvdy"]
 
-[ext_resource type="PackedScene" uid="uid://bsbnwoa3r8w6n" path="res://3d/models/environment.glb" id="1_smo4r"]
+[ext_resource type="PackedScene" uid="uid://bhbijk7t3psu7" path="res://3d/models/bigfoot-env.glb" id="1_poa45"]
 
 [sub_resource type="HeightMapShape3D" id="HeightMapShape3D_qr1st"]
 
 [node name="3d world" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.4662, 6.84407)
 
-[node name="environment" parent="." instance=ExtResource("1_smo4r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15.7791, -31.5828)
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.908238, 0.418454, 0, -0.418454, 0.908238, 0, 0, 0)
+[node name="bigfoot-env" parent="." instance=ExtResource("1_poa45")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14.3698, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
