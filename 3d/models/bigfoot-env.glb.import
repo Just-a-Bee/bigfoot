@@ -33,6 +33,10 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
+"backpack": {
+"use_external/enabled": true,
+"use_external/path": "res://3d/materials/backpack.tres"
+},
 "cabin-chimmney": {
 "use_external/enabled": true,
 "use_external/path": "res://3d/materials/cabin-brick.tres"
