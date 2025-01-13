@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dw0jriu4ib5v7"
-path.s3tc="res://.godot/imported/branches.png-672236f803201bf16e433e3d839a6a60.s3tc.ctex"
+uid="uid://cg35njtwwtgvm"
+path.s3tc="res://.godot/imported/bigfoot-env_gravel-col.png-6074ffff20b6b1c532a7d954d9a401bd.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "7d2ed29003df4dab242856c84775814e"
+}
 
 [deps]
 
-source_file="res://3d/textures/branches.png"
-dest_files=["res://.godot/imported/branches.png-672236f803201bf16e433e3d839a6a60.s3tc.ctex"]
+source_file="res://3d/models/bigfoot-env_gravel-col.png"
+dest_files=["res://.godot/imported/bigfoot-env_gravel-col.png-6074ffff20b6b1c532a7d954d9a401bd.s3tc.ctex"]
 
 [params]
 

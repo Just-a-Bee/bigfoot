@@ -15,6 +15,7 @@ uniform vec3 highlight_col : source_color;
 
 uniform float exposure;
 uniform float lighten;
+uniform float alpha_thresh : hint_range(0.0, 1.0, 0.02);
 uniform float shadow_thresh : hint_range(0.0, 1.0, 0.02);
 uniform float highlight_thresh : hint_range(0.0, 1.0, 0.02);
 uniform vec3 light_dir;
@@ -53,7 +54,9 @@ void fragment() {
 	//COLOR.a = step(COLOR.a,weight);
 
 	float alpha_weight = dither(FRAGCOORD.xy, alpha_dither_scale);
-	if((texture(alpha_map,UV).x-alpha_weight)<0.0) discard;
+	if((texture(alpha_map,UV).x - 
+	alpha_weight + alpha_thresh)<0.0) discard;
+	
 
 	float col_weight = dither(FRAGCOORD.xy, col_dither_scale);
 

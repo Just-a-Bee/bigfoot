@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://c4xv2mtqx308v" path="res://3d/models/drone.glb" id="2_7ow30"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_puvye"]
-radius = 0.1
-height = 0.5
+radius = 0.175472
+height = 0.644488
 
 [node name="Drone" type="CharacterBody3D"]
 script = ExtResource("1_liokq")
@@ -18,5 +18,5 @@ transform = Transform3D(1, 0, 0, 0, 0.823829, 0.566838, 0, -0.566838, 0.823829, 
 current = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.0755832, 0)
 shape = SubResource("CapsuleShape3D_puvye")

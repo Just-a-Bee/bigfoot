@@ -7,13 +7,14 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_dui8g")
-shader_parameter/col_dither_scale = 2.0
+shader_parameter/col_dither_scale = 1.0
 shader_parameter/alpha_dither_scale = null
 shader_parameter/shadow_col = Color(0, 0, 0, 1)
 shader_parameter/base_col = Color(0.843137, 0.14902, 0.219608, 1)
 shader_parameter/highlight_col = Color(1, 1, 1, 1)
 shader_parameter/exposure = 4.0
 shader_parameter/lighten = 3.0
+shader_parameter/alpha_thresh = null
 shader_parameter/shadow_thresh = 0.0
 shader_parameter/highlight_thresh = 0.24
 shader_parameter/light_dir = Vector3(0.5, 1, 0.3)

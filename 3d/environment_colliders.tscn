@@ -210,7 +210,7 @@ transform = Transform3D(0.58117, -0.00970405, 0.813724, 0.0247467, 0.999677, -0.
 shape = SubResource("ConvexPolygonShape3D_baw37")
 
 [node name="col-ground" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.414593, -0.409601, 0.217185)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.415, -0.41, 0.217)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="col-ground"]
 shape = SubResource("ConcavePolygonShape3D_1ivhh")
