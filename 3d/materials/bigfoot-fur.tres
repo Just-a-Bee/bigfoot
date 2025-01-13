@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://e2gt84hkal53"]
+
+[ext_resource type="Shader" path="res://dithering-shader-resources/alpha-dither.gdshader" id="1_yu88a"]
+[ext_resource type="Texture2D" uid="uid://w083sms3bswj" path="res://3d/textures/bigfoot-fur-tex-smal.png" id="2_c06n8"]
+[ext_resource type="Texture2D" uid="uid://qmjtyc501ivv" path="res://dithering-shader-resources/ditherpattern5.png" id="2_fb2ow"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_yu88a")
+shader_parameter/col_dither_scale = 3.0
+shader_parameter/alpha_dither_scale = null
+shader_parameter/shadow_col = Color(0, 0, 0, 1)
+shader_parameter/base_col = Color(0.956863, 0.376471, 0.211765, 1)
+shader_parameter/highlight_col = Color(1, 1, 1, 1)
+shader_parameter/exposure = 1.0
+shader_parameter/lighten = 0.0
+shader_parameter/shadow_thresh = 0.34
+shader_parameter/highlight_thresh = 0.58
+shader_parameter/light_dir = Vector3(0.5, 1, 0.3)
+shader_parameter/dither_texture = ExtResource("2_fb2ow")
+shader_parameter/col_map = ExtResource("2_c06n8")

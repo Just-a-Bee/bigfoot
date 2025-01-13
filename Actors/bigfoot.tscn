@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://corlmjkx0tyus"]
+
+[ext_resource type="PackedScene" uid="uid://d26omwe8fqvrs" path="res://3d/models/bigfoot-model-animated.glb" id="1_arj4o"]
+[ext_resource type="Script" path="res://Actors/bigfoot.gd" id="2_vbusl"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="bigfoot-model-animated" parent="." instance=ExtResource("1_arj4o")]
+script = ExtResource("2_vbusl")
