@@ -33,6 +33,18 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
+"cabin-chimmney": {
+"use_external/enabled": true,
+"use_external/path": "res://3d/materials/cabin-brick.tres"
+},
+"cabin-roof": {
+"use_external/enabled": true,
+"use_external/path": "res://3d/materials/cabin-roof.tres"
+},
+"cabin-wood": {
+"use_external/enabled": true,
+"use_external/path": "res://3d/materials/cabin-wood.tres"
+},
 "chair-fabric": {
 "use_external/enabled": true,
 "use_external/path": "res://3d/materials/chair-fabric.tres"
