@@ -13,6 +13,9 @@ var is_drone_active = true
 
 @onready var cryptids = [$Terrain/Nessie]
 
+@onready var film_rect = $Film
+var film_remaining = 10
+
 func _ready():
 	toggle_drone()
 
@@ -47,6 +50,8 @@ func _input(event):
 			anim.play("player_picture")
 
 func take_picture(viewport, taker):
+	if film_remaining == 0:
+		return
 	var texture = viewport.get_texture().get_image()
 	texture = ImageTexture.create_from_image(texture)
 	cam_picture.texture = texture
@@ -54,6 +59,11 @@ func take_picture(viewport, taker):
 	var picture = {"texture" : texture, "score" : 0, "strings" : [], "target" : null}
 	# picture has "texture", "score", "strings"
 	score_picture(picture, taker)
+	
+	film_remaining -= 1
+	film_rect.size.x = film_remaining * 32
+	if (film_remaining == 0):
+		film_rect.hide()
 	
 	picture_cooldown.start()
 

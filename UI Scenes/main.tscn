@@ -1,11 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://c1gv7l3uecjlx"]
+[gd_scene load_steps=16 format=3 uid="uid://c1gv7l3uecjlx"]
 
 [ext_resource type="Texture2D" uid="uid://cm162jcpuu572" path="res://icon.svg" id="1_4x1cm"]
 [ext_resource type="Script" path="res://UI Scenes/main.gd" id="1_s1t7p"]
 [ext_resource type="PackedScene" uid="uid://blec0c2uc3qc6" path="res://Actors/drone.tscn" id="2_a8v2p"]
 [ext_resource type="PackedScene" uid="uid://cel6a6pi3ulqk" path="res://Actors/player.tscn" id="2_b2ier"]
+[ext_resource type="Texture2D" uid="uid://b87ho3i0lmpon" path="res://assets/droneView.png" id="4_7k487"]
 [ext_resource type="PackedScene" uid="uid://kwp0ri53mvdy" path="res://3d/3d_world.tscn" id="5_yoool"]
 [ext_resource type="PackedScene" uid="uid://cqgrfks7ph026" path="res://Actors/nessie.tscn" id="6_kq0eh"]
+[ext_resource type="Texture2D" uid="uid://dmkggbhm5l2or" path="res://assets/film.png" id="7_f0e2s"]
+[ext_resource type="Texture2D" uid="uid://bftcgs5617krs" path="res://assets/roll.png" id="8_r1yi5"]
 
 [sub_resource type="Gradient" id="Gradient_jlgqq"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -140,6 +143,13 @@ render_target_update_mode = 4
 [node name="Drone" parent="DroneViewport/SubViewport" instance=ExtResource("2_a8v2p")]
 transform = Transform3D(0.659333, 0, 0.751851, 0, 1, 0, -0.751851, 0, 0.659333, 1.81583, 0, 1.43504)
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 576.0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("4_7k487")
+
 [node name="Picture" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(576, 648)
 layout_mode = 0
@@ -190,3 +200,20 @@ offset_top = 320.0
 offset_right = 438.0
 offset_bottom = 343.0
 text = "Bigfoot-Finder 3000 Is Offline..."
+
+[node name="Film" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 568.0
+offset_right = 368.0
+offset_bottom = 600.0
+scale = Vector2(2, 2)
+texture = ExtResource("7_f0e2s")
+stretch_mode = 1
+
+[node name="Roll" type="TextureRect" parent="Film"]
+layout_mode = 0
+offset_left = -18.0
+offset_top = -4.0
+offset_bottom = 33.0
+texture = ExtResource("8_r1yi5")
