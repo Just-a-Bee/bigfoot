@@ -48,7 +48,7 @@ visible = false
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 bbcode_enabled = true
-text = "[font_size=38][center]BIGFOOT BEGINS HIS MODELING CAREER"
+text = "[font_size=20][center]BIGFOOT BEGINS HIS MODELING CAREER"
 fit_content = true
 
 [node name="OkayTitle" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
@@ -81,7 +81,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 bbcode_enabled = true
-text = "[font_size=18]Shocking photos were taken by our photographer today, revealing that Bigfoot has been real the whole time! Everyone is convinced by this irrefutable evidence. Bigfoot is real and we all know it now. We even manged to get an exclusive interview with bigfoot. He says \"Hi\"."
+text = "[font_size=18]Shocking photos were taken by our photographer today, revealing that Bigfoot has been real the whole time! Everyone is convinced by this irrefutable evidence. Bigfoot is real and we all know it now. We even manged to get an exclusive interview with Bigfoot. He says \"Hi\"."
 
 [node name="ModelBody" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 visible = false
@@ -89,7 +89,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 bbcode_enabled = true
-text = "[font_size=18]So many gorgeous pictures of bigfoot. He's so beautiful. I wanna stare at him forever. The only explaination is that he's starting a new career as a MODEL!!!! Incredible. Showstopping. Big. Slay. I love bigfoot. Here's an interview with a Big Fan. They say \"Hi\"."
+text = "[font_size=18]So many gorgeous pictures of Bigfoot. He's so beautiful. I wanna stare at him forever. The only explaination is that he's starting a new career as a MODEL!!!! Incredible. Showstopping. Big. Slay. I love Bigfoot. Here's an interview with a Big Fan. They say \"Hi\"."
 
 [node name="OkayBody" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 visible = false
