@@ -1,0 +1,24 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://b37hraxkyjp8g"]
+
+[ext_resource type="Shader" path="res://dithering-shader-resources/alpha-dither.gdshader" id="1_2e1hh"]
+[ext_resource type="Texture2D" uid="uid://xbyhlq740l0j" path="res://3d/textures/campfire-alpha.png" id="2_m1c1g"]
+[ext_resource type="Texture2D" uid="uid://qmjtyc501ivv" path="res://dithering-shader-resources/ditherpattern5.png" id="3_asp2l"]
+[ext_resource type="Texture2D" uid="uid://b6rinqkhrtuj2" path="res://3d/textures/campfire-col.png" id="3_fa6n6"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_2e1hh")
+shader_parameter/col_dither_scale = 2.0
+shader_parameter/alpha_dither_scale = 1.0
+shader_parameter/shadow_col = Color(0, 0, 0, 1)
+shader_parameter/base_col = Color(1, 1, 1, 1)
+shader_parameter/highlight_col = Color(1, 1, 1, 1)
+shader_parameter/exposure = 2.0
+shader_parameter/lighten = 0.0
+shader_parameter/alpha_thresh = 0.38
+shader_parameter/shadow_thresh = 0.76
+shader_parameter/highlight_thresh = 0.86
+shader_parameter/light_dir = Vector3(0.5, 1, 0.3)
+shader_parameter/dither_texture = ExtResource("3_asp2l")
+shader_parameter/alpha_map = ExtResource("2_m1c1g")
+shader_parameter/col_map = ExtResource("3_fa6n6")
