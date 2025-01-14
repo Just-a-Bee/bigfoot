@@ -7,7 +7,7 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_usidn")
-shader_parameter/col_dither_scale = 2.0
+shader_parameter/col_dither_scale = 1.0
 shader_parameter/alpha_dither_scale = null
 shader_parameter/shadow_col = Color(0, 0, 0, 1)
 shader_parameter/base_col = Color(1, 0.823529, 0.247059, 1)

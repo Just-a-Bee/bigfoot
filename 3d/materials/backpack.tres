@@ -6,7 +6,7 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_ulqvi")
-shader_parameter/col_dither_scale = 2.0
+shader_parameter/col_dither_scale = 1.0
 shader_parameter/alpha_dither_scale = null
 shader_parameter/shadow_col = Color(0, 0, 0, 1)
 shader_parameter/base_col = Color(0.14902, 0.329412, 0.486275, 1)
