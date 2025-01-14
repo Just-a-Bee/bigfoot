@@ -37,6 +37,10 @@ _subresources={
 "use_external/enabled": true,
 "use_external/path": "res://3d/materials/backpack.tres"
 },
+"bigfootpath": {
+"use_external/enabled": true,
+"use_external/path": "res://3d/materials/footpath.tres"
+},
 "cabin-chimmney": {
 "use_external/enabled": true,
 "use_external/path": "res://3d/materials/cabin-brick.tres"
@@ -49,6 +53,10 @@ _subresources={
 "use_external/enabled": true,
 "use_external/path": "res://3d/materials/cabin-wood.tres"
 },
+"campfire": {
+"use_external/enabled": true,
+"use_external/path": "res://3d/materials/campfire.tres"
+},
 "chair-fabric": {
 "use_external/enabled": true,
 "use_external/path": "res://3d/materials/chair-fabric.tres"
@@ -56,6 +64,14 @@ _subresources={
 "chair-legs": {
 "use_external/enabled": true,
 "use_external/path": "res://3d/materials/chair-poles.tres"
+},
+"fence": {
+"use_external/enabled": true,
+"use_external/path": "res://3d/materials/fence.tres"
+},
+"fence-posts": {
+"use_external/enabled": true,
+"use_external/path": "res://3d/materials/fence-post.tres"
 },
 "gravel": {
 "use_external/enabled": true,

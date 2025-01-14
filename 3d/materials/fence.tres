@@ -1,0 +1,22 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://ciw6wuufndbo4"]
+
+[ext_resource type="Shader" path="res://dithering-shader-resources/alpha-dither.gdshader" id="1_ifsjb"]
+[ext_resource type="Texture2D" uid="uid://chmtn8gopcclj" path="res://3d/textures/fence-bit.png" id="2_t6p1x"]
+[ext_resource type="Texture2D" uid="uid://qmjtyc501ivv" path="res://dithering-shader-resources/ditherpattern5.png" id="4_6t1p3"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ifsjb")
+shader_parameter/col_dither_scale = 2.0
+shader_parameter/alpha_dither_scale = null
+shader_parameter/shadow_col = Color(0, 0, 0, 1)
+shader_parameter/base_col = Color(0.14902, 0.329412, 0.486275, 1)
+shader_parameter/highlight_col = Color(1, 1, 1, 1)
+shader_parameter/exposure = 1.0
+shader_parameter/lighten = 0.0
+shader_parameter/alpha_thresh = 0.64
+shader_parameter/shadow_thresh = 0.32
+shader_parameter/highlight_thresh = 0.68
+shader_parameter/light_dir = Vector3(0.5, 1, 0.3)
+shader_parameter/dither_texture = ExtResource("4_6t1p3")
+shader_parameter/alpha_map = ExtResource("2_t6p1x")

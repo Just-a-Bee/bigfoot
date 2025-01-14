@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqedc7dvq67v6"
-path.s3tc="res://.godot/imported/bigfoot-env_tent-creases.png-409d9b4a2c9e2429568d5daea74fb718.s3tc.ctex"
+uid="uid://m4tjnie2xu7e"
+path.s3tc="res://.godot/imported/bigfoot-env_fence-map.png-d83e7181516ade3f55c69fdfe70b169d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "2bf22ca018aba516c23050fc5e7fee12"
+"md5": "c5400bfb75b8a3f06a7285272853533e"
 }
 
 [deps]
 
-source_file="res://3d/models/bigfoot-env_tent-creases.png"
-dest_files=["res://.godot/imported/bigfoot-env_tent-creases.png-409d9b4a2c9e2429568d5daea74fb718.s3tc.ctex"]
+source_file="res://3d/models/bigfoot-env_fence-map.png"
+dest_files=["res://.godot/imported/bigfoot-env_fence-map.png-d83e7181516ade3f55c69fdfe70b169d.s3tc.ctex"]
 
 [params]
 

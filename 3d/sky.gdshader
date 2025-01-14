@@ -5,6 +5,7 @@ uniform vec3 sundir;
 uniform sampler2D dither_texture;
 
 uniform float exposure;
+uniform float lightness;
 
 
 float dither(vec2 coord, float scale) {
@@ -24,6 +25,7 @@ void sky() {
         COLOR = vec3(0,0,0);
     } else {
 		float lum = dot(EYEDIR,normalize(sundir))*exposure;
+		lum += lightness;
 		float dthr = dither(FRAGCOORD.xy, 1);
 		float choice = lum-dthr;
 
