@@ -18,3 +18,10 @@ shape = SubResource("CapsuleShape3D_gmwvb")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 texture = ExtResource("2_wnu48")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="FootstepTimer" type="Timer" parent="."]
+wait_time = 0.75
+
+[connection signal="timeout" from="FootstepTimer" to="." method="_on_footstep_timer_timeout"]

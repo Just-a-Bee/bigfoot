@@ -23,6 +23,10 @@ func _physics_process(_delta):
 		var move_dir = get_input_axis()
 		move_dir = move_dir.rotated(Vector3.UP, rotation.y)
 		
+		if move_dir and $FootstepTimer.is_stopped():
+			$FootstepTimer.start()
+		if not move_dir:
+			$FootstepTimer.stop()
 		velocity = move_dir * speed
 		velocity.y -= gravity
 		move_and_slide()
@@ -41,3 +45,7 @@ func get_input_axis():
 	if Input.is_action_pressed("drone_right"):
 		axis.x += 1
 	return axis.normalized()
+
+
+func _on_footstep_timer_timeout():
+	$AudioStreamPlayer.play()

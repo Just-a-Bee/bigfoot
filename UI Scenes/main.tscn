@@ -24,71 +24,6 @@
 [ext_resource type="Texture2D" uid="uid://dceusfcutapev" path="res://assets/left_mouse.png" id="14_7ev2a"]
 [ext_resource type="Texture2D" uid="uid://blgqwi1sw6s7" path="res://assets/right_mouse.png" id="15_o13eg"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8o17x"]
-shader = ExtResource("9_wb8mv")
-shader_parameter/col_dither_scale = null
-shader_parameter/alpha_dither_scale = null
-shader_parameter/shadow_col = null
-shader_parameter/base_col = null
-shader_parameter/highlight_col = null
-shader_parameter/exposure = null
-shader_parameter/lighten = null
-shader_parameter/alpha_thresh = null
-shader_parameter/shadow_thresh = null
-shader_parameter/highlight_thresh = null
-shader_parameter/light_dir = null
-shader_parameter/dither_texture = ExtResource("10_ilt2p")
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6hsnh"]
-atlas = ExtResource("11_mp0bd")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u3ty7"]
-atlas = ExtResource("11_mp0bd")
-region = Rect2(128, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c5as5"]
-atlas = ExtResource("11_mp0bd")
-region = Rect2(0, 128, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_65jsp"]
-atlas = ExtResource("11_mp0bd")
-region = Rect2(128, 128, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yfydq"]
-atlas = ExtResource("11_mp0bd")
-region = Rect2(0, 256, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c8wbj"]
-atlas = ExtResource("11_mp0bd")
-region = Rect2(128, 256, 128, 128)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_424wx"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6hsnh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u3ty7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c5as5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_65jsp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yfydq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c8wbj")
-}],
-"loop": false,
-"name": &"default",
-"speed": 5.0
-}]
-
 [sub_resource type="Gradient" id="Gradient_jlgqq"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
@@ -231,6 +166,71 @@ gradient = SubResource("Gradient_c34tu")
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtt6p"]
 bg_color = Color(0, 0, 0, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8o17x"]
+shader = ExtResource("9_wb8mv")
+shader_parameter/col_dither_scale = null
+shader_parameter/alpha_dither_scale = null
+shader_parameter/shadow_col = null
+shader_parameter/base_col = null
+shader_parameter/highlight_col = null
+shader_parameter/exposure = null
+shader_parameter/lighten = null
+shader_parameter/alpha_thresh = null
+shader_parameter/shadow_thresh = null
+shader_parameter/highlight_thresh = null
+shader_parameter/light_dir = null
+shader_parameter/dither_texture = ExtResource("10_ilt2p")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hsnh"]
+atlas = ExtResource("11_mp0bd")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3ty7"]
+atlas = ExtResource("11_mp0bd")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5as5"]
+atlas = ExtResource("11_mp0bd")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65jsp"]
+atlas = ExtResource("11_mp0bd")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfydq"]
+atlas = ExtResource("11_mp0bd")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8wbj"]
+atlas = ExtResource("11_mp0bd")
+region = Rect2(128, 256, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_424wx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hsnh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3ty7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5as5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65jsp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfydq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8wbj")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
 [node name="Control" type="Control"]
 texture_filter = 1
 layout_mode = 3
@@ -309,14 +309,6 @@ stretch = true
 handle_input_locally = false
 size = Vector2i(576, 648)
 render_target_update_mode = 4
-
-[node name="drone-crash-anim" type="AnimatedSprite2D" parent="DroneViewport/SubViewport"]
-material = SubResource("ShaderMaterial_8o17x")
-position = Vector2(-0.639999, 1.12007)
-scale = Vector2(9.01, 10.1075)
-sprite_frames = SubResource("SpriteFrames_424wx")
-frame = 5
-frame_progress = 1.0
 
 [node name="Drone" parent="DroneViewport/SubViewport" node_paths=PackedStringArray("main") instance=ExtResource("2_a8v2p")]
 transform = Transform3D(0.659333, 0, 0.751851, 0, 1, 0, -0.751851, 0, 0.659333, 1.81583, 0, 1.43504)
@@ -522,4 +514,14 @@ offset_right = 438.0
 offset_bottom = 343.0
 text = "Bigfoot-Finder 3000 Is Offline..."
 
+[node name="DroneCrashAnim" type="AnimatedSprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_8o17x")
+position = Vector2(861.84, 322.28)
+scale = Vector2(4.53375, 5.08938)
+sprite_frames = SubResource("SpriteFrames_424wx")
+frame = 5
+frame_progress = 1.0
+
+[connection signal="crash" from="DroneViewport/SubViewport/Drone" to="." method="_on_drone_crash"]
 [connection signal="timeout" from="EndTimer" to="." method="_on_end_timer_timeout"]

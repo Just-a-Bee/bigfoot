@@ -138,3 +138,10 @@ func score_picture(picture, taker):
 
 func _on_end_timer_timeout():
 	get_tree().change_scene_to_file("res://UI Scenes/end.tscn")
+
+
+func _on_drone_crash():
+	$DroneCrashAnim.show()
+	$DroneCrashAnim.play()
+	await $DroneCrashAnim.animation_finished
+	$DroneCrashAnim.hide()

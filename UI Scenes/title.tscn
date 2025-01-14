@@ -151,6 +151,56 @@ centered = false
 texture = ExtResource("2_p5w5e")
 centered = false
 
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 544.0
+offset_right = 384.0
+offset_bottom = 632.0
+theme_override_font_sizes/font_size = 25
+text = "By Abby
+Smith"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 536.0
+offset_right = 512.0
+offset_bottom = 647.0
+theme_override_constants/line_spacing = -6
+theme_override_font_sizes/font_size = 25
+text = "And
+Isaiah
+Sugar"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 536.0
+offset_right = 768.0
+offset_bottom = 647.0
+theme_override_constants/line_spacing = -6
+theme_override_font_sizes/font_size = 25
+text = "Made
+With
+Godot"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 0
+offset_left = 768.0
+offset_top = 536.0
+offset_right = 896.0
+offset_bottom = 647.0
+theme_override_constants/line_spacing = -6
+theme_override_font_sizes/font_size = 25
+text = "Based on
+a true 
+story"
+horizontal_alignment = 1
+
 [node name="PlayButton" type="Button" parent="."]
 layout_mode = 2
 offset_left = 448.0
@@ -243,56 +293,6 @@ text = "Okay"
 libraries = {
 "": SubResource("AnimationLibrary_6r8gx")
 }
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 256.0
-offset_top = 544.0
-offset_right = 384.0
-offset_bottom = 632.0
-theme_override_font_sizes/font_size = 25
-text = "By Abby
-Smith"
-horizontal_alignment = 1
-
-[node name="Label2" type="Label" parent="."]
-layout_mode = 0
-offset_left = 384.0
-offset_top = 536.0
-offset_right = 512.0
-offset_bottom = 647.0
-theme_override_constants/line_spacing = -6
-theme_override_font_sizes/font_size = 25
-text = "And
-Isaiah
-Sugar"
-horizontal_alignment = 1
-
-[node name="Label3" type="Label" parent="."]
-layout_mode = 0
-offset_left = 640.0
-offset_top = 536.0
-offset_right = 768.0
-offset_bottom = 647.0
-theme_override_constants/line_spacing = -6
-theme_override_font_sizes/font_size = 25
-text = "Made
-With
-Godot"
-horizontal_alignment = 1
-
-[node name="Label4" type="Label" parent="."]
-layout_mode = 0
-offset_left = 768.0
-offset_top = 536.0
-offset_right = 896.0
-offset_bottom = 647.0
-theme_override_constants/line_spacing = -6
-theme_override_font_sizes/font_size = 25
-text = "Based on
-a true 
-story"
-horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true

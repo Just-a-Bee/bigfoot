@@ -1,5 +1,9 @@
 extends CharacterBody3D
 
+
+
+signal crash
+
 @export var main:Node
 @onready var camera = $Camera3D
 var active = false
@@ -25,6 +29,9 @@ func _ready():
 	pass # Replace with function body.
 
 func _physics_process(delta):
+	
+	print(position)
+	
 	if not active:
 		return
 	# Do player movement
@@ -56,6 +63,11 @@ func _physics_process(delta):
 	if collision or position.y < -7.5:
 		main.toggle_drone()
 		$CrashSound.play()
+		crash.emit()
+	# clamp position to bounds
+	global_position.x = clamp(global_position.x, -100, 100)
+	global_position.z = clamp(global_position.z, -93.2, 106.8)
+	global_position.y = min(global_position.y, 40)
 	
 	#move the drone AudioStreamPlayer3D to the new position, relative to the player's position
 	$"../../../PlayerViewport/SubViewport/DroneLoopPlayer3D".position = position - $"../../../PlayerViewport/SubViewport/Player".position
