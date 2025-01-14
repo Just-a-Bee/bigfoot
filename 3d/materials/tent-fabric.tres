@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://b67nx71gyu3x4"]
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://ddimsbbkfa16f"]
 
 [ext_resource type="Shader" path="res://dithering-shader-resources/alpha-dither.gdshader" id="1_usidn"]
 [ext_resource type="Texture2D" uid="uid://7ch0x4wg3byi" path="res://3d/textures/tent-creases.png" id="2_og62v"]
