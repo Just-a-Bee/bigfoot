@@ -85,9 +85,17 @@ _subresources={
 "use_external/enabled": true,
 "use_external/path": "res://3d/materials/ground.tres"
 },
+"keep out": {
+"use_external/enabled": true,
+"use_external/path": "res://3d/materials/keep-out.tres"
+},
 "lake-water": {
 "use_external/enabled": true,
 "use_external/path": "res://3d/materials/lake-water.tres"
+},
+"log-rings": {
+"use_external/enabled": true,
+"use_external/path": "res://3d/materials/tent-pole-wood.tres"
 },
 "rocks": {
 "use_external/enabled": true,
@@ -100,6 +108,10 @@ _subresources={
 "tent-poles": {
 "use_external/enabled": true,
 "use_external/path": "res://3d/materials/tent-pole-wood.tres"
+},
+"tire": {
+"use_external/enabled": true,
+"use_external/path": "res://3d/materials/tires.tres"
 },
 "tree-leaves": {
 "use_external/enabled": true,

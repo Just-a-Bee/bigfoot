@@ -9,6 +9,7 @@ script = ExtResource("1_5spdp")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+visible = false
 texture = ExtResource("2_84eqt")
 
 [node name="nessie" parent="." instance=ExtResource("3_y6aaa")]
