@@ -45,6 +45,10 @@ _subresources={
 "use_external/enabled": true,
 "use_external/path": "res://3d/materials/cabin-brick.tres"
 },
+"cabin-door": {
+"use_external/enabled": true,
+"use_external/path": "res://3d/materials/cabin-door.tres"
+},
 "cabin-roof": {
 "use_external/enabled": true,
 "use_external/path": "res://3d/materials/cabin-roof.tres"
@@ -108,6 +112,10 @@ _subresources={
 "tree-trunk": {
 "use_external/enabled": true,
 "use_external/path": "res://3d/materials/tree-bark.tres"
+},
+"window-glass": {
+"use_external/enabled": true,
+"use_external/path": "res://3d/materials/window-glass.tres"
 }
 }
 }
