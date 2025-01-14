@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://c1gv7l3uecjlx"]
+[gd_scene load_steps=50 format=3 uid="uid://c1gv7l3uecjlx"]
 
 [ext_resource type="Texture2D" uid="uid://cm162jcpuu572" path="res://icon.svg" id="1_4x1cm"]
 [ext_resource type="Script" path="res://UI Scenes/main.gd" id="1_s1t7p"]
@@ -14,15 +14,33 @@
 [ext_resource type="AudioStream" uid="uid://bdvthaaq14ap0" path="res://assets/audio/lake-loop.wav" id="6_25onh"]
 [ext_resource type="PackedScene" uid="uid://cqgrfks7ph026" path="res://Actors/nessie.tscn" id="6_kq0eh"]
 [ext_resource type="Texture2D" uid="uid://dmkggbhm5l2or" path="res://assets/film.png" id="7_f0e2s"]
+[ext_resource type="Script" path="res://UI Scenes/bigfoot_audio.gd" id="8_au0gq"]
 [ext_resource type="Texture2D" uid="uid://bftcgs5617krs" path="res://assets/roll.png" id="8_r1yi5"]
+[ext_resource type="AudioStream" uid="uid://bnqycqb7f46yr" path="res://assets/audio/bigfoot1.wav" id="8_r38lu"]
 [ext_resource type="PackedScene" uid="uid://luapbyeuyysp" path="res://Actors/bigfoot.tscn" id="8_y8vl5"]
+[ext_resource type="AudioStream" uid="uid://boxe152877rb7" path="res://assets/audio/bigfoot2.wav" id="9_6y1cf"]
 [ext_resource type="Shader" path="res://dithering-shader-resources/greyscale-2d-dither.gdshader" id="9_wb8mv"]
 [ext_resource type="Texture2D" uid="uid://qmjtyc501ivv" path="res://dithering-shader-resources/ditherpattern5.png" id="10_ilt2p"]
+[ext_resource type="AudioStream" uid="uid://cec6s7he82jx6" path="res://assets/audio/bigfoot3.wav" id="10_ybyoy"]
+[ext_resource type="AudioStream" uid="uid://c6vyy3fs4pjda" path="res://assets/audio/bigfoot4.wav" id="11_lioq7"]
 [ext_resource type="Texture2D" uid="uid://cuupriesyp4xl" path="res://assets/drone-crash-spritesheet.png" id="11_mp0bd"]
 [ext_resource type="Texture2D" uid="uid://25hhwvdrr4ap" path="res://assets/spacebar.png" id="12_ghth3"]
+[ext_resource type="AudioStream" uid="uid://dy6muiuy8stub" path="res://assets/audio/bigfoot5.wav" id="12_lwe6m"]
 [ext_resource type="Texture2D" uid="uid://dwxralwrugqyb" path="res://assets/shift.png" id="13_ae4pl"]
+[ext_resource type="AudioStream" uid="uid://b45jp0twbe8cg" path="res://assets/audio/bigfoot6.wav" id="13_vrtd6"]
 [ext_resource type="Texture2D" uid="uid://dceusfcutapev" path="res://assets/left_mouse.png" id="14_7ev2a"]
+[ext_resource type="AudioStream" uid="uid://d3o5qmxgoymfk" path="res://assets/audio/bigfoot7.wav" id="14_8yddi"]
 [ext_resource type="Texture2D" uid="uid://blgqwi1sw6s7" path="res://assets/right_mouse.png" id="15_o13eg"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_o8mgx"]
+streams_count = 7
+stream_0/stream = ExtResource("8_r38lu")
+stream_1/stream = ExtResource("9_6y1cf")
+stream_2/stream = ExtResource("10_ybyoy")
+stream_3/stream = ExtResource("11_lioq7")
+stream_4/stream = ExtResource("12_lwe6m")
+stream_5/stream = ExtResource("13_vrtd6")
+stream_6/stream = ExtResource("14_8yddi")
 
 [sub_resource type="Gradient" id="Gradient_jlgqq"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -293,6 +311,13 @@ attenuation_filter_db = -12.0
 doppler_tracking = 2
 script = ExtResource("4_xx4wg")
 
+[node name="BigfootAudio" type="AudioStreamPlayer3D" parent="PlayerViewport/SubViewport" node_paths=PackedStringArray("bigfoot", "player", "drone")]
+stream = SubResource("AudioStreamRandomizer_o8mgx")
+script = ExtResource("8_au0gq")
+bigfoot = NodePath("../../../Terrain/Bigfoot")
+player = NodePath("../Player")
+drone = NodePath("../../../DroneViewport/SubViewport/Drone")
+
 [node name="Player" parent="PlayerViewport/SubViewport" instance=ExtResource("2_b2ier")]
 transform = Transform3D(-0.889161, 0, 0.457595, 0, 1, 0, -0.457595, 0, -0.889161, 0, 0, 0)
 
@@ -356,10 +381,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.078, -23.208, -51.87)
 hidingPosition = Vector3(56.078, -23.208, -51.87)
 showingPosition = Vector3(56.078, -17.227, -51.87)
 
-[node name="Bigfoot" parent="Terrain" node_paths=PackedStringArray("player", "drone", "patrol_points") instance=ExtResource("8_y8vl5")]
+[node name="Bigfoot" parent="Terrain" node_paths=PackedStringArray("player", "drone", "yellSound", "patrol_points") instance=ExtResource("8_y8vl5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.9886, -9.37773, -40.3373)
 player = NodePath("../../PlayerViewport/SubViewport/Player")
 drone = NodePath("../../DroneViewport/SubViewport/Drone")
+yellSound = NodePath("../../PlayerViewport/SubViewport/BigfootAudio")
 patrol_points = [NodePath("../Patrol1"), NodePath("../Patrol2"), NodePath("../Patrol3"), NodePath("../Patrol4"), NodePath("../Patrol5"), NodePath("../Patrol6"), NodePath("../Patrol7"), NodePath("../Patrol8"), NodePath("../Patrol9"), NodePath("../Patrol10"), NodePath("../Patrol11"), NodePath("../Patrol12"), NodePath("../Patrol13"), NodePath("../Patrol14"), NodePath("../Patrol15"), NodePath("../Patrol16")]
 
 [node name="Patrol1" type="Node3D" parent="Terrain"]

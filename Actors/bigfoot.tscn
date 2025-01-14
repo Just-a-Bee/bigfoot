@@ -59,3 +59,7 @@ collision_mask = 6
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 2.08278, 0)
 target_position = Vector3(0, 0, 10)
 collision_mask = 6
+
+[node name="YellCooldown" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true

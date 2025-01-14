@@ -5,10 +5,11 @@ class_name Bigfoot
 
 @export var player:Node
 @export var drone:Node
+@export var yellSound:Node
 
 var slow_walk_speed = 1
 var walk_speed = 2.5
-var run_speed = 8
+var run_speed = 12
 var gravity = 3
 var height = 3.5
 
@@ -43,6 +44,9 @@ func _physics_process(delta):
 	
 	
 	if alertness > 5:
+		if $YellCooldown.is_stopped():
+			yellSound.play()
+			$YellCooldown.start()
 		if state != states.run:
 			change_state(states.run)
 		move_vector = run_away()
