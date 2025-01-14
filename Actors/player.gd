@@ -16,6 +16,7 @@ func rotate_camera(displacement):
 	$Camera3D.rotation.x = min($Camera3D.rotation.x, PI/3)
 	$Camera3D.rotation.x = max($Camera3D.rotation.x, -PI/3)
 	rotation.y += -displacement.x*mouse_sens
+	$"../Listener3D".rotation = rotation
 
 func _physics_process(_delta):
 	if active:
@@ -25,7 +26,9 @@ func _physics_process(_delta):
 		velocity = move_dir * speed
 		velocity.y -= gravity
 		move_and_slide()
-		
+		if !$"../../../DroneViewport/SubViewport/Drone".active:
+			$"../LakeLoopPlayer3D".position = $"../LakeLoopPlayer3D".world_coord - position
+			$"../LakeLoopPlayer3D".position = $"../LakeLoopPlayer3D".world_coord - position
 
 func get_input_axis():
 	var axis = Vector3.ZERO

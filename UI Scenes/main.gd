@@ -34,11 +34,13 @@ func toggle_drone():
 		drone.rotation.y = player.rotation.y
 		drone.velocity = Vector3.ZERO
 		drone.show()
+		$PlayerViewport/SubViewport/DroneLoopPlayer3D.start()
 	else:
 		player.active = true
 		drone.active = false
 		$DroneOff.show()
 		drone.hide()
+		$PlayerViewport/SubViewport/DroneLoopPlayer3D.end()
 
 func _input(event):
 	if event.is_action_pressed("toggle_drone"):
