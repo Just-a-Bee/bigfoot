@@ -1,15 +1,15 @@
 extends Control
 
-@onready var player_viewport = $PlayerViewport/SubViewport
-@onready var drone_viewport = $DroneViewport/SubViewport
+@onready var player_viewport = $"../../../HBoxContainer/PlayerViewport/SubViewport"
+@onready var drone_viewport = $"../../../HBoxContainer/DroneViewport/SubViewport"
 
 @onready var camera_sound = $CameraSound
 @onready var cam_picture = $Picture
 @onready var anim = $PictureAnim
 @onready var picture_cooldown = $PictureCooldown
 
-@onready var player = $PlayerViewport/SubViewport/Player
-@onready var drone = $DroneViewport/SubViewport/Drone
+@onready var player = $"../../../HBoxContainer/PlayerViewport/SubViewport/Player"
+@onready var drone = $"../../../HBoxContainer/DroneViewport/SubViewport/Drone"
 var is_drone_active = true
 
 @onready var nessie = $Terrain/Nessie

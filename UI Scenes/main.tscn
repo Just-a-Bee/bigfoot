@@ -1,16 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://c1gv7l3uecjlx"]
+[gd_scene load_steps=18 format=3 uid="uid://c1gv7l3uecjlx"]
 
 [ext_resource type="Texture2D" uid="uid://cm162jcpuu572" path="res://icon.svg" id="1_4x1cm"]
 [ext_resource type="Script" path="res://UI Scenes/main.gd" id="1_s1t7p"]
-[ext_resource type="PackedScene" uid="uid://blec0c2uc3qc6" path="res://Actors/drone.tscn" id="2_a8v2p"]
-[ext_resource type="PackedScene" uid="uid://cel6a6pi3ulqk" path="res://Actors/player.tscn" id="2_b2ier"]
 [ext_resource type="AudioStream" uid="uid://ch3b8djrnn5hc" path="res://assets/audio/camera_shutter.wav" id="2_f18r6"]
 [ext_resource type="Texture2D" uid="uid://b87ho3i0lmpon" path="res://assets/droneView.png" id="4_7k487"]
-[ext_resource type="PackedScene" uid="uid://kwp0ri53mvdy" path="res://3d/3d_world.tscn" id="5_yoool"]
-[ext_resource type="PackedScene" uid="uid://cqgrfks7ph026" path="res://Actors/nessie.tscn" id="6_kq0eh"]
 [ext_resource type="Texture2D" uid="uid://dmkggbhm5l2or" path="res://assets/film.png" id="7_f0e2s"]
 [ext_resource type="Texture2D" uid="uid://bftcgs5617krs" path="res://assets/roll.png" id="8_r1yi5"]
-[ext_resource type="PackedScene" uid="uid://luapbyeuyysp" path="res://Actors/bigfoot.tscn" id="8_y8vl5"]
 [ext_resource type="Texture2D" uid="uid://25hhwvdrr4ap" path="res://assets/spacebar.png" id="12_ghth3"]
 [ext_resource type="Texture2D" uid="uid://dwxralwrugqyb" path="res://assets/shift.png" id="13_ae4pl"]
 [ext_resource type="Texture2D" uid="uid://dceusfcutapev" path="res://assets/left_mouse.png" id="14_7ev2a"]
@@ -159,40 +154,6 @@ script = ExtResource("1_s1t7p")
 [node name="CameraSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_f18r6")
 
-[node name="PlayerViewport" type="SubViewportContainer" parent="."]
-custom_minimum_size = Vector2(576, 648)
-layout_mode = 2
-offset_right = 576.0
-offset_bottom = 648.0
-size_flags_horizontal = 3
-stretch = true
-
-[node name="SubViewport" type="SubViewport" parent="PlayerViewport"]
-handle_input_locally = false
-size = Vector2i(576, 648)
-render_target_update_mode = 4
-
-[node name="Player" parent="PlayerViewport/SubViewport" instance=ExtResource("2_b2ier")]
-transform = Transform3D(-0.227926, 0, 0.973678, 0, 1, 0, -0.973678, 0, -0.227926, -1.46886, -1.63228, 26.9013)
-
-[node name="DroneViewport" type="SubViewportContainer" parent="."]
-custom_minimum_size = Vector2(576, 648)
-layout_mode = 2
-offset_left = 576.0
-offset_right = 1152.0
-offset_bottom = 648.0
-size_flags_horizontal = 3
-stretch = true
-
-[node name="SubViewport" type="SubViewport" parent="DroneViewport"]
-handle_input_locally = false
-size = Vector2i(576, 648)
-render_target_update_mode = 4
-
-[node name="Drone" parent="DroneViewport/SubViewport" node_paths=PackedStringArray("main") instance=ExtResource("2_a8v2p")]
-transform = Transform3D(0.659333, 0, 0.751851, 0, 1, 0, -0.751851, 0, 0.659333, 1.81583, 0, 1.43504)
-main = NodePath("../../..")
-
 [node name="Viewfinder" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 576.0
@@ -227,40 +188,6 @@ one_shot = true
 libraries = {
 "": SubResource("AnimationLibrary_111hc")
 }
-
-[node name="Terrain" parent="." instance=ExtResource("5_yoool")]
-
-[node name="Nessie" parent="Terrain" instance=ExtResource("6_kq0eh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.078, -19, -51.87)
-hidingPosition = Vector3(56.078, -23.208, -51.87)
-showingPosition = Vector3(56.078, -19, -51.87)
-
-[node name="Bigfoot" parent="Terrain" node_paths=PackedStringArray("player", "drone", "patrol_points") instance=ExtResource("8_y8vl5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.9886, -9.37773, -40.3373)
-player = NodePath("../../PlayerViewport/SubViewport/Player")
-drone = NodePath("../../DroneViewport/SubViewport/Drone")
-patrol_points = [NodePath("../Patrol1"), NodePath("../Patrol2")]
-
-[node name="Patrol1" type="Node3D" parent="Terrain"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68, 0, -40)
-
-[node name="Patrol2" type="Node3D" parent="Terrain"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.7218, -13.5741, -34.1755)
-
-[node name="Patrol3" type="Node3D" parent="Terrain"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.993, -13.5741, 11.6476)
-
-[node name="Patrol4" type="Node3D" parent="Terrain"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.4005, -13.5741, 52.8178)
-
-[node name="Patrol5" type="Node3D" parent="Terrain"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.653645, -13.5741, 76.5309)
-
-[node name="Patrol6" type="Node3D" parent="Terrain"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.509, -13.5741, 64.6545)
-
-[node name="Patrol7" type="Node3D" parent="Terrain"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.509, -13.5741, 0.975785)
 
 [node name="Film" type="TextureRect" parent="."]
 layout_mode = 0

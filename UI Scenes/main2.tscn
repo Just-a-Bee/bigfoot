@@ -1,0 +1,102 @@
+[gd_scene load_steps=7 format=3 uid="uid://dvou112l5yo38"]
+
+[ext_resource type="PackedScene" uid="uid://c1gv7l3uecjlx" path="res://UI Scenes/main.tscn" id="1_slx4f"]
+[ext_resource type="PackedScene" uid="uid://cel6a6pi3ulqk" path="res://Actors/player.tscn" id="2_2ttj8"]
+[ext_resource type="PackedScene" uid="uid://blec0c2uc3qc6" path="res://Actors/drone.tscn" id="3_ba340"]
+[ext_resource type="PackedScene" uid="uid://kwp0ri53mvdy" path="res://3d/3d_world.tscn" id="4_olbba"]
+[ext_resource type="PackedScene" uid="uid://cqgrfks7ph026" path="res://Actors/nessie.tscn" id="5_ljobm"]
+[ext_resource type="PackedScene" uid="uid://luapbyeuyysp" path="res://Actors/bigfoot.tscn" id="6_336qq"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerViewport" type="SubViewportContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="HBoxContainer/PlayerViewport"]
+handle_input_locally = false
+size = Vector2i(574, 648)
+render_target_update_mode = 4
+
+[node name="Player" parent="HBoxContainer/PlayerViewport/SubViewport" instance=ExtResource("2_2ttj8")]
+transform = Transform3D(-0.227926, 0, 0.973678, 0, 1, 0, -0.973678, 0, -0.227926, -1.46886, -1.63228, 26.9013)
+
+[node name="DroneViewport" type="SubViewportContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="HBoxContainer/DroneViewport"]
+handle_input_locally = false
+size = Vector2i(574, 648)
+render_target_update_mode = 4
+
+[node name="Drone" parent="HBoxContainer/DroneViewport/SubViewport" node_paths=PackedStringArray("main") instance=ExtResource("3_ba340")]
+transform = Transform3D(0.659333, 0, 0.751851, 0, 1, 0, -0.751851, 0, 0.659333, 1.81583, 0, 1.43504)
+main = NodePath("../../../../SubViewportContainer/SubViewport/Control")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
+size = Vector2i(1152, 648)
+size_2d_override = Vector2i(1152, 648)
+size_2d_override_stretch = true
+
+[node name="Control" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_slx4f")]
+
+[node name="Terrain" parent="." instance=ExtResource("4_olbba")]
+
+[node name="Nessie" parent="Terrain" instance=ExtResource("5_ljobm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.078, -19, -51.87)
+hidingPosition = Vector3(56.078, -23.208, -51.87)
+showingPosition = Vector3(56.078, -19, -51.87)
+
+[node name="Bigfoot" parent="Terrain" node_paths=PackedStringArray("player", "drone", "patrol_points") instance=ExtResource("6_336qq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.9886, -9.37773, -40.3373)
+player = NodePath("../../HBoxContainer/PlayerViewport/SubViewport/Player")
+drone = NodePath("../../HBoxContainer/DroneViewport/SubViewport/Drone")
+patrol_points = [NodePath("../Patrol1"), NodePath("../Patrol2")]
+
+[node name="Patrol1" type="Node3D" parent="Terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68, 0, -40)
+
+[node name="Patrol2" type="Node3D" parent="Terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.7218, -13.5741, -34.1755)
+
+[node name="Patrol3" type="Node3D" parent="Terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.993, -13.5741, 11.6476)
+
+[node name="Patrol4" type="Node3D" parent="Terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.4005, -13.5741, 52.8178)
+
+[node name="Patrol5" type="Node3D" parent="Terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.653645, -13.5741, 76.5309)
+
+[node name="Patrol6" type="Node3D" parent="Terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.509, -13.5741, 64.6545)
+
+[node name="Patrol7" type="Node3D" parent="Terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.509, -13.5741, 0.975785)
