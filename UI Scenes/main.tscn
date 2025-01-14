@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://c1gv7l3uecjlx"]
+[gd_scene load_steps=41 format=3 uid="uid://c1gv7l3uecjlx"]
 
 [ext_resource type="Texture2D" uid="uid://cm162jcpuu572" path="res://icon.svg" id="1_4x1cm"]
 [ext_resource type="Script" path="res://UI Scenes/main.gd" id="1_s1t7p"]
@@ -16,10 +16,78 @@
 [ext_resource type="Texture2D" uid="uid://dmkggbhm5l2or" path="res://assets/film.png" id="7_f0e2s"]
 [ext_resource type="Texture2D" uid="uid://bftcgs5617krs" path="res://assets/roll.png" id="8_r1yi5"]
 [ext_resource type="PackedScene" uid="uid://luapbyeuyysp" path="res://Actors/bigfoot.tscn" id="8_y8vl5"]
+[ext_resource type="Shader" path="res://dithering-shader-resources/greyscale-2d-dither.gdshader" id="9_wb8mv"]
+[ext_resource type="Texture2D" uid="uid://qmjtyc501ivv" path="res://dithering-shader-resources/ditherpattern5.png" id="10_ilt2p"]
+[ext_resource type="Texture2D" uid="uid://cuupriesyp4xl" path="res://assets/drone-crash-spritesheet.png" id="11_mp0bd"]
 [ext_resource type="Texture2D" uid="uid://25hhwvdrr4ap" path="res://assets/spacebar.png" id="12_ghth3"]
 [ext_resource type="Texture2D" uid="uid://dwxralwrugqyb" path="res://assets/shift.png" id="13_ae4pl"]
 [ext_resource type="Texture2D" uid="uid://dceusfcutapev" path="res://assets/left_mouse.png" id="14_7ev2a"]
 [ext_resource type="Texture2D" uid="uid://blgqwi1sw6s7" path="res://assets/right_mouse.png" id="15_o13eg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8o17x"]
+shader = ExtResource("9_wb8mv")
+shader_parameter/col_dither_scale = null
+shader_parameter/alpha_dither_scale = null
+shader_parameter/shadow_col = null
+shader_parameter/base_col = null
+shader_parameter/highlight_col = null
+shader_parameter/exposure = null
+shader_parameter/lighten = null
+shader_parameter/alpha_thresh = null
+shader_parameter/shadow_thresh = null
+shader_parameter/highlight_thresh = null
+shader_parameter/light_dir = null
+shader_parameter/dither_texture = ExtResource("10_ilt2p")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hsnh"]
+atlas = ExtResource("11_mp0bd")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3ty7"]
+atlas = ExtResource("11_mp0bd")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5as5"]
+atlas = ExtResource("11_mp0bd")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65jsp"]
+atlas = ExtResource("11_mp0bd")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfydq"]
+atlas = ExtResource("11_mp0bd")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8wbj"]
+atlas = ExtResource("11_mp0bd")
+region = Rect2(128, 256, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_424wx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hsnh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3ty7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5as5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65jsp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfydq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8wbj")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="Gradient" id="Gradient_jlgqq"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -241,6 +309,14 @@ stretch = true
 handle_input_locally = false
 size = Vector2i(576, 648)
 render_target_update_mode = 4
+
+[node name="drone-crash-anim" type="AnimatedSprite2D" parent="DroneViewport/SubViewport"]
+material = SubResource("ShaderMaterial_8o17x")
+position = Vector2(-0.639999, 1.12007)
+scale = Vector2(9.01, 10.1075)
+sprite_frames = SubResource("SpriteFrames_424wx")
+frame = 5
+frame_progress = 1.0
 
 [node name="Drone" parent="DroneViewport/SubViewport" node_paths=PackedStringArray("main") instance=ExtResource("2_a8v2p")]
 transform = Transform3D(0.659333, 0, 0.751851, 0, 1, 0, -0.751851, 0, 0.659333, 1.81583, 0, 1.43504)
