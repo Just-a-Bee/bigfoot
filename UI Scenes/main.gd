@@ -12,8 +12,8 @@ extends Control
 @onready var drone = $"../../../HBoxContainer/DroneViewport/SubViewport/Drone"
 var is_drone_active = true
 
-@onready var nessie = $Terrain/Nessie
-@onready var bigfoot = $Terrain/Bigfoot
+@onready var nessie = $"../../../Terrain/Nessie"
+@onready var bigfoot = $"../../../Terrain/Bigfoot"
 
 @onready var film_rect = $Film
 var film_remaining = 8
