@@ -15,11 +15,20 @@ func _on_timer_timeout():
 		go_under()
 
 func pop_up():
-	position = showingPosition
-	$Timer.start(3 + randi_range(-2, 2))
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "position", showingPosition, 2)
 	hidden = false
+	$Timer.start(3 + randi_range(-2, 2))
+	
 
 func go_under():
-	position = hidingPosition
-	$Timer.start(15 + randi_range(-10, 10))
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "position", hidingPosition, 2)
+	await tween.finished
 	hidden = true
+	$Timer.start(15 + randi_range(-10, 10))
+
+func stop_showing():
+	go_under()
+	$Timer.timeout.disconnect(_on_timer_timeout)
+	

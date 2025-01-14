@@ -284,9 +284,9 @@ libraries = {
 [node name="Terrain" parent="." instance=ExtResource("5_yoool")]
 
 [node name="Nessie" parent="Terrain" instance=ExtResource("6_kq0eh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.078, -19, -51.87)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.078, -23.208, -51.87)
 hidingPosition = Vector3(56.078, -23.208, -51.87)
-showingPosition = Vector3(56.078, -19, -51.87)
+showingPosition = Vector3(56.078, -17.227, -51.87)
 
 [node name="Bigfoot" parent="Terrain" node_paths=PackedStringArray("player", "drone", "patrol_points") instance=ExtResource("8_y8vl5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.9886, -9.37773, -40.3373)

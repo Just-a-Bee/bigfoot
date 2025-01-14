@@ -38,6 +38,10 @@ func do_picture_anim():
 		
 		for s in picture["strings"]:
 			animationText.text = animationText.text + s + "\n"
+			if s == "Bad.":
+				$BadScoring.play()
+			else:
+				$GoodScoring.play()
 			await get_tree().create_timer(.2).timeout
 		
 		await get_tree().create_timer(2).timeout

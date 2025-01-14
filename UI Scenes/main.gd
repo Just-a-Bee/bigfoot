@@ -66,7 +66,7 @@ func take_picture(viewport, taker):
 	texture = ImageTexture.create_from_image(texture)
 	cam_picture.texture = texture
 	
-	var picture = {"texture" : texture, "taker" : taker, "score" : 0, "strings" : [], "target" : null}
+	var picture = {"texture" : texture, "score" : 0, "strings" : []}
 	# picture has "texture", "score", "strings"
 	score_picture(picture, taker)
 	
@@ -114,6 +114,11 @@ func score_picture(picture, taker):
 		var score = 0
 		score += 1
 		picture["strings"].append("Good: +1")
+		
+		if subject == nessie:
+			score += 3
+			picture["strings"].append("Nessie: +3")
+			nessie.stop_showing()
 		
 		if distance.length() < 5:
 			score += 2

@@ -27,7 +27,6 @@ func _ready():
 func _physics_process(delta):
 	if not active:
 		return
-	
 	# Do player movement
 	var move_axis = get_move_axis()
 	
@@ -54,8 +53,9 @@ func _physics_process(delta):
 	turn_velocity = move_toward(turn_velocity, 0, turn_slowing)
 	
 	var collision = move_and_slide()
-	if collision:
+	if collision or position.y < -7.5:
 		main.toggle_drone()
+		$CrashSound.play()
 	
 	#move the drone AudioStreamPlayer3D to the new position, relative to the player's position
 	$"../../../PlayerViewport/SubViewport/DroneLoopPlayer3D".position = position - $"../../../PlayerViewport/SubViewport/Player".position
