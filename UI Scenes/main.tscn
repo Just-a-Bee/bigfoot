@@ -1,12 +1,18 @@
-[gd_scene load_steps=25 format=3 uid="uid://c1gv7l3uecjlx"]
+[gd_scene load_steps=31 format=3 uid="uid://c1gv7l3uecjlx"]
 
 [ext_resource type="Texture2D" uid="uid://cm162jcpuu572" path="res://icon.svg" id="1_4x1cm"]
 [ext_resource type="Script" path="res://UI Scenes/main.gd" id="1_s1t7p"]
 [ext_resource type="PackedScene" uid="uid://blec0c2uc3qc6" path="res://Actors/drone.tscn" id="2_a8v2p"]
 [ext_resource type="PackedScene" uid="uid://cel6a6pi3ulqk" path="res://Actors/player.tscn" id="2_b2ier"]
 [ext_resource type="AudioStream" uid="uid://ch3b8djrnn5hc" path="res://assets/audio/camera_shutter.wav" id="2_f18r6"]
+[ext_resource type="AudioStream" uid="uid://cmjxf8gtdvewy" path="res://assets/audio/birds-loop.wav" id="3_f4vnn"]
+[ext_resource type="AudioStream" uid="uid://dpg08nuqeqo3v" path="res://assets/audio/drone-loop.wav" id="3_fvq4n"]
+[ext_resource type="Script" path="res://UI Scenes/listener_3d.gd" id="3_uqs0r"]
 [ext_resource type="Texture2D" uid="uid://b87ho3i0lmpon" path="res://assets/droneView.png" id="4_7k487"]
+[ext_resource type="Script" path="res://UI Scenes/drone_loop_player_3d.gd" id="4_xx4wg"]
+[ext_resource type="Script" path="res://UI Scenes/lake_loop_player_3d.gd" id="5_3bsmh"]
 [ext_resource type="PackedScene" uid="uid://kwp0ri53mvdy" path="res://3d/3d_world.tscn" id="5_yoool"]
+[ext_resource type="AudioStream" uid="uid://bdvthaaq14ap0" path="res://assets/audio/lake-loop.wav" id="6_25onh"]
 [ext_resource type="PackedScene" uid="uid://cqgrfks7ph026" path="res://Actors/nessie.tscn" id="6_kq0eh"]
 [ext_resource type="Texture2D" uid="uid://dmkggbhm5l2or" path="res://assets/film.png" id="7_f0e2s"]
 [ext_resource type="Texture2D" uid="uid://bftcgs5617krs" path="res://assets/roll.png" id="8_r1yi5"]
@@ -177,11 +183,52 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="PlayerViewport"]
 handle_input_locally = false
+audio_listener_enable_3d = true
 size = Vector2i(576, 648)
 render_target_update_mode = 4
 
+[node name="Node3D" type="Node3D" parent="PlayerViewport/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.2512, 0, -29.606)
+
+[node name="Listener3D" type="AudioListener3D" parent="PlayerViewport/SubViewport"]
+current = true
+script = ExtResource("3_uqs0r")
+
+[node name="LakeLoopPlayer3D" type="AudioStreamPlayer3D" parent="PlayerViewport/SubViewport"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 58.3673, -12.1801, -15.3776)
+stream = ExtResource("6_25onh")
+attenuation_model = 1
+volume_db = 10.0
+unit_size = 9.0
+autoplay = true
+attenuation_filter_db = -12.0
+doppler_tracking = 2
+script = ExtResource("5_3bsmh")
+world_coord = Vector3(58, -12, -15)
+
+[node name="BirdsLoop3D" type="AudioStreamPlayer3D" parent="PlayerViewport/SubViewport"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 58.3673, -12.1801, -15.3776)
+stream = ExtResource("3_f4vnn")
+volume_db = 10.0
+unit_size = 8.0
+autoplay = true
+panning_strength = 0.1
+attenuation_filter_db = -12.0
+doppler_tracking = 2
+script = ExtResource("5_3bsmh")
+world_coord = Vector3(0, 10, 0)
+
+[node name="DroneLoopPlayer3D" type="AudioStreamPlayer3D" parent="PlayerViewport/SubViewport"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+stream = ExtResource("3_fvq4n")
+attenuation_model = 2
+volume_db = -80.0
+attenuation_filter_db = -12.0
+doppler_tracking = 2
+script = ExtResource("4_xx4wg")
+
 [node name="Player" parent="PlayerViewport/SubViewport" instance=ExtResource("2_b2ier")]
-transform = Transform3D(-0.889161, 0, 0.457595, 0, 1, 0, -0.457595, 0, -0.889161, 4.61985, -1.67261, 16.5402)
+transform = Transform3D(-0.889161, 0, 0.457595, 0, 1, 0, -0.457595, 0, -0.889161, 0, 0, 0)
 
 [node name="DroneViewport" type="SubViewportContainer" parent="."]
 custom_minimum_size = Vector2(576, 648)
@@ -345,6 +392,7 @@ theme_override_font_sizes/font_size = 20
 text = "Take Picture"
 
 [node name="Label3" type="Label" parent="."]
+layout_mode = 0
 offset_left = 146.0
 offset_top = 16.0
 offset_right = 266.0
@@ -353,6 +401,7 @@ theme_override_font_sizes/font_size = 20
 text = "Take Picture"
 
 [node name="Label4" type="Label" parent="."]
+layout_mode = 0
 offset_left = 138.0
 offset_top = 56.0
 offset_right = 339.0

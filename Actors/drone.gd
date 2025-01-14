@@ -20,8 +20,6 @@ var turn_slowing = .5
 
 var turn_velocity = 0 # current turning velocity
 
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -58,6 +56,10 @@ func _physics_process(delta):
 	var collision = move_and_slide()
 	if collision:
 		main.toggle_drone()
+	
+	#move the drone AudioStreamPlayer3D to the new position, relative to the player's position
+	$"../../../PlayerViewport/SubViewport/DroneLoopPlayer3D".position = position - $"../../../PlayerViewport/SubViewport/Player".position
+	$"../../../PlayerViewport/SubViewport/LakeLoopPlayer3D".position = $"../../../PlayerViewport/SubViewport/LakeLoopPlayer3D".world_coord - position
 
 func get_move_axis()->Vector3:
 	var move_axis:Vector3 = Vector3.ZERO
