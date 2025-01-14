@@ -174,7 +174,7 @@ size = Vector2i(576, 648)
 render_target_update_mode = 4
 
 [node name="Player" parent="PlayerViewport/SubViewport" instance=ExtResource("2_b2ier")]
-transform = Transform3D(-0.227926, 0, 0.973678, 0, 1, 0, -0.973678, 0, -0.227926, -1.46886, -1.63228, 26.9013)
+transform = Transform3D(-0.889161, 0, 0.457595, 0, 1, 0, -0.457595, 0, -0.889161, 4.61985, -1.67261, 16.5402)
 
 [node name="DroneViewport" type="SubViewportContainer" parent="."]
 custom_minimum_size = Vector2(576, 648)
@@ -240,28 +240,55 @@ showingPosition = Vector3(56.078, -19, -51.87)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.9886, -9.37773, -40.3373)
 player = NodePath("../../PlayerViewport/SubViewport/Player")
 drone = NodePath("../../DroneViewport/SubViewport/Drone")
-patrol_points = [NodePath("../Patrol1"), NodePath("../Patrol2")]
+patrol_points = [NodePath("../Patrol1"), NodePath("../Patrol2"), NodePath("../Patrol3"), NodePath("../Patrol4"), NodePath("../Patrol5"), NodePath("../Patrol6"), NodePath("../Patrol7"), NodePath("../Patrol8"), NodePath("../Patrol9"), NodePath("../Patrol10"), NodePath("../Patrol11"), NodePath("../Patrol12"), NodePath("../Patrol13"), NodePath("../Patrol14"), NodePath("../Patrol15"), NodePath("../Patrol16")]
 
 [node name="Patrol1" type="Node3D" parent="Terrain"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68, 0, -40)
 
 [node name="Patrol2" type="Node3D" parent="Terrain"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.7218, -13.5741, -34.1755)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.1041, -13.5741, -26.0194)
 
 [node name="Patrol3" type="Node3D" parent="Terrain"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.993, -13.5741, 11.6476)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.4237, -13.5741, 7.5631)
 
 [node name="Patrol4" type="Node3D" parent="Terrain"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.4005, -13.5741, 52.8178)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.5651, -13.3438, 52.9495)
 
 [node name="Patrol5" type="Node3D" parent="Terrain"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.653645, -13.5741, 76.5309)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82.7922, -9.22559, 64.3807)
 
 [node name="Patrol6" type="Node3D" parent="Terrain"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.509, -13.5741, 64.6545)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.2462, -9.22559, 81.2856)
 
 [node name="Patrol7" type="Node3D" parent="Terrain"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.509, -13.5741, 0.975785)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.7585, -13.9212, 82.932)
+
+[node name="Patrol8" type="Node3D" parent="Terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.87308, -13.9212, 86.9534)
+
+[node name="Patrol9" type="Node3D" parent="Terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.2366, -13.9212, 69.8503)
+
+[node name="Patrol10" type="Node3D" parent="Terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.8197, -13.9212, 69.8503)
+
+[node name="Patrol11" type="Node3D" parent="Terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.8197, -13.9212, 25.3008)
+
+[node name="Patrol12" type="Node3D" parent="Terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.4649, -13.9212, 9.38152)
+
+[node name="Patrol13" type="Node3D" parent="Terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.4503, -13.9212, 9.38152)
+
+[node name="Patrol14" type="Node3D" parent="Terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.2632, -13.8943, -9.04878)
+
+[node name="Patrol15" type="Node3D" parent="Terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.11287, -13.8943, -58.2479)
+
+[node name="Patrol16" type="Node3D" parent="Terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.4761, -13.8943, -58.2479)
 
 [node name="Film" type="TextureRect" parent="."]
 layout_mode = 0

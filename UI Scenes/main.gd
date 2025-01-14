@@ -30,7 +30,7 @@ func toggle_drone():
 		drone.active = true
 		player.active = false
 		$DroneOff.hide()
-		drone.position = player.position + Vector3(0,2,0)
+		drone.position = player.position + Vector3(0,10,0)
 		drone.rotation.y = player.rotation.y
 		drone.velocity = Vector3.ZERO
 		drone.show()

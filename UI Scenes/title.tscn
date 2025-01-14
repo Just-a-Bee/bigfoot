@@ -1,37 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bxyvpfbb1wg5o"]
+[gd_scene load_steps=11 format=3 uid="uid://bxyvpfbb1wg5o"]
 
 [ext_resource type="Script" path="res://UI Scenes/title.gd" id="1_mpu04"]
 [ext_resource type="Texture2D" uid="uid://cm162jcpuu572" path="res://icon.svg" id="2_wfquw"]
+[ext_resource type="Texture2D" uid="uid://cfuss21bw7hhw" path="res://assets/bigfoot.png" id="3_6651r"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pu01v"]
 bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="Animation" id="Animation_3jf01"]
-resource_name = "intro"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Panel:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(0, 0, 0, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Panel:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_43a5j"]
 length = 0.001
@@ -59,6 +33,82 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Dossier:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(416, 660)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Okay:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_3jf01"]
+resource_name = "intro"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Dossier:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(416, 660), Vector2(416, 660), Vector2(416, 100)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Okay:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6r8gx"]
 _data = {
@@ -68,6 +118,20 @@ _data = {
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3351j"]
 bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w5e85"]
+bg_color = Color(0.956863, 0.376471, 0.211765, 1)
+border_width_left = 2
+border_width_right = 2
+border_width_bottom = 5
+border_color = Color(0.843137, 0.14902, 0.219608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y87ul"]
+bg_color = Color(0.956863, 0.376471, 0.211765, 1)
+border_width_left = 5
+border_width_right = 5
+border_width_bottom = 12
+border_color = Color(0.843137, 0.14902, 0.219608, 1)
 
 [node name="Title" type="Control"]
 layout_mode = 3
@@ -117,9 +181,9 @@ libraries = {
 [node name="Dossier" type="PanelContainer" parent="."]
 layout_mode = 0
 offset_left = 416.0
-offset_top = 112.0
+offset_top = 660.0
 offset_right = 736.0
-offset_bottom = 512.0
+offset_bottom = 1064.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_3351j")
 
 [node name="MarginContainer" type="MarginContainer" parent="Dossier"]
@@ -142,7 +206,6 @@ fit_content = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Dossier/MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Dossier/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -153,11 +216,31 @@ text = "[u]Appearance[/u]:
 Height: Quite Tall
 Feet: Big
 Hair: Yes
-Bigfoot has been sighted in the area and we need you to investigate. Bring your drone and your camera. He's very elusive but we know you can do the job!
+Bigfoot has been 
+sighted in the area, 
+and we need you to investigate. Bring your drone and your camera. He's very elusive but we know you can do the job!
+If you can get enough pictures of him, maybe the public will finally be convinced he's real.
+Remember that you can't move while piloting your drone, but you can still take pictures. Good Luck!
 "
 fit_content = true
 
-[node name="TextureRect" type="TextureRect" parent="Dossier/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
+[node name="Bigfoot" type="Sprite2D" parent="Dossier/MarginContainer/VBoxContainer/HBoxContainer"]
+position = Vector2(227, 69)
+rotation = 0.0845026
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_6651r")
+
+[node name="Okay" type="Button" parent="."]
+visible = false
+offset_left = 464.0
+offset_top = 536.0
+offset_right = 688.0
+offset_bottom = 608.0
+theme_override_styles/disabled = SubResource("StyleBoxFlat_w5e85")
+theme_override_styles/hover = SubResource("StyleBoxFlat_y87ul")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w5e85")
+theme_override_styles/normal = SubResource("StyleBoxFlat_y87ul")
+text = "Okay"
 
 [connection signal="button_up" from="CenterContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_button_up"]
+[connection signal="button_up" from="Okay" to="." method="_on_okay_button_up"]

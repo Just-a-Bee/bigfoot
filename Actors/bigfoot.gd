@@ -4,7 +4,8 @@ class_name Bigfoot
 @export var player:Node
 @export var drone:Node
 
-var walk_speed = 2
+var slow_walk_speed = 1
+var walk_speed = 2.5
 var run_speed = 8
 var gravity = 3
 var height = 3.5
@@ -56,6 +57,12 @@ func run_away()->Vector3:
 	move_dir = move_dir.normalized() * run_speed
 	return move_dir
 
+func look_around()->Vector3:
+	var move_vector = (last_seen_player_pos - global_position).normalized()
+	move_vector.y = 0
+	move_vector = move_vector * slow_walk_speed
+	return move_vector
+
 func patrol()->Vector3:
 	var patrol_distance = patrol_points[patrol_index].global_position - global_position
 	var patrol_distance2D = Vector3(patrol_distance.x, 0, patrol_distance.z)
@@ -95,25 +102,26 @@ func spot_player_actors(delta):
 	var distance_drone = drone.global_position - global_position
 	var dot_drone = forward_dir.dot(-distance_drone.normalized())
 	
-	var player_seen = false
-	var drone_seen = false
+	var player_seen = 0
+	var drone_seen = 0
 	
 	if distance_player.length() < 30 and dot_player > .6:
-		player_seen = true
+		player_seen += 1
 	if distance_player.length() < 10:
-		player_seen = true
+		player_seen += 1
 	if distance_drone.length() < 30 and dot_drone > .6 and drone.active:
-		drone_seen = true
+		drone_seen += 1
 	if distance_drone.length() < 10 and drone.active:
-		drone_seen = true
+		drone_seen += 1
 	
-	last_seen_player_pos = Vector3.ZERO
+	alertness = move_toward(alertness, 10, (player_seen + drone_seen) * 5 * delta) 
 	
-	if player_seen:
-		last_seen_player_pos += player.global_position
+	if player_seen and not drone_seen:
+		last_seen_player_pos = player.global_position
 		alertness += 5 * delta
-	if drone_seen:
-		last_seen_player_pos += drone.global_position
+	if drone_seen and not player_seen:
+		last_seen_player_pos = drone.global_position
 		alertness += 5 * delta
 	if player_seen and drone_seen:
+		last_seen_player_pos = (player.global_position + drone.global_position)/2
 		last_seen_player_pos = last_seen_player_pos/2 # average them if both seen
