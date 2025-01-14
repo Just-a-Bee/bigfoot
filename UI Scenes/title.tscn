@@ -1,11 +1,28 @@
 [gd_scene load_steps=11 format=3 uid="uid://bxyvpfbb1wg5o"]
 
 [ext_resource type="Script" path="res://UI Scenes/title.gd" id="1_mpu04"]
-[ext_resource type="Texture2D" uid="uid://cm162jcpuu572" path="res://icon.svg" id="2_wfquw"]
+[ext_resource type="Texture2D" uid="uid://dn8uhmea2nrk3" path="res://assets/title.png" id="2_p5w5e"]
 [ext_resource type="Texture2D" uid="uid://cfuss21bw7hhw" path="res://assets/bigfoot.png" id="3_6651r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w5e85"]
+bg_color = Color(0.956863, 0.376471, 0.211765, 1)
+border_width_left = 2
+border_width_right = 2
+border_width_bottom = 5
+border_color = Color(0.843137, 0.14902, 0.219608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y87ul"]
+bg_color = Color(0.956863, 0.376471, 0.211765, 1)
+border_width_left = 5
+border_width_right = 5
+border_width_bottom = 12
+border_color = Color(0.843137, 0.14902, 0.219608, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pu01v"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3351j"]
+bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="Animation" id="Animation_43a5j"]
 length = 0.001
@@ -116,23 +133,6 @@ _data = {
 "intro": SubResource("Animation_3jf01")
 }
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3351j"]
-bg_color = Color(1, 1, 1, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w5e85"]
-bg_color = Color(0.956863, 0.376471, 0.211765, 1)
-border_width_left = 2
-border_width_right = 2
-border_width_bottom = 5
-border_color = Color(0.843137, 0.14902, 0.219608, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y87ul"]
-bg_color = Color(0.956863, 0.376471, 0.211765, 1)
-border_width_left = 5
-border_width_right = 5
-border_width_bottom = 12
-border_color = Color(0.843137, 0.14902, 0.219608, 1)
-
 [node name="Title" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -142,29 +142,39 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mpu04")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 656.0
+[node name="Title" type="Sprite2D" parent="."]
+texture = ExtResource("2_p5w5e")
+centered = false
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(120, 140)
 layout_mode = 2
+offset_left = 448.0
+offset_top = 296.0
+offset_right = 704.0
+offset_bottom = 436.0
 
-[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer"]
+[node name="PlayButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("2_wfquw")
-
-[node name="PlayButton" type="Button" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 0
+theme_override_font_sizes/font_size = 25
+theme_override_styles/disabled = SubResource("StyleBoxFlat_w5e85")
+theme_override_styles/hover = SubResource("StyleBoxFlat_y87ul")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w5e85")
+theme_override_styles/normal = SubResource("StyleBoxFlat_y87ul")
 text = "Play"
 
-[node name="Button2" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="CreditsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "Settings"
-
-[node name="Button3" type="Button" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
-text = "Quit"
+size_flags_vertical = 3
+focus_mode = 0
+theme_override_font_sizes/font_size = 25
+theme_override_styles/disabled = SubResource("StyleBoxFlat_w5e85")
+theme_override_styles/hover = SubResource("StyleBoxFlat_y87ul")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w5e85")
+theme_override_styles/normal = SubResource("StyleBoxFlat_y87ul")
+text = "Credits"
 
 [node name="Panel" type="Panel" parent="."]
 visible = false
@@ -172,11 +182,6 @@ layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_pu01v")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_6r8gx")
-}
 
 [node name="Dossier" type="PanelContainer" parent="."]
 layout_mode = 0
@@ -236,11 +241,17 @@ offset_left = 464.0
 offset_top = 536.0
 offset_right = 688.0
 offset_bottom = 608.0
+focus_mode = 0
 theme_override_styles/disabled = SubResource("StyleBoxFlat_w5e85")
 theme_override_styles/hover = SubResource("StyleBoxFlat_y87ul")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_w5e85")
 theme_override_styles/normal = SubResource("StyleBoxFlat_y87ul")
 text = "Okay"
 
-[connection signal="button_up" from="CenterContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_button_up"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6r8gx")
+}
+
+[connection signal="button_up" from="VBoxContainer/PlayButton" to="." method="_on_play_button_button_up"]
 [connection signal="button_up" from="Okay" to="." method="_on_okay_button_up"]

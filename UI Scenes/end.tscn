@@ -187,9 +187,9 @@ columns = 4
 [node name="AnimationText" type="Label" parent="."]
 layout_mode = 0
 offset_left = 816.0
-offset_top = 545.0
+offset_top = 960.0
 offset_right = 1104.0
-offset_bottom = 646.0
+offset_bottom = 1061.0
 text = "Good: +1
 I like how he's standing: +2
 a
@@ -416,6 +416,7 @@ offset_left = 448.0
 offset_top = 544.0
 offset_right = 744.0
 offset_bottom = 624.0
+focus_mode = 0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_5ciep")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_y0hyu")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5q0bn")
@@ -446,6 +447,7 @@ offset_left = 464.0
 offset_top = 512.0
 offset_right = 688.0
 offset_bottom = 584.0
+focus_mode = 0
 theme_override_styles/disabled = SubResource("StyleBoxFlat_y0hyu")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5q0bn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_y0hyu")
