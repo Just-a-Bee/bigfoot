@@ -17,6 +17,3 @@ func _input(event):
 		if is_main_loaded:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # on escape release mouse
 	
-	if (event is InputEventMouseButton):
-		if event.button_index == 1 and is_main_loaded:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # on click capture

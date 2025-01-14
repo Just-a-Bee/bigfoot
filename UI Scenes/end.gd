@@ -9,8 +9,9 @@ extends Control
 		$PictureLabel5, $PictureLabel6 , $PictureLabel7, $PictureLabel8
 		]
 
-var perfect_score = 10
-var okay_score = 5
+var model_score = 30
+var perfect_score = 15
+var okay_score = 10
 
 
 # Called when the node enters the scene tree for the first time.
@@ -18,6 +19,9 @@ func _ready():
 	MouseMotion.is_main_loaded = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	do_picture_anim()
+	$FileDialog.add_filter("*.png")
+	$FileDialog.add_filter("*.jpeg")
+	$FileDialog.add_filter("*.jpg")
 
 
 func do_picture_anim():
@@ -49,7 +53,9 @@ func do_picture_anim():
 	$Total.text += str(total)
 	$PublishButton.disabled = false
 	
-	if total > perfect_score:
+	if total > model_score:
+		$Newspaper.set_model(highest_picture["texture"])
+	elif total > perfect_score:
 		$Newspaper.set_perfect(highest_picture["texture"])
 	elif total > okay_score:
 		$Newspaper.set_okay(highest_picture["texture"])
@@ -68,3 +74,35 @@ func _on_button_button_up():
 
 func _on_title_button_up():
 	get_tree().change_scene_to_file("res://UI Scenes/title.tscn")
+
+
+func _on_button_1_button_up():
+	save_picture(picture_slots[0])
+func _on_button_2_button_up():
+	save_picture(picture_slots[1])
+func _on_button_3_button_up():
+	save_picture(picture_slots[2])
+func _on_button_4_button_up():
+	save_picture(picture_slots[3])
+func _on_button_5_button_up():
+	save_picture(picture_slots[4])
+func _on_button_6_button_up():
+	save_picture(picture_slots[5])
+func _on_button_7_button_up():
+	save_picture(picture_slots[6])
+func _on_button_8_button_up():
+	save_picture(picture_slots[7])
+
+var save_image = null
+func save_picture(slot):
+	var texture = slot.get_node("Picture").texture
+	save_image = texture.get_image()
+	$FileDialog.current_file = "Bigfoot.png"
+	$FileDialog.show()
+
+func _on_file_dialog_file_selected(path):
+	
+	if path.get_extension() == "png":
+		save_image.save_png(path)
+	elif path.get_extension() == "jpeg" or path.get_extension() == "jpg":
+		save_image.save_jpg(path)

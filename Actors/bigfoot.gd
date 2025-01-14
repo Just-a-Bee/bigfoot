@@ -74,10 +74,13 @@ func change_state(newState):
 	state = newState
 	if newState == states.run:
 		$Model.switch_face(2)
+		$Model.play_anim("run")
 	if newState == states.look:
 		$Model.switch_face(0 + randi_range(0, 1))
+		$Model.play_anim("walk-slow")
 	if newState == states.patrol:
 		$Model.switch_face(3 + randi_range(0,1))
+		$Model.play_anim("walk-normal")
 
 # function to spot the player and drone
 # sets alertness if one is spotted

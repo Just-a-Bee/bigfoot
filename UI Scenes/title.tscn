@@ -1,10 +1,73 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxyvpfbb1wg5o"]
+[gd_scene load_steps=8 format=3 uid="uid://bxyvpfbb1wg5o"]
 
 [ext_resource type="Script" path="res://UI Scenes/title.gd" id="1_mpu04"]
 [ext_resource type="Texture2D" uid="uid://cm162jcpuu572" path="res://icon.svg" id="2_wfquw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pu01v"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_3jf01"]
+resource_name = "intro"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_43a5j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6r8gx"]
+_data = {
+"RESET": SubResource("Animation_43a5j"),
+"intro": SubResource("Animation_3jf01")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3351j"]
+bg_color = Color(1, 1, 1, 1)
 
 [node name="Title" type="Control"]
 layout_mode = 3
@@ -47,5 +110,54 @@ offset_bottom = 648.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_pu01v")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6r8gx")
+}
+
+[node name="Dossier" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 112.0
+offset_right = 736.0
+offset_bottom = 512.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3351j")
+
+[node name="MarginContainer" type="MarginContainer" parent="Dossier"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Dossier/MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Dossier/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[center][font_size=10]The Cryptid Times Internal Doccuments
+[font_size=26]Assignment: BIGFOOT"
+fit_content = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Dossier/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Dossier/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[u]Appearance[/u]:
+Height: Quite Tall
+Feet: Big
+Hair: Yes
+Bigfoot has been sighted in the area and we need you to investigate. Bring your drone and your camera. He's very elusive but we know you can do the job!
+"
+fit_content = true
+
+[node name="TextureRect" type="TextureRect" parent="Dossier/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
 
 [connection signal="button_up" from="CenterContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_button_up"]

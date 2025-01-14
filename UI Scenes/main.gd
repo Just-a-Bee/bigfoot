@@ -45,7 +45,7 @@ func _input(event):
 		toggle_drone()
 		
 		
-	if picture_cooldown.is_stopped() and film_remaining > 0:
+	if picture_cooldown.is_stopped() and film_remaining > 0 and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		if event.is_action_pressed("drone_picture"):
 			if is_drone_active:
 				take_picture(drone_viewport, drone)
@@ -53,6 +53,10 @@ func _input(event):
 		if event.is_action_pressed("player_picture"):
 			take_picture(player_viewport, player)
 			anim.play("player_picture")
+	if (event is InputEventMouseButton):
+		if event.button_index == 1:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # on click capture
+
 
 func take_picture(viewport, taker):
 	camera_sound.play()

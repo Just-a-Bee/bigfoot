@@ -6,6 +6,12 @@ extends PanelContainer
 func _ready():
 	add_date()
 
+func set_model(picture):
+	$MarginContainer/VBoxContainer/ModelTitle.show()
+	$MarginContainer/VBoxContainer/HBoxContainer/ModelBody.show()
+	picture.set_size_override(Vector2i(144, 162))
+	photo.texture = picture
+
 func set_perfect(picture):
 	$MarginContainer/VBoxContainer/PerfectTitle.show()
 	$MarginContainer/VBoxContainer/HBoxContainer/PerfectBody.show()
