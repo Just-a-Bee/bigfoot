@@ -187,9 +187,9 @@ columns = 4
 [node name="AnimationText" type="Label" parent="."]
 layout_mode = 0
 offset_left = 816.0
-offset_top = 545.0
+offset_top = 960.0
 offset_right = 1104.0
-offset_bottom = 609.0
+offset_bottom = 1061.0
 text = "Good: +1
 I like how he's standing: +2
 a

@@ -345,6 +345,7 @@ theme_override_font_sizes/font_size = 20
 text = "Take Picture"
 
 [node name="Label3" type="Label" parent="."]
+layout_mode = 0
 offset_left = 146.0
 offset_top = 16.0
 offset_right = 266.0
@@ -353,6 +354,7 @@ theme_override_font_sizes/font_size = 20
 text = "Take Picture"
 
 [node name="Label4" type="Label" parent="."]
+layout_mode = 0
 offset_left = 138.0
 offset_top = 56.0
 offset_right = 339.0

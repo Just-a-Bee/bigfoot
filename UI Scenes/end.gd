@@ -97,8 +97,13 @@ var save_image = null
 func save_picture(slot):
 	var texture = slot.get_node("Picture").texture
 	save_image = texture.get_image()
-	$FileDialog.current_file = "Bigfoot.png"
-	$FileDialog.show()
+	
+	if OS.has_feature("web"):
+		var buffer = save_image.save_png_to_buffer()
+		JavaScriptBridge.download_buffer(buffer, "%s.png" % "bigfoot", "image/png")
+	else:
+		$FileDialog.current_file = "Bigfoot.png"
+		$FileDialog.show()
 
 func _on_file_dialog_file_selected(path):
 	
