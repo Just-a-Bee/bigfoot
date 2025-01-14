@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cel6a6pi3ulqk"]
+[gd_scene load_steps=5 format=3 uid="uid://cel6a6pi3ulqk"]
 
 [ext_resource type="Script" path="res://Actors/player.gd" id="1_id402"]
 [ext_resource type="Texture2D" uid="uid://cm162jcpuu572" path="res://icon.svg" id="2_wnu48"]
+[ext_resource type="PackedScene" uid="uid://chr5puodbpv17" path="res://3d/models/player.glb" id="3_kt6tw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gmwvb"]
 
@@ -17,7 +18,11 @@ current = true
 shape = SubResource("CapsuleShape3D_gmwvb")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
+visible = false
 texture = ExtResource("2_wnu48")
+
+[node name="player" parent="." instance=ExtResource("3_kt6tw")]
+transform = Transform3D(0.29, 0, 0, 0, 0.29, 0, 0, 0, 0.29, 0, -0.77, 0)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
