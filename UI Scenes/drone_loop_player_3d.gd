@@ -7,9 +7,9 @@ var voltween
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	volume_db = -80
-
-func _process(delta:float) -> void:
-	print(volume_db)
+#
+#func _process(delta:float) -> void:
+	#print(volume_db)
 
 func start() ->void:
 	voltween = get_tree().create_tween()
