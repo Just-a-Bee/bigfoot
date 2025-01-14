@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://bxyvpfbb1wg5o"]
+[gd_scene load_steps=13 format=3 uid="uid://bxyvpfbb1wg5o"]
 
 [ext_resource type="Script" path="res://UI Scenes/title.gd" id="1_mpu04"]
 [ext_resource type="Texture2D" uid="uid://dn8uhmea2nrk3" path="res://assets/title.png" id="2_p5w5e"]
 [ext_resource type="Texture2D" uid="uid://cfuss21bw7hhw" path="res://assets/bigfoot.png" id="3_6651r"]
 [ext_resource type="Texture2D" uid="uid://dey2n88ixstnn" path="res://assets/title2.png" id="3_k3kbx"]
+[ext_resource type="AudioStream" uid="uid://c4fjg7f4epjkp" path="res://assets/audio/title-theme.wav" id="5_f357s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w5e85"]
 bg_color = Color(0.956863, 0.376471, 0.211765, 1)
@@ -298,6 +299,7 @@ libraries = {
 autostart = true
 
 [node name="TitleMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_f357s")
 autoplay = true
 
 [connection signal="button_up" from="PlayButton" to="." method="_on_play_button_button_up"]
