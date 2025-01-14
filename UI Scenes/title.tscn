@@ -200,7 +200,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 bbcode_enabled = true
-text = "[center][font_size=10]The Cryptid Times Internal Doccuments
+text = "[center][font_size=10]The Cryptid Times Internal Documents
 [font_size=26]Assignment: BIGFOOT"
 fit_content = true
 
@@ -219,7 +219,7 @@ Hair: Yes
 Bigfoot has been 
 sighted in the area, 
 and we need you to investigate. Bring your drone and your camera. He's very elusive but we know you can do the job!
-If you can get enough pictures of him, maybe the public will finally be convinced he's real.
+The budget's tight this month, so we can only afford to send you with 8 frames of film. Use them wisely. 
 Remember that you can't move while piloting your drone, but you can still take pictures. Good Luck!
 "
 fit_content = true

@@ -1,6 +1,8 @@
 extends CharacterBody3D
 class_name Bigfoot
 
+@onready var rayCasts = [$Ray1, $Ray2, $Ray3, $Ray4, $Ray5,$Ray6, $Ray7, $Ray8]
+
 @export var player:Node
 @export var drone:Node
 
@@ -24,9 +26,18 @@ enum states {
 }
 var state = states.patrol
 
+func _ready():
+	change_state(states.patrol)
+
 func _physics_process(delta):
+	
+	if global_position.y < -10:
+		position = patrol_points[patrol_index].global_position
+		print("Bigfoot fell out")
+	
 	alertness = move_toward(alertness, 0, delta) # decrement alertness
 	spot_player_actors(delta) # try to spot the player
+	
 	var move_vector = Vector3.ZERO # direction to move horizontally in
 	
 	
@@ -52,7 +63,19 @@ func _physics_process(delta):
 	move_and_slide()
 
 func run_away()->Vector3:
-	var move_dir = (global_position - last_seen_player_pos)
+	var away_player_dir = (global_position - last_seen_player_pos).normalized()
+	var away_wall_dir = Vector3.ZERO
+	for r in rayCasts:
+		if r.is_colliding():
+			var wall_distance = global_position - r.get_collision_point()
+			wall_distance.y = 0
+			print(1-wall_distance.length()/10)
+			away_wall_dir += (wall_distance).normalized() * (1-wall_distance.length()/10)
+			
+	
+	
+	var move_dir = away_player_dir + away_wall_dir
+	
 	move_dir.y = 0
 	move_dir = move_dir.normalized() * run_speed
 	return move_dir
@@ -88,6 +111,8 @@ func change_state(newState):
 	if newState == states.patrol:
 		$Model.switch_face(3 + randi_range(0,1))
 		$Model.play_anim("walk-normal")
+		#var closestPoint = patrol_points[0]
+		# pick closest point to go to?
 
 # function to spot the player and drone
 # sets alertness if one is spotted

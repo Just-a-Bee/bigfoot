@@ -50,6 +50,8 @@ func _physics_process(delta):
 	
 	# Other forces
 	velocity.y = move_toward(velocity.y, -vertical_max, gravity * delta) # Do gravity
+	
+	
 	velocity -= velocity2D.normalized() * air_resistance * delta
 	if is_on_floor():
 		velocity -= velocity2D.normalized() * floor_resistance * delta

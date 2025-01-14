@@ -190,25 +190,28 @@ shadow_mesh = SubResource("ArrayMesh_37vp3")
 
 [node name="col-lake-water" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.9508, -11.6901, -39.9477)
-collision_layer = 2
+collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="col-lake-water"]
 shape = SubResource("ConvexPolygonShape3D_aytka")
 
 [node name="col-tent" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.16891, 0.689825, 7.01972)
+collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="col-tent"]
 shape = SubResource("ConvexPolygonShape3D_7bhfe")
 
 [node name="col-table" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.61202, 1.25746, 15.2067)
+collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="col-table"]
 shape = SubResource("ConvexPolygonShape3D_gqs24")
 
 [node name="col-cabin" type="StaticBody3D" parent="."]
 transform = Transform3D(0.58117, -0.00970405, 0.813724, 0.0247467, 0.999677, -0.00575273, -0.813406, 0.0234803, 0.581223, -75.2737, 8.99401, -44.0099)
+collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="col-cabin"]
 shape = SubResource("ConvexPolygonShape3D_baw37")
@@ -220,6 +223,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.415, -0.41, 0.217)
 shape = SubResource("ConcavePolygonShape3D_1ivhh")
 
 [node name="boundary1" type="StaticBody3D" parent="."]
+collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="boundary1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.2638, 99.6663)
@@ -227,6 +231,7 @@ shape = SubResource("BoxShape3D_0ohpi")
 
 [node name="boundary2" type="StaticBody3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="boundary2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.2638, 99.6663)
@@ -234,6 +239,7 @@ shape = SubResource("BoxShape3D_0ohpi")
 
 [node name="boundary3" type="StaticBody3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="boundary3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.2638, 99.6663)
@@ -241,6 +247,7 @@ shape = SubResource("BoxShape3D_0ohpi")
 
 [node name="boundary4" type="StaticBody3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="boundary4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.2638, 99.6663)

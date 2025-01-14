@@ -68,6 +68,12 @@ toggle_drone={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="Actors"
+3d_physics/layer_2="Walls"
+3d_physics/layer_3="Water Barrier"
+
 [rendering]
 
 environment/defaults/default_clear_color=Color(0.129412, 0.631373, 0.47451, 1)

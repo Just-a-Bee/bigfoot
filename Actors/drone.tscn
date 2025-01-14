@@ -8,6 +8,7 @@ radius = 0.175472
 height = 0.644488
 
 [node name="Drone" type="CharacterBody3D"]
+collision_mask = 3
 script = ExtResource("1_liokq")
 
 [node name="drone" parent="." instance=ExtResource("2_7ow30")]
