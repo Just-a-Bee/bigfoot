@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c1gv7l3uecjlx"]
+[gd_scene load_steps=25 format=3 uid="uid://c1gv7l3uecjlx"]
 
 [ext_resource type="Texture2D" uid="uid://cm162jcpuu572" path="res://icon.svg" id="1_4x1cm"]
 [ext_resource type="Script" path="res://UI Scenes/main.gd" id="1_s1t7p"]
@@ -147,6 +147,13 @@ _data = {
 "drone_picture": SubResource("Animation_21thn"),
 "player_picture": SubResource("Animation_uapu7")
 }
+
+[sub_resource type="Gradient" id="Gradient_c34tu"]
+offsets = PackedFloat32Array(0, 0.735211, 1)
+colors = PackedColorArray(0, 0, 0, 0.85098, 0, 0, 0, 0.72549, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lveo4"]
+gradient = SubResource("Gradient_c34tu")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtt6p"]
 bg_color = Color(0, 0, 0, 1)
@@ -310,58 +317,69 @@ texture = ExtResource("8_r1yi5")
 [node name="EndTimer" type="Timer" parent="."]
 wait_time = 5.0
 
+[node name="Box" type="Sprite2D" parent="."]
+position = Vector2(348, 8.00001)
+rotation = 1.5708
+scale = Vector2(0.463219, 340)
+texture = SubResource("GradientTexture1D_lveo4")
+centered = false
+
+[node name="Box2" type="Sprite2D" parent="."]
+position = Vector2(1036.32, 81.4181)
+rotation = 1.5708
+scale = Vector2(0.573579, 216.645)
+texture = SubResource("GradientTexture1D_lveo4")
+
 [node name="Spacebar" type="Sprite2D" parent="."]
-position = Vector2(688, 72)
+position = Vector2(74, 72)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("12_ghth3")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 744.0
-offset_top = 56.0
-offset_right = 864.0
-offset_bottom = 84.0
+offset_left = 1008.0
+offset_top = 24.0
+offset_right = 1128.0
+offset_bottom = 52.0
 theme_override_font_sizes/font_size = 20
 text = "Take Picture"
 
 [node name="Label3" type="Label" parent="."]
-layout_mode = 0
-offset_left = 80.0
-offset_top = 32.0
-offset_right = 200.0
-offset_bottom = 60.0
+offset_left = 146.0
+offset_top = 16.0
+offset_right = 266.0
+offset_bottom = 44.0
 theme_override_font_sizes/font_size = 20
 text = "Take Picture"
 
 [node name="Label4" type="Label" parent="."]
-layout_mode = 0
-offset_left = 80.0
-offset_top = 88.0
-offset_right = 200.0
-offset_bottom = 116.0
+offset_left = 138.0
+offset_top = 56.0
+offset_right = 339.0
+offset_bottom = 84.0
 theme_override_font_sizes/font_size = 20
 text = "Launch/Recall Drone"
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 0
-offset_left = 712.0
-offset_top = 88.0
-offset_right = 832.0
-offset_bottom = 116.0
+offset_left = 1048.0
+offset_top = 72.0
+offset_right = 1168.0
+offset_bottom = 100.0
 theme_override_font_sizes/font_size = 20
 text = "Fly Up"
 
 [node name="Shift" type="Sprite2D" parent="."]
-position = Vector2(672, 104)
+position = Vector2(1000, 88)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("13_ae4pl")
 
 [node name="LeftMouse" type="Sprite2D" parent="."]
-position = Vector2(56, 48)
+position = Vector2(114, 32)
 texture = ExtResource("14_7ev2a")
 
 [node name="RightMouse" type="Sprite2D" parent="."]
-position = Vector2(56, 104)
+position = Vector2(968, 40)
 texture = ExtResource("15_o13eg")
 
 [node name="DroneOff" type="Panel" parent="."]
