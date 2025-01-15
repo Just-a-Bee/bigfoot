@@ -337,7 +337,7 @@ volume_db = 3.0
 unit_size = 2.0
 
 [node name="Player" parent="PlayerViewport/SubViewport" instance=ExtResource("2_b2ier")]
-transform = Transform3D(-0.889161, 0, 0.457595, 0, 1, 0, -0.457595, 0, -0.889161, 0, 0, 0)
+transform = Transform3D(0.70147, 0, 0.7127, 0, 1, 0, -0.7127, 0, 0.70147, 3.72894, -2.11424, 21.3317)
 
 [node name="DroneViewport" type="SubViewportContainer" parent="."]
 custom_minimum_size = Vector2(576, 648)
