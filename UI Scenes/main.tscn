@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://c1gv7l3uecjlx"]
+[gd_scene load_steps=56 format=3 uid="uid://c1gv7l3uecjlx"]
 
 [ext_resource type="Texture2D" uid="uid://cm162jcpuu572" path="res://icon.svg" id="1_4x1cm"]
 [ext_resource type="Script" path="res://UI Scenes/main.gd" id="1_s1t7p"]
@@ -31,6 +31,11 @@
 [ext_resource type="Texture2D" uid="uid://dceusfcutapev" path="res://assets/left_mouse.png" id="14_7ev2a"]
 [ext_resource type="AudioStream" uid="uid://d3o5qmxgoymfk" path="res://assets/audio/bigfoot7.wav" id="14_8yddi"]
 [ext_resource type="Texture2D" uid="uid://blgqwi1sw6s7" path="res://assets/right_mouse.png" id="15_o13eg"]
+[ext_resource type="AudioStream" uid="uid://bkji17wibf0cx" path="res://assets/audio/footsteps/footsteps-6.wav" id="16_d6bgw"]
+[ext_resource type="AudioStream" uid="uid://4c8rubdvksh0" path="res://assets/audio/footsteps/footsteps-8.wav" id="17_tcw07"]
+[ext_resource type="AudioStream" uid="uid://dwm7abtcu7jcg" path="res://assets/audio/footsteps/footsteps-10.wav" id="18_prrqt"]
+[ext_resource type="AudioStream" uid="uid://ca0nquee0x7oi" path="res://assets/audio/footsteps/footsteps-12.wav" id="19_euafo"]
+[ext_resource type="AudioStream" uid="uid://cugerqb8tsah6" path="res://assets/audio/footsteps/footsteps-14.wav" id="20_hkb58"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_o8mgx"]
 streams_count = 7
@@ -41,6 +46,14 @@ stream_3/stream = ExtResource("11_lioq7")
 stream_4/stream = ExtResource("12_lwe6m")
 stream_5/stream = ExtResource("13_vrtd6")
 stream_6/stream = ExtResource("14_8yddi")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3jp7y"]
+streams_count = 5
+stream_0/stream = ExtResource("16_d6bgw")
+stream_1/stream = ExtResource("17_tcw07")
+stream_2/stream = ExtResource("18_prrqt")
+stream_3/stream = ExtResource("19_euafo")
+stream_4/stream = ExtResource("20_hkb58")
 
 [sub_resource type="Gradient" id="Gradient_jlgqq"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -317,6 +330,9 @@ script = ExtResource("8_au0gq")
 bigfoot = NodePath("../../../Terrain/Bigfoot")
 player = NodePath("../Player")
 drone = NodePath("../../../DroneViewport/SubViewport/Drone")
+
+[node name="BigfootFootsteps" type="AudioStreamPlayer3D" parent="PlayerViewport/SubViewport/BigfootAudio"]
+stream = SubResource("AudioStreamRandomizer_3jp7y")
 
 [node name="Player" parent="PlayerViewport/SubViewport" instance=ExtResource("2_b2ier")]
 transform = Transform3D(-0.889161, 0, 0.457595, 0, 1, 0, -0.457595, 0, -0.889161, 0, 0, 0)

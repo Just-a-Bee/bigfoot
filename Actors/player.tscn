@@ -1,10 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://cel6a6pi3ulqk"]
+[gd_scene load_steps=15 format=3 uid="uid://cel6a6pi3ulqk"]
 
 [ext_resource type="Script" path="res://Actors/player.gd" id="1_id402"]
 [ext_resource type="Texture2D" uid="uid://cm162jcpuu572" path="res://icon.svg" id="2_wnu48"]
 [ext_resource type="PackedScene" uid="uid://chr5puodbpv17" path="res://3d/models/player.glb" id="3_kt6tw"]
+[ext_resource type="AudioStream" uid="uid://67521h75j7dp" path="res://assets/audio/footsteps/footsteps-1.wav" id="4_knmbr"]
+[ext_resource type="AudioStream" uid="uid://cpuyq4ihpqvo5" path="res://assets/audio/footsteps/footsteps-2.wav" id="5_wwa7q"]
+[ext_resource type="AudioStream" uid="uid://4ed0t48rbgqt" path="res://assets/audio/footsteps/footsteps-3.wav" id="6_xqhm6"]
+[ext_resource type="AudioStream" uid="uid://8b80ao4ghnqu" path="res://assets/audio/footsteps/footsteps-4.wav" id="7_o4phe"]
+[ext_resource type="AudioStream" uid="uid://c3ysic8vxoaqu" path="res://assets/audio/footsteps/footsteps-5.wav" id="8_d3dki"]
+[ext_resource type="AudioStream" uid="uid://cvhbg0gb48xnk" path="res://assets/audio/footsteps/footsteps-13.wav" id="9_jwkhx"]
+[ext_resource type="AudioStream" uid="uid://prj1kh0l878y" path="res://assets/audio/footsteps/footsteps-7.wav" id="10_q0o20"]
+[ext_resource type="AudioStream" uid="uid://4c8rubdvksh0" path="res://assets/audio/footsteps/footsteps-8.wav" id="11_oe6vq"]
+[ext_resource type="AudioStream" uid="uid://cp4mty5kfbsjj" path="res://assets/audio/footsteps/footsteps-9.wav" id="12_0x0q2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gmwvb"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_tw3sl"]
+streams_count = 9
+stream_0/stream = ExtResource("4_knmbr")
+stream_1/stream = ExtResource("5_wwa7q")
+stream_2/stream = ExtResource("6_xqhm6")
+stream_3/stream = ExtResource("7_o4phe")
+stream_4/stream = ExtResource("8_d3dki")
+stream_5/stream = ExtResource("9_jwkhx")
+stream_6/stream = ExtResource("10_q0o20")
+stream_7/stream = ExtResource("11_oe6vq")
+stream_8/stream = ExtResource("12_0x0q2")
 
 [node name="Player" type="CharacterBody3D"]
 collision_mask = 7
@@ -25,8 +46,9 @@ texture = ExtResource("2_wnu48")
 transform = Transform3D(0.29, 0, 0, 0, 0.29, 0, 0, 0, 0.29, 0, -0.77, 0)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_tw3sl")
 
 [node name="FootstepTimer" type="Timer" parent="."]
-wait_time = 0.75
+wait_time = 0.6
 
 [connection signal="timeout" from="FootstepTimer" to="." method="_on_footstep_timer_timeout"]
