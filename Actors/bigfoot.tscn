@@ -9,6 +9,7 @@ radius = 0.862838
 height = 5.12771
 
 [node name="Bigfoot" type="CharacterBody3D"]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
 collision_mask = 7
 script = ExtResource("2_vbusl")
 
