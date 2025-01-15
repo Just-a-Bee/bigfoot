@@ -27,6 +27,7 @@ func _ready():
 func do_picture_anim():
 	var total = 0
 	var highest_picture = GameData.pictures[0]
+	var lowest_picture = GameData.pictures[0]
 	for i in 8:
 		var picture = GameData.pictures[i]
 		var slot = picture_slots[i]
@@ -45,6 +46,8 @@ func do_picture_anim():
 			await get_tree().create_timer(.2).timeout
 		
 		await get_tree().create_timer(2).timeout
+		animationPlayer.play("hide_picture")
+		await animationPlayer.animation_finished
 		
 		slot.text += str(picture["score"])
 		slot.get_node("Picture").texture = picture["texture"]
@@ -53,7 +56,9 @@ func do_picture_anim():
 		# update highest picture
 		if picture["score"] > highest_picture["score"]:
 			highest_picture = picture
-		
+		elif picture["score"] < lowest_picture["score"]:
+			lowest_picture = picture
+	
 	$Total.text += str(total)
 	$PublishButton.disabled = false
 	
@@ -64,7 +69,7 @@ func do_picture_anim():
 	elif total > okay_score:
 		$Newspaper.set_okay(highest_picture["texture"])
 	else:
-		$Newspaper.set_bad(highest_picture["texture"])
+		$Newspaper.set_bad(lowest_picture["texture"])
 	
 	
 	
