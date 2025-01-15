@@ -7,7 +7,7 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_yu88a")
-shader_parameter/col_dither_scale = 3.0
+shader_parameter/col_dither_scale = 2.0
 shader_parameter/alpha_dither_scale = null
 shader_parameter/shadow_col = Color(0, 0, 0, 1)
 shader_parameter/base_col = Color(0.956863, 0.376471, 0.211765, 1)
