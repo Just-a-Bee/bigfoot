@@ -37,7 +37,7 @@ void sky() {
 		COLOR = col2;
 		if(choice2)
 		COLOR = col3;
-		
+
 
     }
 
