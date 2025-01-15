@@ -33,6 +33,8 @@ func _physics_process(_delta):
 		if !$"../../../DroneViewport/SubViewport/Drone".active:
 			$"../LakeLoopPlayer3D".position = $"../LakeLoopPlayer3D".world_coord - position
 			$"../LakeLoopPlayer3D".position = $"../LakeLoopPlayer3D".world_coord - position
+	else:
+		$FootstepTimer.stop()
 
 func get_input_axis():
 	var axis = Vector3.ZERO

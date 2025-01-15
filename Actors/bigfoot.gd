@@ -73,7 +73,6 @@ func run_away()->Vector3:
 		if r.is_colliding():
 			var wall_distance = global_position - r.get_collision_point()
 			wall_distance.y = 0
-			print(1-wall_distance.length()/10)
 			away_wall_dir += (wall_distance).normalized() * (1-wall_distance.length()/10)
 			
 	
@@ -90,6 +89,7 @@ func look_around()->Vector3:
 	move_vector.y = 0
 	move_vector = move_vector * slow_walk_speed
 	
+	print(move_vector)
 	return move_vector
 
 func patrol()->Vector3:
@@ -118,16 +118,15 @@ func change_state(newState):
 	if newState == states.patrol:
 		$Model.switch_face(3 + randi_range(0,1))
 		$Model.play_anim("walk-normal")
-		var position2D = Vector3(global_position.x, 0, global_pos.z)
+		var position2D = Vector3(global_position.x, 0, global_position.z)
 		var closest_point = patrol_points[0]
-		var closest_dist = global_position - closest_point.global_position
+		var closest_dist = position2D - closest_point.global_position
 		for point in patrol_points:
-			var point_dist = global_position - point.global_position
-			if point_dist < closest_dist:
+			var point_dist = position2D - point.global_position
+			if point_dist.length() < closest_dist.length():
 				closest_point = point
 				closest_dist = point_dist
 		patrol_index = patrol_points.find(closest_point)
-		print(patrol_index)
 
 # function to spot the player and drone
 # sets alertness if one is spotted
