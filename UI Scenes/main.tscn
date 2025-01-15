@@ -384,7 +384,7 @@ offset_bottom = 648.0
 texture = SubResource("GradientTexture1D_mbh72")
 
 [node name="PictureCooldown" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 2.0
 one_shot = true
 
 [node name="PictureAnim" type="AnimationPlayer" parent="."]

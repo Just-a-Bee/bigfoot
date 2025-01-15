@@ -43,9 +43,9 @@ func do_picture_anim():
 				$BadScoring.play()
 			else:
 				$GoodScoring.play()
-			#await get_tree().create_timer(.2).timeout
+			await get_tree().create_timer(.2).timeout
 		
-		#await get_tree().create_timer(2).timeout
+		await get_tree().create_timer(2).timeout
 		animationPlayer.play("hide_picture")
 		await animationPlayer.animation_finished
 		
