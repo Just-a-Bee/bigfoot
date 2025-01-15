@@ -20,6 +20,7 @@ var film_remaining = 8
 @onready var end_timer = $EndTimer
 
 func _ready():
+	GameData.pictures.clear()
 	MouseMotion.is_main_loaded = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	toggle_drone()

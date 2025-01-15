@@ -454,7 +454,7 @@ layout_mode = 0
 offset_left = 360.0
 offset_top = 664.0
 offset_right = 792.0
-offset_bottom = 1048.0
+offset_bottom = 2185.0
 
 [node name="Title" type="Button" parent="."]
 visible = false
