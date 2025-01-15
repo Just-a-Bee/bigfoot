@@ -7,7 +7,7 @@ class_name Bigfoot
 @export var drone:Node
 @export var yellSound:Node
 
-var slow_walk_speed = 1
+var slow_walk_speed = 2.5
 var walk_speed = 2.5
 var run_speed = 12
 var gravity = 3
@@ -85,9 +85,11 @@ func run_away()->Vector3:
 	return move_dir
 
 func look_around()->Vector3:
-	var move_vector = (last_seen_player_pos - global_position).normalized()
+	var away_player_dir = (global_position - last_seen_player_pos).normalized()
+	var move_vector = -away_player_dir
 	move_vector.y = 0
 	move_vector = move_vector * slow_walk_speed
+	
 	return move_vector
 
 func patrol()->Vector3:
@@ -109,14 +111,23 @@ func change_state(newState):
 	if newState == states.run:
 		$Model.switch_face(2)
 		$Model.play_anim("run")
+		alertness = 10
 	if newState == states.look:
 		$Model.switch_face(0 + randi_range(0, 1))
 		$Model.play_anim("walk-slow")
 	if newState == states.patrol:
 		$Model.switch_face(3 + randi_range(0,1))
 		$Model.play_anim("walk-normal")
-		#var closestPoint = patrol_points[0]
-		# pick closest point to go to?
+		var position2D = Vector3(global_position.x, 0, global_pos.z)
+		var closest_point = patrol_points[0]
+		var closest_dist = global_position - closest_point.global_position
+		for point in patrol_points:
+			var point_dist = global_position - point.global_position
+			if point_dist < closest_dist:
+				closest_point = point
+				closest_dist = point_dist
+		patrol_index = patrol_points.find(closest_point)
+		print(patrol_index)
 
 # function to spot the player and drone
 # sets alertness if one is spotted
