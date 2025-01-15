@@ -1,10 +1,11 @@
-[gd_scene load_steps=56 format=3 uid="uid://c1gv7l3uecjlx"]
+[gd_scene load_steps=57 format=3 uid="uid://c1gv7l3uecjlx"]
 
 [ext_resource type="Texture2D" uid="uid://cm162jcpuu572" path="res://icon.svg" id="1_4x1cm"]
 [ext_resource type="Script" path="res://UI Scenes/main.gd" id="1_s1t7p"]
 [ext_resource type="PackedScene" uid="uid://blec0c2uc3qc6" path="res://Actors/drone.tscn" id="2_a8v2p"]
 [ext_resource type="PackedScene" uid="uid://cel6a6pi3ulqk" path="res://Actors/player.tscn" id="2_b2ier"]
 [ext_resource type="AudioStream" uid="uid://ch3b8djrnn5hc" path="res://assets/audio/camera_shutter.wav" id="2_f18r6"]
+[ext_resource type="AudioStream" uid="uid://bfjcmr7wvyq4m" path="res://assets/audio/wind-loop.wav" id="2_prc32"]
 [ext_resource type="AudioStream" uid="uid://cmjxf8gtdvewy" path="res://assets/audio/birds-loop.wav" id="3_f4vnn"]
 [ext_resource type="AudioStream" uid="uid://dpg08nuqeqo3v" path="res://assets/audio/drone-loop.wav" id="3_fvq4n"]
 [ext_resource type="Texture2D" uid="uid://b87ho3i0lmpon" path="res://assets/droneView.png" id="4_7k487"]
@@ -267,6 +268,11 @@ texture_filter = 1
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_s1t7p")
+
+[node name="WindSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_prc32")
+volume_db = 5.0
+autoplay = true
 
 [node name="CameraSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_f18r6")

@@ -69,8 +69,8 @@ func _physics_process(delta):
 	global_position.y = min(global_position.y, 40)
 	
 	#move the drone AudioStreamPlayer3D to the new position, relative to the player's position
-	$"../../../PlayerViewport/SubViewport/DroneLoopPlayer3D".position = position - $"../../../PlayerViewport/SubViewport/Player".position
-	$"../../../PlayerViewport/SubViewport/LakeLoopPlayer3D".position = $"../../../PlayerViewport/SubViewport/LakeLoopPlayer3D".world_coord - position
+	$"../../../PlayerViewport/SubViewport/DroneLoopPlayer3D".position = (position - $"../../../PlayerViewport/SubViewport/Player".position).rotated(Vector3(0,1,0),$"../../../PlayerViewport/SubViewport/Player".rotation.y)
+	$"../../../PlayerViewport/SubViewport/LakeLoopPlayer3D".position = ($"../../../PlayerViewport/SubViewport/LakeLoopPlayer3D".world_coord - position).rotated(Vector3(0,1,0),rotation.y)
 
 func get_move_axis()->Vector3:
 	var move_axis:Vector3 = Vector3.ZERO
