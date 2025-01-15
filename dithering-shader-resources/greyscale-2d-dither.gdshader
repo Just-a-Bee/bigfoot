@@ -2,28 +2,6 @@ shader_type canvas_item;
 
 uniform sampler2D dither_texture;
 
-
-
-
-uniform float col_dither_scale : hint_range(1.0, 15.0, 1.0);
-uniform float alpha_dither_scale : hint_range(1.0, 15.0, 1.0);
-
-uniform sampler2D alpha_map;
-uniform sampler2D col_map;
-uniform sampler2D normal_map;
-
-uniform vec3 shadow_col : source_color;
-uniform vec3 base_col : source_color;
-uniform vec3 highlight_col : source_color;
-
-uniform float exposure;
-uniform float lighten;
-uniform float alpha_thresh : hint_range(0.0, 1.0, 0.02);
-uniform float shadow_thresh : hint_range(0.0, 1.0, 0.02);
-uniform float highlight_thresh : hint_range(0.0, 1.0, 0.02);
-uniform vec3 light_dir;
-
-
 void vertex() {
 }
 

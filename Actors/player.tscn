@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://cp4mty5kfbsjj" path="res://assets/audio/footsteps/footsteps-9.wav" id="12_0x0q2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gmwvb"]
+height = 1.5391
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_tw3sl"]
 streams_count = 9
@@ -36,6 +37,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.502179, -0.511992)
 current = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0212444, -0.0880126)
 shape = SubResource("CapsuleShape3D_gmwvb")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]

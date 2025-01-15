@@ -200,17 +200,6 @@ bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8o17x"]
 shader = ExtResource("9_wb8mv")
-shader_parameter/col_dither_scale = null
-shader_parameter/alpha_dither_scale = null
-shader_parameter/shadow_col = null
-shader_parameter/base_col = null
-shader_parameter/highlight_col = null
-shader_parameter/exposure = null
-shader_parameter/lighten = null
-shader_parameter/alpha_thresh = null
-shader_parameter/shadow_thresh = null
-shader_parameter/highlight_thresh = null
-shader_parameter/light_dir = null
 shader_parameter/dither_texture = ExtResource("10_ilt2p")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6hsnh"]
