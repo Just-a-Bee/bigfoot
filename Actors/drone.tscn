@@ -25,3 +25,4 @@ shape = SubResource("CapsuleShape3D_puvye")
 
 [node name="CrashSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_xgwsv")
+volume_db = -2.0

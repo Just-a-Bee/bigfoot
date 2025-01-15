@@ -5,19 +5,19 @@
 [ext_resource type="Script" path="res://Actors/bigfoot_model.gd" id="3_e23al"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jjxfi"]
-radius = 0.65
-height = 3.5
+radius = 0.862838
+height = 5.12771
 
 [node name="Bigfoot" type="CharacterBody3D"]
 collision_mask = 7
 script = ExtResource("2_vbusl")
 
 [node name="Model" parent="." instance=ExtResource("1_arj4o")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
 script = ExtResource("3_e23al")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.74329, 0)
 shape = SubResource("CapsuleShape3D_jjxfi")
 
 [node name="Ray1" type="RayCast3D" parent="."]
