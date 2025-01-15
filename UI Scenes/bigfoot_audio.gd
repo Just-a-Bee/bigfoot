@@ -13,4 +13,6 @@ func _process(delta):
 			listener = drone
 	
 	position = bigfoot.global_position - listener.global_position
+	print(bigfoot.global_position - position)
+	#print(position)
 	

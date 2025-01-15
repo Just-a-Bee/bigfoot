@@ -6,12 +6,16 @@ class_name Bigfoot
 @export var player:Node
 @export var drone:Node
 @export var yellSound:Node
+@export var stepSound:Node
 
-var slow_walk_speed = 2.5
+var slow_walk_speed = 2
 var walk_speed = 2.5
 var run_speed = 12
 var gravity = 3
 var height = 3.5
+
+var footstepTime = 0
+var footstepMax = 3
 
 var last_seen_player_pos:Vector3 = Vector3.ZERO
 var alertness:float = 0
@@ -53,7 +57,7 @@ func _physics_process(delta):
 	elif alertness > 2:
 		if state != states.look:
 			change_state(states.look)
-		pass # do looking around
+		look_around()
 	else:
 		if state != states.patrol:
 			change_state(states.patrol)
@@ -61,6 +65,14 @@ func _physics_process(delta):
 	
 	# generate velocity, look in move direction, apply gravity, move
 	velocity = move_vector
+	
+	footstepTime += move_vector.length() * delta
+	if footstepTime > footstepMax:
+		footstepTime -= footstepMax
+		stepSound.play()
+	
+	
+	
 	if move_vector.length() > 0:
 		look_at(global_position - move_vector)
 	velocity.y -= gravity
@@ -89,7 +101,6 @@ func look_around()->Vector3:
 	move_vector.y = 0
 	move_vector = move_vector * slow_walk_speed
 	
-	print(move_vector)
 	return move_vector
 
 func patrol()->Vector3:
