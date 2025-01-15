@@ -11,8 +11,7 @@ func _process(_delta):
 		var drone_dist = bigfoot.global_position - drone.global_position
 		if drone_dist.length() < player_dist.length():
 			listener = drone
-			print("drone listening")
 	
-	position = bigfoot.global_position - listener.global_position
+	position = (bigfoot.global_position - listener.global_position).rotated(Vector3(0,1,0),listener.rotation.y)
 	#print(position)
 	
