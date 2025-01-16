@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bhrgmy6032oy0"]
+[gd_scene load_steps=16 format=3 uid="uid://caya0q748ordc"]
 
 [ext_resource type="Script" path="res://UI Scenes/end.gd" id="1_ny2m6"]
 [ext_resource type="Texture2D" uid="uid://c6qf6iff7j6ak" path="res://assets/folder.png" id="2_cscr5"]
@@ -193,9 +193,9 @@ script = ExtResource("1_ny2m6")
 [node name="AnimationText" type="Label" parent="."]
 layout_mode = 0
 offset_left = 816.0
-offset_top = 960.0
+offset_top = 992.0
 offset_right = 1104.0
-offset_bottom = 1061.0
+offset_bottom = 1093.0
 text = "Good: +1
 I like how he's standing: +2
 a
@@ -456,7 +456,7 @@ layout_mode = 0
 offset_left = 360.0
 offset_top = 664.0
 offset_right = 792.0
-offset_bottom = 2185.0
+offset_bottom = 989.0
 
 [node name="Title" type="Button" parent="."]
 visible = false
