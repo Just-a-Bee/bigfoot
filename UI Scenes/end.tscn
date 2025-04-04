@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://caya0q748ordc"]
 
-[ext_resource type="Script" uid="uid://bymyu6g1kfm53" path="res://UI Scenes/end.gd" id="1_ny2m6"]
+[ext_resource type="Script" path="res://UI Scenes/end.gd" id="1_ny2m6"]
 [ext_resource type="Texture2D" uid="uid://c6qf6iff7j6ak" path="res://assets/folder.png" id="2_cscr5"]
 [ext_resource type="Texture2D" uid="uid://cmlg8juyc6bxy" path="res://assets/testPic.png" id="3_j88tw"]
 [ext_resource type="PackedScene" uid="uid://0bojhu0sc6rd" path="res://UI Scenes/newspaper.tscn" id="4_u4apm"]
@@ -154,10 +154,10 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gywft"]
 _data = {
-&"RESET": SubResource("Animation_bjltt"),
-&"hide_picture": SubResource("Animation_lt6u7"),
-&"newspaper": SubResource("Animation_wejv8"),
-&"show_picture": SubResource("Animation_rta6o")
+"RESET": SubResource("Animation_bjltt"),
+"hide_picture": SubResource("Animation_lt6u7"),
+"newspaper": SubResource("Animation_wejv8"),
+"show_picture": SubResource("Animation_rta6o")
 }
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5ciep"]
@@ -223,7 +223,7 @@ columns = 4
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../AnimationText")
 libraries = {
-&"": SubResource("AnimationLibrary_gywft")
+"": SubResource("AnimationLibrary_gywft")
 }
 
 [node name="PictureLabel1" type="Label" parent="."]

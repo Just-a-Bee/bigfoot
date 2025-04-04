@@ -143,8 +143,19 @@ func _on_drone_crash():
 	$DroneCrashAnim.play()
 	await $DroneCrashAnim.animation_finished
 	$DroneCrashAnim.hide()
+	$"Battery-loop".stop()
 
+
+@onready var batt_low_loop = preload("res://assets/audio/battery-low-loop.wav")
+@onready var batt_dead_loop = preload("res://assets/audio/battery-dead-loop.wav")
 
 func _on_drone_next_battery_frame():
 	if $Battery.frame_coords.x < $Battery.hframes - 1:
 		$Battery.frame_coords.x += 1
+	if($Battery.frame_coords.x == 4):
+		$"Battery-loop".stream = batt_low_loop
+		$"Battery-loop".play()
+	elif ($Battery.frame_coords.x == 5):
+		if $"Battery-loop".stream == batt_low_loop:
+			$"Battery-loop".stream = load("res://assets/audio/battery-dead-loop.wav")
+			$"Battery-loop".play()

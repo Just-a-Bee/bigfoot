@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
-const spawn_offset:Vector3 = Vector3(0, 10, 2)
-const crash_velocity = 2
+const spawn_offset:Vector3 = Vector3(0, 10, -2)
+const crash_velocity = 4.9
 
 const camera_normal_rotation = -20
 const camera_ground_rotation = 5
@@ -36,7 +36,7 @@ var turn_slowing = .5
 var turn_velocity = 0 # current turning velocity
 
 # battery life vars
-var battery_unit = 60
+var battery_unit = 50
 var battery_life = (5 * battery_unit) - .01 # subtract .01 to prevent first battery loss event
 
 # Called when the node enters the scene tree for the first time.
@@ -73,9 +73,9 @@ func _physics_process(delta):
 	if is_on_floor():
 		velocity -= velocity2D.normalized() * floor_resistance * delta
 	turn_velocity = move_toward(turn_velocity, 0, turn_slowing)
-	
+	var pre_velocity = velocity
 	var collision = move_and_slide()
-	if should_crash(collision):
+	if should_crash(collision,pre_velocity):
 		main.toggle_drone()
 		$CrashSound.play()
 		crash.emit()
@@ -84,7 +84,7 @@ func _physics_process(delta):
 	global_position.z = clamp(global_position.z, -93.2, 106.8)
 	global_position.y = min(global_position.y, 40)
 	
-	
+	print(velocity.length())
 	#move the drone AudioStreamPlayer3D to the new position, relative to the player's position
 	$"../../../PlayerViewport/SubViewport/DroneLoopPlayer3D".position = (position - $"../../../PlayerViewport/SubViewport/Player".position).rotated(Vector3(0,1,0),$"../../../PlayerViewport/SubViewport/Player".rotation.y)
 	$"../../../PlayerViewport/SubViewport/LakeLoopPlayer3D".position = ($"../../../PlayerViewport/SubViewport/LakeLoopPlayer3D".world_coord - position).rotated(Vector3(0,1,0),rotation.y)
@@ -105,10 +105,22 @@ func get_move_axis()->Vector3:
 	
 	return move_axis
 
+#code source: https://datascience.oneoffcoder.com/s-curve.html
+func logistic(x, L=1, x_0=0, k=1):
+	x*=12
+	x-=6
+	x_0*=12
+	x_0-=6
+	
+	return L / (1 + exp(-k * (x - x_0)))
+
 # function to adjust the camera's rotation, based on distance to the floor
 func update_cam_rotation():
-	var floor_distance:float = position.y - $RayCast3D.get_collision_point().y
+	var floor_distance:float = (position.y - $RayCast3D.get_collision_point().y)
 	floor_distance -= .25
+	floor_distance *= .25
+	floor_distance=logistic(floor_distance,1,.1,.3)
+	
 	floor_distance = clampf(floor_distance, 0, 1)
 	
 	$CameraParent.rotation_degrees.x = lerp(camera_ground_rotation, camera_normal_rotation, floor_distance*2)
@@ -127,8 +139,8 @@ func update_battery_life(delta):
 	
 
 # boolean function to return if drone should crash
-func should_crash(collision)->bool:
-	if (collision and velocity.length() > crash_velocity):
+func should_crash(collision, vel)->bool:
+	if (collision and vel.length() > crash_velocity):
 		return true
 	if collision and battery_life < 0:
 		return true
@@ -143,4 +155,5 @@ func activate(player_position, player_rotation):
 	$RayCast3D.force_raycast_update()
 	position = $RayCast3D.get_collision_point() + Vector3.UP
 	velocity = Vector3.ZERO
+	battery_life = (5 * battery_unit) - .01 # subtract .01 to prevent first battery loss event
 	show()
