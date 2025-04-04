@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://sv0bsyi64xmn"]
 
-[ext_resource type="Shader" path="res://dithering-shader-resources/alpha-dither.gdshader" id="1_37r5k"]
+[ext_resource type="Shader" uid="uid://c7d4lnqcecgfy" path="res://dithering-shader-resources/alpha-dither.gdshader" id="1_37r5k"]
 [ext_resource type="Texture2D" uid="uid://y16uagojd5f" path="res://3d/textures/leaves.png" id="2_lkw2a"]
 [ext_resource type="Texture2D" uid="uid://b5ai8sqt0ynui" path="res://3d/textures/scrub.png" id="2_ptbdv"]
 [ext_resource type="Texture2D" uid="uid://qmjtyc501ivv" path="res://dithering-shader-resources/ditherpattern5.png" id="3_7l3ib"]
@@ -8,8 +8,11 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_37r5k")
+shader_parameter/dither_texture = ExtResource("3_7l3ib")
 shader_parameter/col_dither_scale = 1.0
 shader_parameter/alpha_dither_scale = 1.0
+shader_parameter/alpha_map = ExtResource("2_ptbdv")
+shader_parameter/col_map = ExtResource("2_lkw2a")
 shader_parameter/shadow_col = Color(0, 0, 0, 1)
 shader_parameter/base_col = Color(0.129412, 0.631373, 0.47451, 1)
 shader_parameter/highlight_col = Color(1, 1, 1, 1)
@@ -19,6 +22,3 @@ shader_parameter/alpha_thresh = 0.42
 shader_parameter/shadow_thresh = 0.12
 shader_parameter/highlight_thresh = 0.8
 shader_parameter/light_dir = Vector3(0.5, 1, 0.3)
-shader_parameter/dither_texture = ExtResource("3_7l3ib")
-shader_parameter/alpha_map = ExtResource("2_ptbdv")
-shader_parameter/col_map = ExtResource("2_lkw2a")

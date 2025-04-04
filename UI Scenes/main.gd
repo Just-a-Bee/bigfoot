@@ -31,10 +31,7 @@ func toggle_drone():
 		drone.active = true
 		player.active = false
 		$DroneOff.hide()
-		drone.position = player.position + Vector3(0,10,0)
-		drone.rotation.y = player.rotation.y
-		drone.velocity = Vector3.ZERO
-		drone.show()
+		drone.activate(player.position, player.rotation.y)
 		$PlayerViewport/SubViewport/DroneLoopPlayer3D.start()
 	else:
 		player.active = true
@@ -146,3 +143,8 @@ func _on_drone_crash():
 	$DroneCrashAnim.play()
 	await $DroneCrashAnim.animation_finished
 	$DroneCrashAnim.hide()
+
+
+func _on_drone_next_battery_frame():
+	if $Battery.frame_coords.x < $Battery.hframes - 1:
+		$Battery.frame_coords.x += 1

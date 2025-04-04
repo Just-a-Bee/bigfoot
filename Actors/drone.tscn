@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://blec0c2uc3qc6"]
 
-[ext_resource type="Script" path="res://Actors/drone.gd" id="1_liokq"]
+[ext_resource type="Script" uid="uid://csaw3gm5su54a" path="res://Actors/drone.gd" id="1_liokq"]
 [ext_resource type="PackedScene" uid="uid://c4xv2mtqx308v" path="res://3d/models/drone.glb" id="2_7ow30"]
 [ext_resource type="AudioStream" uid="uid://wucj555yhnwj" path="res://assets/audio/drone-crash-sfx.wav" id="3_xgwsv"]
 
@@ -15,14 +15,20 @@ script = ExtResource("1_liokq")
 [node name="drone" parent="." instance=ExtResource("2_7ow30")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.823829, 0.566838, 0, -0.566838, 0.823829, 0, -0.0902511, 0)
+[node name="CameraParent" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 0, -0.1)
+
+[node name="Camera3D" type="Camera3D" parent="CameraParent"]
+transform = Transform3D(1, 0, 0, 0, 0.999975, -0.00712091, 0, 0.00712091, 0.999975, 0, -0.1, 0)
 current = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.0755832, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.107931, 0)
 shape = SubResource("CapsuleShape3D_puvye")
 
 [node name="CrashSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_xgwsv")
 volume_db = -2.0
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, -20, 0)

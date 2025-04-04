@@ -1,7 +1,7 @@
-[gd_scene load_steps=57 format=3 uid="uid://c1gv7l3uecjlx"]
+[gd_scene load_steps=58 format=3 uid="uid://c1gv7l3uecjlx"]
 
 [ext_resource type="Texture2D" uid="uid://cm162jcpuu572" path="res://icon.svg" id="1_4x1cm"]
-[ext_resource type="Script" path="res://UI Scenes/main.gd" id="1_s1t7p"]
+[ext_resource type="Script" uid="uid://cuyxmip3cg2qt" path="res://UI Scenes/main.gd" id="1_s1t7p"]
 [ext_resource type="PackedScene" uid="uid://blec0c2uc3qc6" path="res://Actors/drone.tscn" id="2_a8v2p"]
 [ext_resource type="PackedScene" uid="uid://cel6a6pi3ulqk" path="res://Actors/player.tscn" id="2_b2ier"]
 [ext_resource type="AudioStream" uid="uid://ch3b8djrnn5hc" path="res://assets/audio/camera_shutter.wav" id="2_f18r6"]
@@ -9,18 +9,18 @@
 [ext_resource type="AudioStream" uid="uid://cmjxf8gtdvewy" path="res://assets/audio/birds-loop.wav" id="3_f4vnn"]
 [ext_resource type="AudioStream" uid="uid://dpg08nuqeqo3v" path="res://assets/audio/drone-loop.wav" id="3_fvq4n"]
 [ext_resource type="Texture2D" uid="uid://b87ho3i0lmpon" path="res://assets/droneView.png" id="4_7k487"]
-[ext_resource type="Script" path="res://UI Scenes/drone_loop_player_3d.gd" id="4_xx4wg"]
-[ext_resource type="Script" path="res://UI Scenes/lake_loop_player_3d.gd" id="5_3bsmh"]
+[ext_resource type="Script" uid="uid://b6gj6mg1llvxw" path="res://UI Scenes/drone_loop_player_3d.gd" id="4_xx4wg"]
+[ext_resource type="Script" uid="uid://1cibrc71uxww" path="res://UI Scenes/lake_loop_player_3d.gd" id="5_3bsmh"]
 [ext_resource type="PackedScene" uid="uid://kwp0ri53mvdy" path="res://3d/3d_world.tscn" id="5_yoool"]
 [ext_resource type="AudioStream" uid="uid://bdvthaaq14ap0" path="res://assets/audio/lake-loop.wav" id="6_25onh"]
 [ext_resource type="PackedScene" uid="uid://cqgrfks7ph026" path="res://Actors/nessie.tscn" id="6_kq0eh"]
 [ext_resource type="Texture2D" uid="uid://dmkggbhm5l2or" path="res://assets/film.png" id="7_f0e2s"]
-[ext_resource type="Script" path="res://UI Scenes/bigfoot_audio.gd" id="8_au0gq"]
+[ext_resource type="Script" uid="uid://cvj2fkebcxelp" path="res://UI Scenes/bigfoot_audio.gd" id="8_au0gq"]
 [ext_resource type="Texture2D" uid="uid://bftcgs5617krs" path="res://assets/roll.png" id="8_r1yi5"]
 [ext_resource type="AudioStream" uid="uid://bnqycqb7f46yr" path="res://assets/audio/bigfoot1.wav" id="8_r38lu"]
 [ext_resource type="PackedScene" uid="uid://luapbyeuyysp" path="res://Actors/bigfoot.tscn" id="8_y8vl5"]
 [ext_resource type="AudioStream" uid="uid://boxe152877rb7" path="res://assets/audio/bigfoot2.wav" id="9_6y1cf"]
-[ext_resource type="Shader" path="res://dithering-shader-resources/greyscale-2d-dither.gdshader" id="9_wb8mv"]
+[ext_resource type="Shader" uid="uid://tobib0piq8hf" path="res://dithering-shader-resources/greyscale-2d-dither.gdshader" id="9_wb8mv"]
 [ext_resource type="Texture2D" uid="uid://qmjtyc501ivv" path="res://dithering-shader-resources/ditherpattern5.png" id="10_ilt2p"]
 [ext_resource type="AudioStream" uid="uid://cec6s7he82jx6" path="res://assets/audio/bigfoot3.wav" id="10_ybyoy"]
 [ext_resource type="AudioStream" uid="uid://c6vyy3fs4pjda" path="res://assets/audio/bigfoot4.wav" id="11_lioq7"]
@@ -37,6 +37,7 @@
 [ext_resource type="AudioStream" uid="uid://dwm7abtcu7jcg" path="res://assets/audio/footsteps/footsteps-10.wav" id="18_prrqt"]
 [ext_resource type="AudioStream" uid="uid://ca0nquee0x7oi" path="res://assets/audio/footsteps/footsteps-12.wav" id="19_euafo"]
 [ext_resource type="AudioStream" uid="uid://cugerqb8tsah6" path="res://assets/audio/footsteps/footsteps-14.wav" id="20_hkb58"]
+[ext_resource type="Texture2D" uid="uid://buq28axc6anbm" path="res://assets/battery.png" id="38_k2iwq"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_o8mgx"]
 streams_count = 7
@@ -183,9 +184,9 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_111hc"]
 _data = {
-"RESET": SubResource("Animation_w5na4"),
-"drone_picture": SubResource("Animation_21thn"),
-"player_picture": SubResource("Animation_uapu7")
+&"RESET": SubResource("Animation_w5na4"),
+&"drone_picture": SubResource("Animation_21thn"),
+&"player_picture": SubResource("Animation_uapu7")
 }
 
 [sub_resource type="Gradient" id="Gradient_c34tu"]
@@ -384,7 +385,7 @@ one_shot = true
 
 [node name="PictureAnim" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_111hc")
+&"": SubResource("AnimationLibrary_111hc")
 }
 
 [node name="Terrain" parent="." instance=ExtResource("5_yoool")]
@@ -524,6 +525,12 @@ offset_bottom = 100.0
 theme_override_font_sizes/font_size = 20
 text = "Fly Up"
 
+[node name="Battery" type="Sprite2D" parent="."]
+position = Vector2(680, 88)
+scale = Vector2(1.98, 2)
+texture = ExtResource("38_k2iwq")
+hframes = 6
+
 [node name="Shift" type="Sprite2D" parent="."]
 position = Vector2(1000, 88)
 scale = Vector2(1.5, 1.5)
@@ -564,4 +571,5 @@ frame = 5
 frame_progress = 1.0
 
 [connection signal="crash" from="DroneViewport/SubViewport/Drone" to="." method="_on_drone_crash"]
+[connection signal="next_battery_frame" from="DroneViewport/SubViewport/Drone" to="." method="_on_drone_next_battery_frame"]
 [connection signal="timeout" from="EndTimer" to="." method="_on_end_timer_timeout"]

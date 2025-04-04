@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://bxyvpfbb1wg5o"]
 
-[ext_resource type="Script" path="res://UI Scenes/title.gd" id="1_mpu04"]
+[ext_resource type="Script" uid="uid://kgfbsffs817u" path="res://UI Scenes/title.gd" id="1_mpu04"]
 [ext_resource type="Texture2D" uid="uid://dn8uhmea2nrk3" path="res://assets/title.png" id="2_p5w5e"]
 [ext_resource type="Texture2D" uid="uid://cfuss21bw7hhw" path="res://assets/bigfoot.png" id="3_6651r"]
 [ext_resource type="Texture2D" uid="uid://dey2n88ixstnn" path="res://assets/title2.png" id="3_k3kbx"]
@@ -126,7 +126,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.5, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(416, 660), Vector2(416, 660), Vector2(416, 100)]
+"values": [Vector2(416, 660), Vector2(416, 660), Vector2(416, 80)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -155,8 +155,8 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6r8gx"]
 _data = {
-"RESET": SubResource("Animation_43a5j"),
-"intro": SubResource("Animation_3jf01")
+&"RESET": SubResource("Animation_43a5j"),
+&"intro": SubResource("Animation_3jf01")
 }
 
 [node name="Title" type="Control"]
@@ -253,7 +253,7 @@ layout_mode = 0
 offset_left = 416.0
 offset_top = 660.0
 offset_right = 736.0
-offset_bottom = 1064.0
+offset_bottom = 1087.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_3351j")
 
 [node name="MarginContainer" type="MarginContainer" parent="Dossier"]
@@ -289,7 +289,7 @@ Hair: Yes
 Bigfoot has been 
 sighted in the area, 
 and we need you to investigate. Bring your drone and your camera. He's very elusive but we know you can do the job!
-The budget's tight this month, so we can only afford to send you with 8 frames of film. Use them wisely. 
+The budget's tight this month, so we can only afford to send you with 8 frames of film and a five minute battery. Use them wisely. 
 Remember that you can't move while piloting your drone, but you can still take pictures. Good Luck!
 "
 fit_content = true
@@ -316,7 +316,7 @@ text = "Okay"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_6r8gx")
+&"": SubResource("AnimationLibrary_6r8gx")
 }
 
 [node name="Timer" type="Timer" parent="."]

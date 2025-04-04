@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://0bojhu0sc6rd"]
 
 [ext_resource type="Texture2D" uid="uid://cm162jcpuu572" path="res://icon.svg" id="1_sof7s"]
-[ext_resource type="Script" path="res://UI Scenes/newspaper.gd" id="1_tmoe5"]
+[ext_resource type="Script" uid="uid://cufgc703tiu8d" path="res://UI Scenes/newspaper.gd" id="1_tmoe5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tqexb"]
 bg_color = Color(1, 1, 1, 1)

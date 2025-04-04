@@ -30,9 +30,9 @@ func _physics_process(_delta):
 		velocity = move_dir * speed
 		velocity.y -= gravity
 		move_and_slide()
-		if !$"../../../DroneViewport/SubViewport/Drone".active:
-			$"../LakeLoopPlayer3D".position = ($"../LakeLoopPlayer3D".world_coord - position).rotated(Vector3(0,1,0),rotation.y)
-			$"../BirdsLoop3D".position = ($"../BirdsLoop3D".world_coord - position).rotated(Vector3(0,1,0),rotation.y)
+		#if !$"../../../DroneViewport/SubViewport/Drone".active:
+		#	$"../LakeLoopPlayer3D".position = ($"../LakeLoopPlayer3D".world_coord - position).rotated(Vector3(0,1,0),rotation.y)
+		#	$"../BirdsLoop3D".position = ($"../BirdsLoop3D".world_coord - position).rotated(Vector3(0,1,0),rotation.y)
 	else:
 		$FootstepTimer.stop()
 
