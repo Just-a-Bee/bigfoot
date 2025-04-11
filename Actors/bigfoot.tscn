@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://luapbyeuyysp"]
 
 [ext_resource type="PackedScene" uid="uid://d26omwe8fqvrs" path="res://3d/models/bigfoot-model-animated.glb" id="1_arj4o"]
-[ext_resource type="Script" path="res://Actors/bigfoot.gd" id="2_vbusl"]
-[ext_resource type="Script" path="res://Actors/bigfoot_model.gd" id="3_e23al"]
+[ext_resource type="Script" uid="uid://s0052jmh1oyb" path="res://Actors/bigfoot.gd" id="2_vbusl"]
+[ext_resource type="Script" uid="uid://ulbny6xmfl1s" path="res://Actors/bigfoot_model.gd" id="3_e23al"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jjxfi"]
 radius = 0.862838

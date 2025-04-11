@@ -4,7 +4,7 @@ extends Control
 @onready var drone_viewport = $DroneViewport/SubViewport
 
 @onready var camera_sound = $CameraSound
-@onready var cam_picture = $Picture
+@onready var cam_picture = $UINodes/Picture
 @onready var anim = $PictureAnim
 @onready var picture_cooldown = $PictureCooldown
 
@@ -15,9 +15,11 @@ var is_drone_active = true
 @onready var nessie = $Terrain/Nessie
 @onready var bigfoot = $Terrain/Bigfoot
 
-@onready var film_rect = $Film
+@onready var film_rect = $UINodes/Film
 var film_remaining = 8
 @onready var end_timer = $EndTimer
+
+@onready var drone_battery = $UINodes/Battery
 
 func _ready():
 	GameData.pictures.clear()
@@ -26,6 +28,8 @@ func _ready():
 	toggle_drone()
 
 func toggle_drone():
+	if drone.battery_life < 0:
+		return
 	is_drone_active = not is_drone_active
 	if is_drone_active:
 		drone.active = true
@@ -57,6 +61,12 @@ func _input(event):
 		if event.button_index == 1:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # on click capture
 
+# update drone distance bar
+func _process(delta):
+	var drone_dist = (drone.position - player.position).length()
+	var dist_value = lerp(100, 0, drone_dist / drone.drone_range)
+	$UINodes/DroneDistanceBar.value = dist_value
+	$UINodes/DistanceWarning.visible = dist_value < 5
 
 func take_picture(viewport, taker):
 	camera_sound.play()
@@ -150,12 +160,12 @@ func _on_drone_crash():
 @onready var batt_dead_loop = preload("res://assets/audio/battery-dead-loop.wav")
 
 func _on_drone_next_battery_frame():
-	if $Battery.frame_coords.x < $Battery.hframes - 1:
-		$Battery.frame_coords.x += 1
-	if($Battery.frame_coords.x == 4):
+	if drone_battery.frame_coords.x < drone_battery.hframes - 1:
+		drone_battery.frame_coords.x += 1
+	if(drone_battery.frame_coords.x == 4):
 		$"Battery-loop".stream = batt_low_loop
 		$"Battery-loop".play()
-	elif ($Battery.frame_coords.x == 5):
+	elif (drone_battery.frame_coords.x == 5):
 		if $"Battery-loop".stream == batt_low_loop:
 			$"Battery-loop".stream = load("res://assets/audio/battery-dead-loop.wav")
 			$"Battery-loop".play()

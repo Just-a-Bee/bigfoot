@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bhbijk7t3psu7" path="res://3d/models/bigfoot-env.glb" id="1_poa45"]
 [ext_resource type="PackedScene" uid="uid://cf8e55f7y4toj" path="res://3d/environment_colliders.tscn" id="2_61d0s"]
-[ext_resource type="Shader" path="res://3d/sky.gdshader" id="3_u7v8n"]
+[ext_resource type="Shader" uid="uid://dynam1d08rji1" path="res://3d/sky.gdshader" id="3_u7v8n"]
 [ext_resource type="Texture2D" uid="uid://qmjtyc501ivv" path="res://dithering-shader-resources/ditherpattern5.png" id="4_82485"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o6iad"]
@@ -11,9 +11,9 @@ shader_parameter/col1 = Color(1, 1, 1, 1)
 shader_parameter/col2 = Color(0, 0.988235, 0.952941, 1)
 shader_parameter/col3 = Color(0.14902, 0.329412, 0.486275, 1)
 shader_parameter/sundir = Vector3(0, 1.48, 0)
+shader_parameter/dither_texture = ExtResource("4_82485")
 shader_parameter/exposure = 0.6
 shader_parameter/lightness = 1.2
-shader_parameter/dither_texture = ExtResource("4_82485")
 
 [sub_resource type="Sky" id="Sky_oxqsm"]
 sky_material = SubResource("ShaderMaterial_o6iad")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://blec0c2uc3qc6"]
 
-[ext_resource type="Script" path="res://Actors/drone.gd" id="1_liokq"]
+[ext_resource type="Script" uid="uid://csaw3gm5su54a" path="res://Actors/drone.gd" id="1_liokq"]
 [ext_resource type="PackedScene" uid="uid://c4xv2mtqx308v" path="res://3d/models/drone.glb" id="2_7ow30"]
 [ext_resource type="AudioStream" uid="uid://wucj555yhnwj" path="res://assets/audio/drone-crash-sfx.wav" id="3_xgwsv"]
 

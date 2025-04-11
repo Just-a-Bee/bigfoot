@@ -1,7 +1,7 @@
-[gd_scene load_steps=59 format=3 uid="uid://c1gv7l3uecjlx"]
+[gd_scene load_steps=61 format=3 uid="uid://c1gv7l3uecjlx"]
 
 [ext_resource type="Texture2D" uid="uid://cm162jcpuu572" path="res://icon.svg" id="1_4x1cm"]
-[ext_resource type="Script" path="res://UI Scenes/main.gd" id="1_s1t7p"]
+[ext_resource type="Script" uid="uid://cuyxmip3cg2qt" path="res://UI Scenes/main.gd" id="1_s1t7p"]
 [ext_resource type="PackedScene" uid="uid://blec0c2uc3qc6" path="res://Actors/drone.tscn" id="2_a8v2p"]
 [ext_resource type="PackedScene" uid="uid://cel6a6pi3ulqk" path="res://Actors/player.tscn" id="2_b2ier"]
 [ext_resource type="AudioStream" uid="uid://ch3b8djrnn5hc" path="res://assets/audio/camera_shutter.wav" id="2_f18r6"]
@@ -10,18 +10,18 @@
 [ext_resource type="AudioStream" uid="uid://dpg08nuqeqo3v" path="res://assets/audio/drone-loop.wav" id="3_fvq4n"]
 [ext_resource type="AudioStream" uid="uid://ct8wc300kq1kk" path="res://assets/audio/battery-low-loop.wav" id="3_x8yhk"]
 [ext_resource type="Texture2D" uid="uid://b87ho3i0lmpon" path="res://assets/droneView.png" id="4_7k487"]
-[ext_resource type="Script" path="res://UI Scenes/drone_loop_player_3d.gd" id="4_xx4wg"]
-[ext_resource type="Script" path="res://UI Scenes/lake_loop_player_3d.gd" id="5_3bsmh"]
+[ext_resource type="Script" uid="uid://b6gj6mg1llvxw" path="res://UI Scenes/drone_loop_player_3d.gd" id="4_xx4wg"]
+[ext_resource type="Script" uid="uid://1cibrc71uxww" path="res://UI Scenes/lake_loop_player_3d.gd" id="5_3bsmh"]
 [ext_resource type="PackedScene" uid="uid://kwp0ri53mvdy" path="res://3d/3d_world.tscn" id="5_yoool"]
 [ext_resource type="AudioStream" uid="uid://bdvthaaq14ap0" path="res://assets/audio/lake-loop.wav" id="6_25onh"]
 [ext_resource type="PackedScene" uid="uid://cqgrfks7ph026" path="res://Actors/nessie.tscn" id="6_kq0eh"]
 [ext_resource type="Texture2D" uid="uid://dmkggbhm5l2or" path="res://assets/film.png" id="7_f0e2s"]
-[ext_resource type="Script" path="res://UI Scenes/bigfoot_audio.gd" id="8_au0gq"]
+[ext_resource type="Script" uid="uid://cvj2fkebcxelp" path="res://UI Scenes/bigfoot_audio.gd" id="8_au0gq"]
 [ext_resource type="Texture2D" uid="uid://bftcgs5617krs" path="res://assets/roll.png" id="8_r1yi5"]
 [ext_resource type="AudioStream" uid="uid://bnqycqb7f46yr" path="res://assets/audio/bigfoot1.wav" id="8_r38lu"]
 [ext_resource type="PackedScene" uid="uid://luapbyeuyysp" path="res://Actors/bigfoot.tscn" id="8_y8vl5"]
 [ext_resource type="AudioStream" uid="uid://boxe152877rb7" path="res://assets/audio/bigfoot2.wav" id="9_6y1cf"]
-[ext_resource type="Shader" path="res://dithering-shader-resources/greyscale-2d-dither.gdshader" id="9_wb8mv"]
+[ext_resource type="Shader" uid="uid://tobib0piq8hf" path="res://dithering-shader-resources/greyscale-2d-dither.gdshader" id="9_wb8mv"]
 [ext_resource type="Texture2D" uid="uid://qmjtyc501ivv" path="res://dithering-shader-resources/ditherpattern5.png" id="10_ilt2p"]
 [ext_resource type="AudioStream" uid="uid://cec6s7he82jx6" path="res://assets/audio/bigfoot3.wav" id="10_ybyoy"]
 [ext_resource type="AudioStream" uid="uid://c6vyy3fs4pjda" path="res://assets/audio/bigfoot4.wav" id="11_lioq7"]
@@ -58,18 +58,31 @@ stream_2/stream = ExtResource("18_prrqt")
 stream_3/stream = ExtResource("19_euafo")
 stream_4/stream = ExtResource("20_hkb58")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hd8je"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5yib4"]
+bg_color = Color(0.14902, 0.329412, 0.486275, 1)
+
 [sub_resource type="Gradient" id="Gradient_jlgqq"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_mbh72"]
 gradient = SubResource("Gradient_jlgqq")
 
+[sub_resource type="Gradient" id="Gradient_c34tu"]
+offsets = PackedFloat32Array(0, 0.735211, 1)
+colors = PackedColorArray(0, 0, 0, 0.85098, 0, 0, 0, 0.72549, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lveo4"]
+gradient = SubResource("Gradient_c34tu")
+
 [sub_resource type="Animation" id="Animation_w5na4"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Picture:modulate")
+tracks/0/path = NodePath("UINodes/Picture:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -85,7 +98,7 @@ length = 1.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CameraShutter:modulate")
+tracks/0/path = NodePath("UINodes/CameraShutter:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -97,7 +110,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CameraShutter:position")
+tracks/1/path = NodePath("UINodes/CameraShutter:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -109,7 +122,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Picture:position")
+tracks/2/path = NodePath("UINodes/Picture:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -121,7 +134,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Picture:modulate")
+tracks/3/path = NodePath("UINodes/Picture:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -137,7 +150,7 @@ length = 1.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CameraShutter:modulate")
+tracks/0/path = NodePath("UINodes/CameraShutter:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -149,7 +162,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CameraShutter:position")
+tracks/1/path = NodePath("UINodes/CameraShutter:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -161,7 +174,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Picture:position")
+tracks/2/path = NodePath("UINodes/Picture:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -173,7 +186,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Picture:modulate")
+tracks/3/path = NodePath("UINodes/Picture:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -185,17 +198,10 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_111hc"]
 _data = {
-"RESET": SubResource("Animation_w5na4"),
-"drone_picture": SubResource("Animation_21thn"),
-"player_picture": SubResource("Animation_uapu7")
+&"RESET": SubResource("Animation_w5na4"),
+&"drone_picture": SubResource("Animation_21thn"),
+&"player_picture": SubResource("Animation_uapu7")
 }
-
-[sub_resource type="Gradient" id="Gradient_c34tu"]
-offsets = PackedFloat32Array(0, 0.735211, 1)
-colors = PackedColorArray(0, 0, 0, 0.85098, 0, 0, 0, 0.72549, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_lveo4"]
-gradient = SubResource("Gradient_c34tu")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtt6p"]
 bg_color = Color(0, 0, 0, 1)
@@ -353,18 +359,48 @@ handle_input_locally = false
 size = Vector2i(576, 648)
 render_target_update_mode = 4
 
-[node name="Drone" parent="DroneViewport/SubViewport" node_paths=PackedStringArray("main") instance=ExtResource("2_a8v2p")]
+[node name="Drone" parent="DroneViewport/SubViewport" node_paths=PackedStringArray("main", "player") instance=ExtResource("2_a8v2p")]
 transform = Transform3D(0.659333, 0, 0.751851, 0, 1, 0, -0.751851, 0, 0.659333, 1.81583, 0, 1.43504)
 main = NodePath("../../..")
+player = NodePath("../../../PlayerViewport/SubViewport/Player")
 
-[node name="Viewfinder" type="TextureRect" parent="."]
+[node name="UINodes" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Viewfinder" type="TextureRect" parent="UINodes"]
 layout_mode = 0
 offset_left = 576.0
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("4_7k487")
 
-[node name="Picture" type="TextureRect" parent="."]
+[node name="DistanceWarning" type="Label" parent="UINodes"]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 496.0
+offset_right = 1086.0
+offset_bottom = 539.0
+theme_override_colors/font_color = Color(0.843137, 0.14902, 0.219608, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 25
+text = "Warning: Approaching Range Limit"
+horizontal_alignment = 1
+
+[node name="DroneDistanceBar" type="ProgressBar" parent="UINodes"]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 536.0
+offset_right = 1088.0
+offset_bottom = 563.0
+theme_override_styles/background = SubResource("StyleBoxFlat_hd8je")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5yib4")
+value = 50.0
+show_percentage = false
+
+[node name="Picture" type="TextureRect" parent="UINodes"]
 custom_minimum_size = Vector2(576, 648)
 layout_mode = 0
 offset_left = -314.0
@@ -374,7 +410,7 @@ offset_bottom = 986.0
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("1_4x1cm")
 
-[node name="CameraShutter" type="TextureRect" parent="."]
+[node name="CameraShutter" type="TextureRect" parent="UINodes"]
 modulate = Color(1, 1, 1, 0)
 z_index = 1
 custom_minimum_size = Vector2(576, 648)
@@ -383,13 +419,113 @@ offset_right = 576.0
 offset_bottom = 648.0
 texture = SubResource("GradientTexture1D_mbh72")
 
+[node name="Film" type="TextureRect" parent="UINodes"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 568.0
+offset_right = 304.0
+offset_bottom = 600.0
+scale = Vector2(2, 2)
+texture = ExtResource("7_f0e2s")
+stretch_mode = 1
+
+[node name="Roll" type="TextureRect" parent="UINodes/Film"]
+layout_mode = 0
+offset_left = -18.0
+offset_top = -4.0
+offset_bottom = 33.0
+texture = ExtResource("8_r1yi5")
+
+[node name="PlayerControls" type="Control" parent="UINodes"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Box" type="Sprite2D" parent="UINodes/PlayerControls"]
+position = Vector2(348, 8.00001)
+rotation = 1.5708
+scale = Vector2(0.463219, 340)
+texture = SubResource("GradientTexture1D_lveo4")
+centered = false
+
+[node name="Spacebar" type="Sprite2D" parent="UINodes/PlayerControls"]
+position = Vector2(74, 72)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("12_ghth3")
+
+[node name="LeftMouse" type="Sprite2D" parent="UINodes/PlayerControls"]
+position = Vector2(114, 32)
+texture = ExtResource("14_7ev2a")
+
+[node name="TakePicture" type="Label" parent="UINodes/PlayerControls"]
+layout_mode = 0
+offset_left = 146.0
+offset_top = 16.0
+offset_right = 266.0
+offset_bottom = 44.0
+theme_override_font_sizes/font_size = 20
+text = "Take Picture"
+
+[node name="LaunchDrone" type="Label" parent="UINodes/PlayerControls"]
+layout_mode = 0
+offset_left = 138.0
+offset_top = 56.0
+offset_right = 339.0
+offset_bottom = 84.0
+theme_override_font_sizes/font_size = 20
+text = "Launch/Recall Drone"
+
+[node name="DroneControls" type="Control" parent="UINodes"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Box" type="Sprite2D" parent="UINodes/DroneControls"]
+position = Vector2(1036.32, 81.4181)
+rotation = 1.5708
+scale = Vector2(0.573579, 216.645)
+texture = SubResource("GradientTexture1D_lveo4")
+
+[node name="Shift" type="Sprite2D" parent="UINodes/DroneControls"]
+position = Vector2(1000, 88)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("13_ae4pl")
+
+[node name="RightMouse" type="Sprite2D" parent="UINodes/DroneControls"]
+position = Vector2(968, 40)
+texture = ExtResource("15_o13eg")
+
+[node name="Take Picture" type="Label" parent="UINodes/DroneControls"]
+layout_mode = 0
+offset_left = 1008.0
+offset_top = 24.0
+offset_right = 1128.0
+offset_bottom = 52.0
+theme_override_font_sizes/font_size = 20
+text = "Take Picture"
+
+[node name="Fly Up" type="Label" parent="UINodes/DroneControls"]
+layout_mode = 0
+offset_left = 1048.0
+offset_top = 72.0
+offset_right = 1168.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 20
+text = "Fly Up"
+
+[node name="Battery" type="Sprite2D" parent="UINodes"]
+position = Vector2(680, 88)
+scale = Vector2(1.98, 2)
+texture = ExtResource("38_k2iwq")
+hframes = 6
+
 [node name="PictureCooldown" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
 
 [node name="PictureAnim" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_111hc")
+&"": SubResource("AnimationLibrary_111hc")
 }
 
 [node name="Terrain" parent="." instance=ExtResource("5_yoool")]
@@ -455,98 +591,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.113, 0, -58.248)
 [node name="Patrol16" type="Node3D" parent="Terrain"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.476, 0, -58.248)
 
-[node name="Film" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 48.0
-offset_top = 568.0
-offset_right = 304.0
-offset_bottom = 600.0
-scale = Vector2(2, 2)
-texture = ExtResource("7_f0e2s")
-stretch_mode = 1
-
-[node name="Roll" type="TextureRect" parent="Film"]
-layout_mode = 0
-offset_left = -18.0
-offset_top = -4.0
-offset_bottom = 33.0
-texture = ExtResource("8_r1yi5")
-
 [node name="EndTimer" type="Timer" parent="."]
 wait_time = 5.0
-
-[node name="Box" type="Sprite2D" parent="."]
-position = Vector2(348, 8.00001)
-rotation = 1.5708
-scale = Vector2(0.463219, 340)
-texture = SubResource("GradientTexture1D_lveo4")
-centered = false
-
-[node name="Box2" type="Sprite2D" parent="."]
-position = Vector2(1036.32, 81.4181)
-rotation = 1.5708
-scale = Vector2(0.573579, 216.645)
-texture = SubResource("GradientTexture1D_lveo4")
-
-[node name="Spacebar" type="Sprite2D" parent="."]
-position = Vector2(74, 72)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("12_ghth3")
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 1008.0
-offset_top = 24.0
-offset_right = 1128.0
-offset_bottom = 52.0
-theme_override_font_sizes/font_size = 20
-text = "Take Picture"
-
-[node name="Label3" type="Label" parent="."]
-layout_mode = 0
-offset_left = 146.0
-offset_top = 16.0
-offset_right = 266.0
-offset_bottom = 44.0
-theme_override_font_sizes/font_size = 20
-text = "Take Picture"
-
-[node name="Label4" type="Label" parent="."]
-layout_mode = 0
-offset_left = 138.0
-offset_top = 56.0
-offset_right = 339.0
-offset_bottom = 84.0
-theme_override_font_sizes/font_size = 20
-text = "Launch/Recall Drone"
-
-[node name="Label2" type="Label" parent="."]
-layout_mode = 0
-offset_left = 1048.0
-offset_top = 72.0
-offset_right = 1168.0
-offset_bottom = 100.0
-theme_override_font_sizes/font_size = 20
-text = "Fly Up"
-
-[node name="Battery" type="Sprite2D" parent="."]
-position = Vector2(680, 88)
-scale = Vector2(1.98, 2)
-texture = ExtResource("38_k2iwq")
-hframes = 6
-
-[node name="Shift" type="Sprite2D" parent="."]
-position = Vector2(1000, 88)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("13_ae4pl")
-
-[node name="LeftMouse" type="Sprite2D" parent="."]
-position = Vector2(114, 32)
-texture = ExtResource("14_7ev2a")
-
-[node name="RightMouse" type="Sprite2D" parent="."]
-position = Vector2(968, 40)
-texture = ExtResource("15_o13eg")
 
 [node name="DroneOff" type="Panel" parent="."]
 visible = false
