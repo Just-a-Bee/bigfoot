@@ -10,7 +10,7 @@ height = 5.12771
 
 [node name="Bigfoot" type="CharacterBody3D"]
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
-collision_mask = 7
+collision_mask = 6
 script = ExtResource("2_vbusl")
 
 [node name="Model" parent="." instance=ExtResource("1_arj4o")]
@@ -64,3 +64,12 @@ collision_mask = 6
 [node name="YellCooldown" type="Timer" parent="."]
 wait_time = 4.0
 one_shot = true
+
+[node name="IdleCooldown" type="Timer" parent="."]
+wait_time = 45.0
+one_shot = true
+
+[node name="CornerTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="CornerTimer" to="." method="_on_corner_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://c1gv7l3uecjlx"]
+[gd_scene load_steps=67 format=3 uid="uid://c1gv7l3uecjlx"]
 
 [ext_resource type="Texture2D" uid="uid://cm162jcpuu572" path="res://icon.svg" id="1_4x1cm"]
 [ext_resource type="Script" uid="uid://cuyxmip3cg2qt" path="res://UI Scenes/main.gd" id="1_s1t7p"]
@@ -7,8 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://ch3b8djrnn5hc" path="res://assets/audio/camera_shutter.wav" id="2_f18r6"]
 [ext_resource type="AudioStream" uid="uid://bfjcmr7wvyq4m" path="res://assets/audio/wind-loop.wav" id="2_prc32"]
 [ext_resource type="AudioStream" uid="uid://cmjxf8gtdvewy" path="res://assets/audio/birds-loop.wav" id="3_f4vnn"]
-[ext_resource type="AudioStream" uid="uid://dpg08nuqeqo3v" path="res://assets/audio/drone-loop.wav" id="3_fvq4n"]
-[ext_resource type="AudioStream" uid="uid://ct8wc300kq1kk" path="res://assets/audio/battery-low-loop.wav" id="3_x8yhk"]
+[ext_resource type="AudioStream" uid="uid://dpg08nuqeqo3v" path="res://assets/audio/drone/drone-loop.wav" id="3_fvq4n"]
+[ext_resource type="AudioStream" uid="uid://ct8wc300kq1kk" path="res://assets/audio/drone/battery-low-loop.wav" id="3_x8yhk"]
 [ext_resource type="Texture2D" uid="uid://b87ho3i0lmpon" path="res://assets/droneView.png" id="4_7k487"]
 [ext_resource type="Script" uid="uid://b6gj6mg1llvxw" path="res://UI Scenes/drone_loop_player_3d.gd" id="4_xx4wg"]
 [ext_resource type="Script" uid="uid://1cibrc71uxww" path="res://UI Scenes/lake_loop_player_3d.gd" id="5_3bsmh"]
@@ -18,26 +18,31 @@
 [ext_resource type="Texture2D" uid="uid://dmkggbhm5l2or" path="res://assets/film.png" id="7_f0e2s"]
 [ext_resource type="Script" uid="uid://cvj2fkebcxelp" path="res://UI Scenes/bigfoot_audio.gd" id="8_au0gq"]
 [ext_resource type="Texture2D" uid="uid://bftcgs5617krs" path="res://assets/roll.png" id="8_r1yi5"]
-[ext_resource type="AudioStream" uid="uid://bnqycqb7f46yr" path="res://assets/audio/bigfoot1.wav" id="8_r38lu"]
+[ext_resource type="AudioStream" uid="uid://bnqycqb7f46yr" path="res://assets/audio/bigfoot/bigfoot1.wav" id="8_r38lu"]
 [ext_resource type="PackedScene" uid="uid://luapbyeuyysp" path="res://Actors/bigfoot.tscn" id="8_y8vl5"]
-[ext_resource type="AudioStream" uid="uid://boxe152877rb7" path="res://assets/audio/bigfoot2.wav" id="9_6y1cf"]
+[ext_resource type="AudioStream" uid="uid://boxe152877rb7" path="res://assets/audio/bigfoot/bigfoot2.wav" id="9_6y1cf"]
 [ext_resource type="Shader" uid="uid://tobib0piq8hf" path="res://dithering-shader-resources/greyscale-2d-dither.gdshader" id="9_wb8mv"]
 [ext_resource type="Texture2D" uid="uid://qmjtyc501ivv" path="res://dithering-shader-resources/ditherpattern5.png" id="10_ilt2p"]
-[ext_resource type="AudioStream" uid="uid://cec6s7he82jx6" path="res://assets/audio/bigfoot3.wav" id="10_ybyoy"]
-[ext_resource type="AudioStream" uid="uid://c6vyy3fs4pjda" path="res://assets/audio/bigfoot4.wav" id="11_lioq7"]
+[ext_resource type="AudioStream" uid="uid://cec6s7he82jx6" path="res://assets/audio/bigfoot/bigfoot3.wav" id="10_ybyoy"]
+[ext_resource type="AudioStream" uid="uid://c6vyy3fs4pjda" path="res://assets/audio/bigfoot/bigfoot4.wav" id="11_lioq7"]
 [ext_resource type="Texture2D" uid="uid://cuupriesyp4xl" path="res://assets/drone-crash-spritesheet.png" id="11_mp0bd"]
 [ext_resource type="Texture2D" uid="uid://25hhwvdrr4ap" path="res://assets/spacebar.png" id="12_ghth3"]
-[ext_resource type="AudioStream" uid="uid://dy6muiuy8stub" path="res://assets/audio/bigfoot5.wav" id="12_lwe6m"]
+[ext_resource type="AudioStream" uid="uid://dy6muiuy8stub" path="res://assets/audio/bigfoot/bigfoot5.wav" id="12_lwe6m"]
 [ext_resource type="Texture2D" uid="uid://dwxralwrugqyb" path="res://assets/shift.png" id="13_ae4pl"]
-[ext_resource type="AudioStream" uid="uid://b45jp0twbe8cg" path="res://assets/audio/bigfoot6.wav" id="13_vrtd6"]
+[ext_resource type="AudioStream" uid="uid://b45jp0twbe8cg" path="res://assets/audio/bigfoot/bigfoot6.wav" id="13_vrtd6"]
 [ext_resource type="Texture2D" uid="uid://dceusfcutapev" path="res://assets/left_mouse.png" id="14_7ev2a"]
-[ext_resource type="AudioStream" uid="uid://d3o5qmxgoymfk" path="res://assets/audio/bigfoot7.wav" id="14_8yddi"]
+[ext_resource type="AudioStream" uid="uid://d3o5qmxgoymfk" path="res://assets/audio/bigfoot/bigfoot7.wav" id="14_8yddi"]
 [ext_resource type="Texture2D" uid="uid://blgqwi1sw6s7" path="res://assets/right_mouse.png" id="15_o13eg"]
 [ext_resource type="AudioStream" uid="uid://bkji17wibf0cx" path="res://assets/audio/footsteps/footsteps-6.wav" id="16_d6bgw"]
 [ext_resource type="AudioStream" uid="uid://4c8rubdvksh0" path="res://assets/audio/footsteps/footsteps-8.wav" id="17_tcw07"]
 [ext_resource type="AudioStream" uid="uid://dwm7abtcu7jcg" path="res://assets/audio/footsteps/footsteps-10.wav" id="18_prrqt"]
 [ext_resource type="AudioStream" uid="uid://ca0nquee0x7oi" path="res://assets/audio/footsteps/footsteps-12.wav" id="19_euafo"]
 [ext_resource type="AudioStream" uid="uid://cugerqb8tsah6" path="res://assets/audio/footsteps/footsteps-14.wav" id="20_hkb58"]
+[ext_resource type="AudioStream" uid="uid://dfeeja8bf82mt" path="res://assets/audio/bigfoot/Idle_1.wav" id="23_sene2"]
+[ext_resource type="AudioStream" uid="uid://d1fuqa6etn4ge" path="res://assets/audio/bigfoot/Idle_2.wav" id="24_rxchp"]
+[ext_resource type="AudioStream" uid="uid://bxmobdcl57pi2" path="res://assets/audio/bigfoot/Idle_3.wav" id="25_par27"]
+[ext_resource type="AudioStream" uid="uid://cohdnkdvd64tq" path="res://assets/audio/bigfoot/Idle_4.wav" id="26_npij4"]
+[ext_resource type="AudioStream" uid="uid://di2hw2dld8i87" path="res://assets/audio/bigfoot/Idle_5.wav" id="27_1mcfj"]
 [ext_resource type="Texture2D" uid="uid://buq28axc6anbm" path="res://assets/battery.png" id="38_k2iwq"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_o8mgx"]
@@ -57,6 +62,14 @@ stream_1/stream = ExtResource("17_tcw07")
 stream_2/stream = ExtResource("18_prrqt")
 stream_3/stream = ExtResource("19_euafo")
 stream_4/stream = ExtResource("20_hkb58")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_or12a"]
+streams_count = 5
+stream_0/stream = ExtResource("23_sene2")
+stream_1/stream = ExtResource("24_rxchp")
+stream_2/stream = ExtResource("25_par27")
+stream_3/stream = ExtResource("26_npij4")
+stream_4/stream = ExtResource("27_1mcfj")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hd8je"]
 bg_color = Color(0, 0, 0, 1)
@@ -342,6 +355,9 @@ stream = SubResource("AudioStreamRandomizer_3jp7y")
 volume_db = 3.0
 unit_size = 2.0
 
+[node name="BigfootIdle" type="AudioStreamPlayer3D" parent="PlayerViewport/SubViewport/BigfootAudio"]
+stream = SubResource("AudioStreamRandomizer_or12a")
+
 [node name="Player" parent="PlayerViewport/SubViewport" instance=ExtResource("2_b2ier")]
 transform = Transform3D(0.70147, 0, 0.7127, 0, 1, 0, -0.7127, 0, 0.70147, 3.72894, -2.11424, 21.0838)
 
@@ -535,12 +551,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.078, -23.208, -51.87)
 hidingPosition = Vector3(56.078, -23.208, -51.87)
 showingPosition = Vector3(56.078, -17.227, -51.87)
 
-[node name="Bigfoot" parent="Terrain" node_paths=PackedStringArray("player", "drone", "yellSound", "stepSound", "patrol_points") instance=ExtResource("8_y8vl5")]
+[node name="Bigfoot" parent="Terrain" node_paths=PackedStringArray("player", "drone", "yell_sound", "step_sound", "idle_sound", "patrol_points") instance=ExtResource("8_y8vl5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.9886, -9.37773, -40.3373)
 player = NodePath("../../PlayerViewport/SubViewport/Player")
 drone = NodePath("../../DroneViewport/SubViewport/Drone")
-yellSound = NodePath("../../PlayerViewport/SubViewport/BigfootAudio")
-stepSound = NodePath("../../PlayerViewport/SubViewport/BigfootAudio/BigfootFootsteps")
+yell_sound = NodePath("../../PlayerViewport/SubViewport/BigfootAudio")
+step_sound = NodePath("../../PlayerViewport/SubViewport/BigfootAudio/BigfootFootsteps")
+idle_sound = NodePath("../../PlayerViewport/SubViewport/BigfootAudio/BigfootIdle")
 patrol_points = [NodePath("../Patrol1"), NodePath("../Patrol2"), NodePath("../Patrol3"), NodePath("../Patrol4"), NodePath("../Patrol5"), NodePath("../Patrol6"), NodePath("../Patrol7"), NodePath("../Patrol8"), NodePath("../Patrol9"), NodePath("../Patrol10"), NodePath("../Patrol11"), NodePath("../Patrol12"), NodePath("../Patrol13"), NodePath("../Patrol14"), NodePath("../Patrol15"), NodePath("../Patrol16")]
 
 [node name="Patrol1" type="Node3D" parent="Terrain"]

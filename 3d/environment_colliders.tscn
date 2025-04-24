@@ -218,6 +218,7 @@ shape = SubResource("ConvexPolygonShape3D_baw37")
 
 [node name="col-ground" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.415, -0.41, 0.217)
+collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="col-ground"]
 shape = SubResource("ConcavePolygonShape3D_1ivhh")
@@ -256,29 +257,34 @@ shape = SubResource("BoxShape3D_0ohpi")
 [node name="col-ground2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.414593, -0.409601, 0.217185)
 visible = false
+layers = 2
 mesh = SubResource("ArrayMesh_g6ttt")
 skeleton = NodePath("")
 
 [node name="col-lake-water2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.9508, -11.6901, -39.9477)
 visible = false
+layers = 2
 mesh = SubResource("ArrayMesh_hmwe6")
 skeleton = NodePath("")
 
 [node name="col-tent2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.16891, 0.689825, 7.01972)
 visible = false
+layers = 2
 mesh = SubResource("ArrayMesh_mq5wf")
 skeleton = NodePath("")
 
 [node name="col-table2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.61202, 1.25746, 15.2067)
 visible = false
+layers = 2
 mesh = SubResource("ArrayMesh_i00pe")
 skeleton = NodePath("")
 
 [node name="col-cabin2" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.58117, -0.00970405, 0.813724, 0.0247467, 0.999677, -0.00575273, -0.813406, 0.0234803, 0.581223, -75.2737, 8.99401, -44.0099)
 visible = false
+layers = 2
 mesh = SubResource("ArrayMesh_k5363")
 skeleton = NodePath("")

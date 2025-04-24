@@ -1,7 +1,7 @@
 extends CharacterBody3D
 class_name Drone
 
-const drone_range = 40
+const drone_range = 60
 const range_tolerance = 10
 
 const spawn_offset:Vector3 = Vector3(0, 10, -2)

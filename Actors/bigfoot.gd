@@ -5,8 +5,9 @@ class_name Bigfoot
 
 @export var player:Node
 @export var drone:Node
-@export var yellSound:Node
-@export var stepSound:Node
+@export var yell_sound:Node
+@export var step_sound:Node
+@export var idle_sound:Node
 
 var slow_walk_speed = 2
 var walk_speed = 2.5
@@ -18,8 +19,10 @@ var footstepTime = 0
 var footstepMax = 3
 
 var last_seen_player_pos:Vector3 = Vector3.ZERO
+var last_away_wall_dir:Vector3
 var alertness:float = 0
 var alert_time = 3
+var is_escaping_corner:bool = false
 
 @export var patrol_points:Array[Node3D] = []
 var patrol_index = 0
@@ -49,7 +52,7 @@ func _physics_process(delta):
 	
 	if alertness > 5:
 		if $YellCooldown.is_stopped():
-			yellSound.play()
+			yell_sound.play()
 			$YellCooldown.start()
 		if state != states.run:
 			change_state(states.run)
@@ -62,6 +65,9 @@ func _physics_process(delta):
 		if state != states.patrol:
 			change_state(states.patrol)
 		move_vector = patrol()
+		if $IdleCooldown.is_stopped():
+			idle_sound.play()
+			$IdleCooldown.start()
 	
 	# generate velocity, look in move direction, apply gravity, move
 	velocity = move_vector
@@ -69,7 +75,7 @@ func _physics_process(delta):
 	footstepTime += move_vector.length() * delta
 	if footstepTime > footstepMax:
 		footstepTime -= footstepMax
-		stepSound.play()
+		step_sound.play()
 	
 	
 	
@@ -81,18 +87,27 @@ func _physics_process(delta):
 func run_away()->Vector3:
 	var away_player_dir = (global_position - last_seen_player_pos).normalized()
 	var away_wall_dir = Vector3.ZERO
+	var count = 0
 	for r in rayCasts:
 		if r.is_colliding():
 			var wall_distance = global_position - r.get_collision_point()
 			wall_distance.y = 0
 			away_wall_dir += (wall_distance).normalized() * (1-wall_distance.length()/10)
-			
+			count += 1
+	if (count > 3):
+		is_escaping_corner = true
+		$CornerTimer.start()
+	if (count == 0 and is_escaping_corner):
+		away_wall_dir = last_away_wall_dir
 	
+	var move_dir = away_wall_dir
+	if (!is_escaping_corner):
+		move_dir += away_player_dir
 	
-	var move_dir = away_player_dir + away_wall_dir
 	
 	move_dir.y = 0
 	move_dir = move_dir.normalized() * run_speed
+	last_away_wall_dir = away_wall_dir
 	return move_dir
 
 func look_around()->Vector3:
@@ -175,3 +190,7 @@ func spot_player_actors(delta):
 	if player_seen and drone_seen:
 		last_seen_player_pos = (player.global_position + drone.global_position)/2
 		last_seen_player_pos = last_seen_player_pos/2 # average them if both seen
+
+
+func _on_corner_timer_timeout():
+	is_escaping_corner = false

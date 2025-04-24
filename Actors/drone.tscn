@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://csaw3gm5su54a" path="res://Actors/drone.gd" id="1_liokq"]
 [ext_resource type="PackedScene" uid="uid://c4xv2mtqx308v" path="res://3d/models/drone.glb" id="2_7ow30"]
-[ext_resource type="AudioStream" uid="uid://wucj555yhnwj" path="res://assets/audio/drone-crash-sfx.wav" id="3_xgwsv"]
+[ext_resource type="AudioStream" uid="uid://wucj555yhnwj" path="res://assets/audio/drone/drone-crash-sfx.wav" id="3_xgwsv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_puvye"]
 radius = 0.175472
@@ -32,3 +32,4 @@ volume_db = -2.0
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 target_position = Vector3(0, -20, 0)
+collision_mask = 2

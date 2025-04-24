@@ -62,7 +62,7 @@ func _input(event):
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # on click capture
 
 # update drone distance bar
-func _process(delta):
+func _process(_delta):
 	var drone_dist = (drone.position - player.position).length()
 	var dist_value = lerp(100, 0, drone_dist / drone.drone_range)
 	$UINodes/DroneDistanceBar.value = dist_value
@@ -156,8 +156,8 @@ func _on_drone_crash():
 	$"Battery-loop".stop()
 
 
-@onready var batt_low_loop = preload("res://assets/audio/battery-low-loop.wav")
-@onready var batt_dead_loop = preload("res://assets/audio/battery-dead-loop.wav")
+@onready var batt_low_loop = preload("res://assets/audio/drone/battery-low-loop.wav")
+@onready var batt_dead_loop = preload("res://assets/audio/drone/battery-dead-loop.wav")
 
 func _on_drone_next_battery_frame():
 	if drone_battery.frame_coords.x < drone_battery.hframes - 1:
